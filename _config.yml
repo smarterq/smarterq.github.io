@@ -79,5 +79,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
   type: git 
-  repo: https://gh_token@github.com/smarterq/smarterq.github.io.git
+  repo: git@github.com:smarterq/smarterq.github.io.git
   branch: master 
