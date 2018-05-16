@@ -1,7 +1,7 @@
 # 指定语言环境
 language: node_js
 # 指定node_js版本
-node_js: v7.9.0
+node_js: v8.11.1
 # 指定博客源码分支，因人而异。hexo博客源码托管在独立repo则不用设置此项
 branches:
   only:
@@ -21,12 +21,13 @@ script:
 
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
 after_script:
-  #- cd ./public
+  - cd ./public
   - git init
   - git config user.name "smarterq"
   - git config user.email "smarterq@foxmail.com"
+  - git add .
   - git commit -m "update"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" --branch=master
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  
   #GH_TOKEN是在Travis中配置token的名称
 env:
  global:
