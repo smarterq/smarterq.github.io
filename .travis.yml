@@ -1,6 +1,6 @@
 language: node_js  #设置语言
 
-node_js: stable  #设置相应的版本
+node_js: 8.11.1  #设置相应的版本stable
 
 install:
   - npm install  #安装hexo及插件
