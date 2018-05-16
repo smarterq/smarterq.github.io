@@ -1,7 +1,7 @@
 # 指定语言环境
 language: node_js
 # 指定node_js版本
-node_js: v8.11.1
+node_js: 8.11.1
 # 指定博客源码分支，因人而异。hexo博客源码托管在独立repo则不用设置此项
 branches:
   only:
@@ -16,7 +16,7 @@ install:
 
 # 执行清缓存，生成网页操作
 script:
-  - hexo clean
+  #- hexo clean
   - hexo generate
 
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
