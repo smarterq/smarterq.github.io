@@ -47,3 +47,23 @@ function init() {
 module.exports = {
     init: init
 }
+
+/*一言API*/
+function hitokoto(e) {
+    $("#hitokoto").stop().fadeOut(function() {
+        $("#hitokoto").html(e.hitokoto);
+        var element = document.getElementById('hitokotoa');
+        element.href = "https://www.iqi7.com/hitokoto-now/index.php?id=" + e.id;
+        $("#hitokoto").stop().fadeIn()
+    })
+};
+function genHitokoto() {
+    var e = ["a", "b", "c", "d"],
+    t = document.createElement("script");
+    t.type = "text/javascript";
+    t.id = "hitokotoko_js";
+    t.src = "https://www.iqi7.com/hitokoto.php?cat=" + e[Math.floor(Math.random() * e.length)];
+    $("#hitokoto").append(t);
+};
+setInterval(genHitokoto, 1e4);
+genHitokoto();
