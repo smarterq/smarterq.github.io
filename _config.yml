@@ -7,7 +7,7 @@ title: 七夏浅笑
 subtitle: 七月之约，夏末浅笑
 description: 七月之约，夏末浅笑
 keywords: "前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3"
-author: July Date
+author: Julydate
 language:
 timezone:
 
@@ -74,7 +74,6 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: yilia
-disqus_shortname: julydate-com
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
