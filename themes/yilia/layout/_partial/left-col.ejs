@@ -34,6 +34,27 @@
 			</div>
 		</nav>
 		<script class="jquery library" src="https://cdn.bootcss.com/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+		<script type="javascript">
+			/*一言API*/
+			function hitokoto(e) {
+				$("#hitokoto").stop().fadeOut(function() {
+					$("#hitokoto").html(e.hitokoto);
+					var element = document.getElementById('hitokotoa');
+					element.href = "https://www.iqi7.com/hitokoto-now/index.php?id=" + e.id;
+					$("#hitokoto").stop().fadeIn()
+				})
+			};
+			function genHitokoto() {
+				var e = ["a", "b", "c", "d"],
+				t = document.createElement("script");
+				t.type = "text/javascript";
+				t.id = "hitokotoko_js";
+				t.src = "https://www.iqi7.com/hitokoto.php?cat=" + e[Math.floor(Math.random() * e.length)];
+				$("#hitokoto").append(t);
+			};
+			setInterval(genHitokoto, 1e4);
+			genHitokoto();
+		</script>
 		<nav class="header-hitokoto">
 			<a id="hitokotoa" href="#" target="_blank">
 				<span id="hitokoto"></span>
