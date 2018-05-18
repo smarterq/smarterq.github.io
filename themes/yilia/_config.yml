@@ -2,7 +2,10 @@
 
 menu:
   主页: /
-  随笔: /tags/随笔/
+  随笔: /tag/随笔/
+  程序: /tag/程序/
+  时光轴: /archives/
+  留言板: /
 
 # SubNav
 subnav:
@@ -123,4 +126,4 @@ friends:
   DIYgod: https://diygod.me/
   萌月: http://www.moeyue.com/
 
-aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+aboutme: 一个在校的大学生<br>不安本分<br>热爱计算机，热爱网络，热爱设计<br>但这都和我的专业无关...<br>只愿<br>无关风月，不忘初心
