@@ -2,9 +2,9 @@
 
 menu:
   主页: /
-  随笔: /tag/随笔/
-  程序: /tag/程序/
   时光轴: /archives/
+  程序开发: /tags/程序/
+  诗文随笔: /tags/随笔/
   留言板: /
 
 # SubNav
