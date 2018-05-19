@@ -4,6 +4,7 @@
     	<div class="footer-left" id="">
     		Copyright <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> <span>勉强运行<a href="#"><span id="runtime"></span></a>天</span>
     	</div>
+		<script type="text/javascript" id="changetitle"></script>
 		<script type="text/javascript">
 		function runtime() {
 			var runTime = document.getElementById("runtime");
@@ -14,9 +15,7 @@
 			runTime.innerHTML = runDate;
 		};
 		function changeTitle(){
-			ts = document.createElement("script");
-			ts.type = "text/javascript";
-			ts.id = "changetitle";
+			ts = document.getElementById('changetitle');
 			ts.innerHTML = "var title = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = title;};";
 		};
 		$(document).ready(function(){
