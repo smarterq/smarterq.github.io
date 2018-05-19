@@ -128,9 +128,11 @@
 		xhr.ontimeout = function () {
 			xhr.abort();
 			/*加载自制评论框*/
+			document.getElementsById('disqus_thread').innerHTML='<div class="disqus-loading"><strong>Disqus 加载中...</strong><p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p></div>';
 		}
 		xhr.onerror = function() {
 			/*加载自制评论框*/
+			document.getElementsById('disqus_thread').innerHTML='<div class="disqus-loading"><strong>Disqus 加载中...</strong><p>如果长时间无法加载，请针对 disq.us | disquscdn.com | disqus.com 启用代理</p></div>';
 		}
 		xhr.send(null);
       </script>
