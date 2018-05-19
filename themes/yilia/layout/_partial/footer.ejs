@@ -2,7 +2,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left" id="">
-    		Copyright <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> <span id="runtime"></span>
+    		Copyright <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> <span>勉强运行<a href="#"><span id="runtime"></span></a>天</span>
     	</div>
 		<script type="text/javascript">
 		function runtime() {
@@ -11,7 +11,7 @@
 			var nowDate = new Date();
 			var dateLine = nowDate.getTime() - createDate.getTime();
 			var runDate = Math.floor(dateLine / (1000 * 60 * 60 * 24));
-			runTime.innerHTML += "勉强运行" + runDate + "天";
+			runTime.innerHTML = runDate;
 		};
 		$(document).ready(function(){
 			runtime();
