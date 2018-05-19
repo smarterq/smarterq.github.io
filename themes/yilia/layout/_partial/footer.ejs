@@ -16,11 +16,12 @@
 		};
 		function changeTitle(){
 			ts = document.getElementById('changetitle');
-			ts.innerHTML = "var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = title;};";
+			ts.innerHTML = "var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = originalTitle;};";
 		};
+		var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = originalTitle;};
 		$(document).ready(function(){
 			runtime();
-			changeTitle();
+			//changeTitle();
 		});
 		</script>
 		<div class="footer-right">
