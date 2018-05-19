@@ -41,13 +41,14 @@
   <%- partial('google-analytics') %>
   <%- partial('baidu-analytics') %>
   <script type="javascript/text">
+  function changeTitle(){
+	ts = document.createElement("script");
+	ts.type = "text/javascript";
+	ts.id = "changetitle";
+	ts.innerHTML = "var title = document.title;window.onblur = function(){document.title = '你不爱我了QAQ'};window.onfocus = function(){document.title = title};";
+  }
   $(document).ready(function(){
-	runtime();
-  });
-  function changeTitle() {
-    var title = document.title;
-    window.onblur = function() {document.title = "你不爱我了QAQ";};
-    window.onfocus = function() {document.title = title;};
+	changeTitle()
   };
   </script>
 </head>
