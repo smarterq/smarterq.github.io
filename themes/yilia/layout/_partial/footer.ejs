@@ -27,16 +27,8 @@
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
 		<script>
-		$.pjax({
-			selector: 'a[target!=_blank]',
-			container: '#wrapper', //内容替换的容器
-			show: 'fade',  /*展现的动画，支持默认和fade, 可以自定义动画方式，这里为自定义的function即可*/
-			cache: true,  /*是否使用缓存*/
-			storage: true,  /*是否使用本地存储*/
-			titleSuffix: '', /*标题后缀*/
-			filter: function(){},
-			callback: function(){}
-		})
+		$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
+
 		</script>
     </div>
   </div>
