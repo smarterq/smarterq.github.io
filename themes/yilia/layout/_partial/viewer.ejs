@@ -65,7 +65,7 @@
 
 </div>
 <script>
-$(document).pjax({
+$.pjax({
 	selector: 'a[target!=_blank]',
 	container: '#wrapper',
 	show: 'fade',
@@ -74,5 +74,13 @@ $(document).pjax({
 	titleSuffix: '',
 	filter: function(){},
 	callback: function(){}
-})
+});
+$(document).on('pjax:start', function () {
+    if (window.aplayers) {
+        for (let i = 0; i < window.aplayers.length; i++) {
+            window.aplayers[i].destroy();
+        }
+        window.aplayers = [];
+    }
+});
 </script>

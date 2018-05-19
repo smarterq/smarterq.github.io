@@ -16,10 +16,13 @@
 		};
 		function changeTitle(){
 			ts = document.getElementById('changetitle');
-			ts.innerHTML = "var originalTitle = '<% if (title){ %><%= title %> | <% } %><%= config.title %>';window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = originalTitle;};";
+			ts.innerHTML = "var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = title;};";
 		};
 		$(document).ready(function(){
 			runtime();
+			//changeTitle();
+		});
+		$(document).on('pjax:complete', function() {
 			changeTitle();
 		});
 		</script>
