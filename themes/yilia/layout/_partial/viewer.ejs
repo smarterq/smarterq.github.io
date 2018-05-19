@@ -64,3 +64,15 @@
     </div>
 
 </div>
+<script>
+$(document).pjax({
+	selector: 'a[target!=_blank]',
+	container: '#wrapper',
+	show: 'fade',
+	cache: true,
+	storage: true,
+	titleSuffix: '',
+	filter: function(){},
+	callback: function(){}
+})
+</script>

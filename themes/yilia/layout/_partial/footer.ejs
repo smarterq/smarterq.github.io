@@ -16,7 +16,7 @@
 		};
 		function changeTitle(){
 			ts = document.getElementById('changetitle');
-			ts.innerHTML = "var title = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = title;};";
+			ts.innerHTML = "var originalTitle = '<% if (title){ %><%= title %> | <% } %><%= config.title %>';window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = originalTitle;};";
 		};
 		$(document).ready(function(){
 			runtime();
@@ -26,10 +26,6 @@
 		<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
-		<script>
-		$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
-
-		</script>
     </div>
   </div>
 </footer>
