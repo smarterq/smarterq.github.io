@@ -18,10 +18,20 @@
 			ts = document.getElementById('changetitle');
 			ts.innerHTML = "var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = originalTitle;};";
 		};
-		var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = originalTitle;};
 		$(document).ready(function(){
 			runtime();
 			//changeTitle();
+		});
+		</script>
+		<script>
+		$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
+		$(document).on('pjax:start', function () {
+			if (window.aplayers) {
+				for (let i = 0; i < window.aplayers.length; i++) {
+					window.aplayers[i].destroy();
+				}
+				window.aplayers = [];
+			}
 		});
 		</script>
 		<div class="footer-right">
