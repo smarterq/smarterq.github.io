@@ -14,9 +14,13 @@
 			var runDate = Math.floor(dateLine / (1000 * 60 * 60 * 24));
 			runTime.innerHTML = runDate;
 		};
-		var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = title;};
+		function changeTitle(){
+			ts = document.getElementById('changetitle');
+			ts.innerHTML = "var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = title;};";
+		};
 		$(document).ready(function(){
 			runtime();
+			changeTitle();
 		});
 		</script>
 		<div class="footer-right">
