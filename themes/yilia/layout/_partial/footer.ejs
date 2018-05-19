@@ -14,13 +14,8 @@
 			var runDate = Math.floor(dateLine / (1000 * 60 * 60 * 24));
 			runTime.innerHTML = runDate;
 		};
-		function changeTitle(){
-			ts = document.getElementById('changetitle');
-			ts.innerHTML = "var originalTitle = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = originalTitle;};";
-		};
 		$(document).ready(function(){
 			runtime();
-			//changeTitle();
 		});
 		</script>
 		<script>
@@ -32,6 +27,9 @@
 				}
 				window.aplayers = [];
 			}
+		});
+		$(document).on('pjax:complete', function() {
+			resetDS();
 		});
 		</script>
 		<div class="footer-right">
