@@ -20,6 +20,7 @@
 		</script>
 		<script>
 		$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
+		$(document).on('pjax:start', NProgress.start);
 		$(document).on('pjax:start', function () {
 			if (window.aplayers) {
 				for (let i = 0; i < window.aplayers.length; i++) {
@@ -28,6 +29,7 @@
 				window.aplayers = [];
 			}
 		});
+		$(document).on('pjax:end', NProgress.done);
 		$(document).on('pjax:complete', function() {
 			recheckDQ();
 		});
