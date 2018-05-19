@@ -41,7 +41,7 @@
   <%- partial('google-analytics') %>
   <%- partial('baidu-analytics') %>
   <script type="javascript/text">
-  window.onblur =function() {document.title ="你不爱我了QAQ";};
-  window.onfocus =function() {document.title = <% if (title){ %><%= title %> | <% } %><%= config.title %> ;};
+  window.onblur =function() {document.title = "你不爱我了QAQ";};
+  window.onfocus =function() {document.title = "<% if (title){ %><%= title %> | <% } %><%= config.title %>";};
   </script>
 </head>
