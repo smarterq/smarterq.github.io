@@ -141,4 +141,4 @@ friends:
   小忆博客: http://www.domeyi.com/
   猎风: http://www.0page.org/
 
-aboutme: <span id="about">一个在校的大学生<br>不安本分<br>热爱计算机，热爱网络，热爱设计<br>但这都和我的专业无关...<br>只愿<br>无关风月，不忘初心<br></span><script type="text/javascript">var about = document.getElementById("runtime");var bkyx= new Date("04/20/2015");var now = new Date();var xzbk = now.getTime() - bkyx.getTime();var bksj = Math.floor(xzbk / (1000 * 60 * 60 * 24));about.innerHTML+="勉强运行"+bksj+"天";</script>
+aboutme: <span id="about">一个在校的大学生<br>不安本分<br>热爱计算机，热爱网络，热爱设计<br>但这都和我的专业无关...<br>只愿<br>无关风月，不忘初心<br></span><script type="text/javascript">var about = document.getElementById("about");var bkyx= new Date("04/20/2015");var now = new Date();var xzbk = now.getTime() - bkyx.getTime();var bksj = Math.floor(xzbk / (1000 * 60 * 60 * 24));about.innerHTML+="勉强运行"+bksj+"天";</script>
