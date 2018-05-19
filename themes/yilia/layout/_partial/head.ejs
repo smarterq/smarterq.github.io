@@ -45,10 +45,10 @@
 	ts = document.createElement("script");
 	ts.type = "text/javascript";
 	ts.id = "changetitle";
-	ts.innerHTML = "var title = document.title;window.onblur = function(){document.title = '你不爱我了QAQ'};window.onfocus = function(){document.title = title};";
+	ts.innerHTML = "var title = document.title;window.onblur = function(){document.title = '你不爱我了QAQ';};window.onfocus = function(){document.title = title;};";
   }
   $(document).ready(function(){
-	changeTitle()
+	changeTitle();
   };
   </script>
 </head>
