@@ -1,7 +1,8 @@
 ---
 title: hexo-test
 date: 2018-05-15 18:12:01
-tags: hexo,test
+tags: test
+comments:  false
 ---
 
 ---
