@@ -5,15 +5,17 @@
     		Copyright <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> <span id="runtime"></span>
     	</div>
 		<script type="text/javascript">
-		function runtime(){
+		function runtime() {
 			var runTime = document.getElementById("runtime");
 			var createDate = new Date("04/20/2015");
 			var nowDate = new Date();
 			var dateLine = nowDate.getTime() - createDate.getTime();
 			var runDate = Math.floor(dateLine / (1000 * 60 * 60 * 24));
-			runTime.innerHTML + = "勉强运行" + runDate + "天";
-		}
-		runtime();
+			runTime.innerHTML += "勉强运行" + runDate + "天";
+		};
+		$(document).ready(function(){
+			runtime();
+		});
 		</script>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
