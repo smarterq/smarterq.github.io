@@ -120,7 +120,7 @@ slider:
 smart_menu:
   innerArchive: '所有文章'
   friends: '友链'
-  aboutme: false
+  aboutme: '关于'
 
 friends:
   Lightning: http://lightning-zgc.com/wordpress/
@@ -141,4 +141,4 @@ friends:
   小忆博客: http://www.domeyi.com/
   猎风: http://www.0page.org/
 
-aboutme: 无关风月，不忘初心
+aboutme: 无关风月<br>不忘初心

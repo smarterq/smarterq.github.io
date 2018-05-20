@@ -23,13 +23,6 @@
 		window.onfocus = function(){document.title = originalTitle};
 		</script>
 		<script>
-		/*进度条*/
-		$(document).ready(function () {
-			NProgress.start();
-			window.onload = function () {
-				NProgress.done();
-			};
-		});
 		/*PJAX*/
 		/*$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
 		$(document).on('pjax:start', NProgress.start);
