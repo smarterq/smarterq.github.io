@@ -70,11 +70,11 @@ UPDATE  `emlog_blog` SET content = REPLACE( content,  'http://i',  'https://www.
 执行SQL命令后，大功告成！
 
 其次是侧边栏的友链的favicon，同样使用上述方法反代（使用了g.soz.im的API接口）。
-```php+HTML
+```html
 https://www.iqi7.com/proxy.php?url=http://g.soz.im/<?php  echo 友链; ?>cdn.ico?defaulticon=bluepng
 ```
 然后是分享插件的问题，之前把它停用了，我并不想抛弃他，继续开始改造，竟然是百度分享的锅，那就把百度分享全部停掉，突然发现多说分享还是不错，直接用多说分享进行替换，找到插件Liang_zsshare.php，把百度分享替换为：
-```php+HTML
+```HTML
 <div class="ds-share flat" data-thread-key="'.$_SERVER['REQUEST_URI'].'" data-title="文章'.$_SERVER['REQUEST_URI'].'" data-images="'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'" data-content="七夏浅笑博客" data-url="'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'">
    <div class="ds-share-inline">
      <ul  class="ds-share-icons-16">    
