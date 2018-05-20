@@ -80,6 +80,9 @@
 		.header-hitokoto{
 			width: 100%;
 			position: absolute;
+			height: 80px;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 		.profilepic{
 			text-align: center;
