@@ -29,16 +29,16 @@
 				window.aplayers = [];
 			}
 		});
-		$(document).on('pjax:end', NProgress.done);
-		$(document).on('pjax:complete', function() {
-			recheckDQ();
-			/*init();*/
 			if (!window.audios) {
 				audios = [];
 				for (var i = 0; i < aplayers.length; i++) {
 					audios[i] = aplayers[i].audio;
 				}
-			}
+			};
+		$(document).on('pjax:end', NProgress.done);
+		$(document).on('pjax:complete', function() {
+			recheckDQ();
+			/*init();*/
 			for (var i = 0; i < aplayers.length; i++) {
 					audios.push(aplayers[i].audio);
 				}
