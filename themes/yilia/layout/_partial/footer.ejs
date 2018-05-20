@@ -23,39 +23,12 @@
 		window.onfocus = function(){document.title = originalTitle};
 		</script>
 		<script>
-		destoryJS = function() {
-			themeMainScript = document.getElementById('themeMainScript');
-			themeMainScript.name = themeMainScript.src;
-			themeMainScript.src = "#";
-			themeSliderScript = document.getElementById('themeSliderScript');
-			themeSliderScript.name = themeSliderScript.src;
-			themeSliderScript.src = "#";
-		};
-		reloadJS = function() {
-			themeMainScript = document.getElementById('themeMainScript');
-			themeMainScript.src = themeMainScript.name;
-			themeMainScript.name = "";
-			themeSliderScript = document.getElementById('themeSliderScript');
-			themeSliderScript.src = themeSliderScript.name;
-			themeSliderScript.name = "";
-		};
 		/*PJAX*/
 		$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
 		$(document).on('pjax:start', NProgress.start);
 		$(document).on('pjax:end', NProgress.done);
-		$(document).on('pjax:start', function() {
-			destoryJS();
-		});
 		$(document).on('pjax:complete', function() {
 			recheckDQ();
-			setTimeout(function(){
-				reloadJS();
-			},500);
-		});
-		$(document).on('pjax:popstate', function() {
-			setTimeout(function(){
-				recheckDQ();
-			},500);
 		});
 		</script>
 		<div class="footer-right">
