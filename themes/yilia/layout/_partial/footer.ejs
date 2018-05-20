@@ -4,7 +4,6 @@
     	<div class="footer-left" id="">
     		Copyright <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> <span>勉强运行<a href="#"><span id="runtime"></span></a>天</span>
     	</div>
-		<script type="text/javascript" id="changetitle"></script>
 		<script type="text/javascript">
 		function runtime() {
 			var runTime = document.getElementById("runtime");
@@ -17,6 +16,10 @@
 		$(document).ready(function(){
 			runtime();
 		});
+		/*窗口监视*/
+		var originalTitle = document.title;
+		window.onblur = function(){document.title = '你不爱我了QAQ'};
+		window.onfocus = function(){document.title = originalTitle};
 		</script>
 		<script>
 		$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
