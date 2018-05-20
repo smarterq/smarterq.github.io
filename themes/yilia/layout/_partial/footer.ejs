@@ -5,6 +5,7 @@
     		Copyright <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %> <span>勉强运行<a href="#"><span id="runtime"></span></a>天</span>
     	</div>
 		<script type="text/javascript">
+		/*显示博客运行时间*/
 		function runtime() {
 			var runTime = document.getElementById("runtime");
 			var createDate = new Date("04/20/2015");
@@ -22,22 +23,12 @@
 		window.onfocus = function(){document.title = originalTitle};
 		</script>
 		<script>
+		/*PJAX*/
 		$(document).pjax('a[target!=_blank]', '#wrapper', {fragment:'#wrapper', timeout:8000});
 		$(document).on('pjax:start', NProgress.start);
 		$(document).on('pjax:end', NProgress.done);
 		$(document).on('pjax:complete', function() {
 			recheckDQ();
-			/*init();*/
-			if (!window.audios) {
-				audios = [];
-				for (var i = 0; i < aplayers.length; i++) {
-					audios[i] = aplayers[i].audio;
-				}
-			}
-			for (var i = 0; i < aplayers.length; i++) {
-					audios.push(aplayers[i].audio);
-				}
-			for(var i = 0; i < audios.length; i++) {if(audios[i]){audios[i].pause()}};
 		});
 		</script>
 		<div class="footer-right">
