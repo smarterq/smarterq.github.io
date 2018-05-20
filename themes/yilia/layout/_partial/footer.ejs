@@ -48,7 +48,14 @@
 		});
 		$(document).on('pjax:complete', function() {
 			recheckDQ();
-			reloadJS();
+			setTimeout(function(){
+				reloadJS();
+			},500);
+		});
+		$(document).on('pjax:popstate', function() {
+			setTimeout(function(){
+				recheckDQ();
+			},500);
 		});
 		</script>
 		<div class="footer-right">
