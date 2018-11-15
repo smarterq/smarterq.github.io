@@ -31,6 +31,18 @@
 			recheckDQ();
 		});*/
 		</script>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+    <script type="text/javascript">
+      $(function() {  
+      //对所有 img 标签进行懒加载        
+          $("img").lazyload({
+          //设置占位图，我这里选用了一个 loading 的加载动画
+            placeholder:"/img/loading.png",
+            //加载效果
+              effect:"fadeIn"
+            });
+          });
+    </script>
 		<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
