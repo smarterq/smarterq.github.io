@@ -77,12 +77,15 @@ theme: yilia
 aplayer:
   meting: true
 
+<<<<<<< HEAD
 #img lazyload
 #lazyload:
  # enable: true
  # onlypost: false
   # loadingImg: #可选(loadingImg - 图片未加载时的代替图) eg. ./images/loading.png
 
+=======
+>>>>>>> parent of d09ec61... lazyload
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 

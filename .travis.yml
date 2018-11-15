@@ -26,7 +26,10 @@ install:
 before_script:
   - npm i hexo-generator-json-content --save
   - npm install hexo-tag-aplayer --save
+<<<<<<< HEAD
  # - npm install hexo-lazyload-image --save
+=======
+>>>>>>> parent of d09ec61... lazyload
  
 # 执行清缓存，生成网页操作
 script:
