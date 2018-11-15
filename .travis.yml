@@ -26,7 +26,7 @@ install:
 before_script:
   - npm i hexo-generator-json-content --save
   - npm install hexo-tag-aplayer --save
-  - npm install hexo-lazyload --save
+  - npm install hexo-lazyload-image --save
  
 # 执行清缓存，生成网页操作
 script:
