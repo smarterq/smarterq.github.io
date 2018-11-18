@@ -9,27 +9,29 @@ Nginx 11月6日的安全更新中，修补了三个可导致拒绝服务的漏�
     
 <!-- more -->
    
-##关于本次漏洞的相关信息
+关于本次漏洞的相关信息
+--
 
 一共有三个可导致拒绝服务的漏洞，影响绝大部分Nginx版本：
 
->CVE-2018-16843,CVE-2018-16844漏洞存在于ngx_http_v2模块之中(默认情况下不编译，编译时需要开启--with-http_v2_module，同时将listen http2添加到配置文件中)，当用户添加http2支持时，攻击者可以发送特制的HTTP/2请求，消耗CPU和内存资源，最终导致DoS。
-   
->CVE-2018-16845漏洞存在于ngx_http_mp4_module模块中，当用户对Nginx添加MP4流媒体支持，恶意的MP4文件会导致处理进程无限循环、崩溃或者内存泄露。
-   
+>CVE-2018-16843,CVE-2018-16844漏洞存在于ngx\_http\_v2模块之中(默认情况下不编译，编译时需要开启--with-http\_v2\_module，同时将listen http2添加到配置文件中)，当用户添加http2支持时，攻击者可以发送特制的HTTP/2请求，消耗CPU和内存资源，最终导致DoS。
+>   
+>CVE-2018-16845漏洞存在于ngx\_http\_mp4\_module模块中，当用户对Nginx添加MP4流媒体支持，恶意的MP4文件会导致处理进程无限循环、崩溃或者内存泄露。
+>   
 >总的来说，HTTP/2 漏洞影响 1.9.5 和 1.15.5 之间的所有 nginx 版本，MP4 模块安全问题影响运行 nginx 1.0.7, 1.1.3 及更高版本的服务器。*[更多详细信息](https://cert.360.cn/warning/detail?id=7145d4cac6db4b7ca609990ad8a71f83)*
 
 目前宝塔面板内的Tengine还没有更新，依然是v2.2.2版本，所以打算手动编译升级到Tengine-2.2.3，然后竟然打算重新编译升级Tengine的话，打算顺便把TLSv1.3也给弄上，关于为什么宝塔官方没有直接在面板上支持TLSv1.3开启以及升级OpenSSL的影响有如下说明：
    
 >关于openssl，你要支持tls1.3就必须用nginx mainline版，而且换成openssl-1.1.0f/g/openssl-1.1.1等版本 那么php7.0以下的Php版本都编译不上 mariadb10.0/10.1编译不上，而我们所做的rpm包用的openssl版本还是1.0.2k的，若要升级至openssl-1.1.1,则要花费大量时间重新编译rpm包，同时还要考虑之前安装过的宝塔的兼容问题。
-
+>   
 >如果你能给我一套方案让几十万的宝塔使用用户可以完美升级的方案，或者给我找几十万需要Tls1.3的用户的话，我也很乐意去升级的。
-
+>   
 >作为开发人员，我也很想让面板支持所有新功能/新特性，但1是人手不足，很多东西想弄来不及弄出来，2是新功能就意味着可能会有新的漏洞/BUG，让几十万用户遭受，我们承受不起。*[引用自宝塔官方论坛](https://www.bt.cn/bbs/thread-11560-1-1.html)*
    
 因为我那台服务器上没有用到PHP7.0以下的版本，也没有使用mariadb10.0/10.1，所以我打算直接把OpenSSL升级到1.1.1版本并开启TLSv1.3
    
-##升级OpenSSL
+升级OpenSSL
+--
    
 >下载openssl-1.1.1
    
@@ -74,11 +76,14 @@ echo -e "openssl_installed" >> /www/server/lib.pl
 /etc/pki/ca-trust/extracted/openssl
 ```   
     
+可以看到我的 OpenSSL 位于 /usr/lib64/ 目录下。
+    
 >升级完过后查看一下OpenSSL版本是否正确
    
 `openssl version`   
    
-##升级curl
+升级curl
+--
    
 >添加一个新的repo
 
@@ -103,7 +108,8 @@ yum clean all
 yum install libcurl
 ```
    
-##编译升级到Tengine-2.2.3
+编译升级到Tengine-2.2.3
+--
    
 >获得宝塔Tengine的编译参数
    
@@ -186,7 +192,8 @@ nginx:     ngx_dso_module (static)
    
 在宝塔面板上重新开启 Tengine ，启动成功就好啦。
    
-##开启TLSv1.3并关闭TLSv1.0
+开启TLSv1.3并关闭TLSv1.0
+--
    
 如图所示，打开宝塔面板的站点设置选型卡，在 ssl\_protocols 后面加 TLSv1.3 ，可以选择删除 TLSv1（图中已删除），因为 TLSv1.0 不符合 PCI DSS 规范。然后将 ssl\_ciphers 后面修改为：
    
