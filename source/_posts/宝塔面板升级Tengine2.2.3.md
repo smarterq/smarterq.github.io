@@ -19,7 +19,7 @@ Nginx 11月6日的安全更新中，修补了三个可导致拒绝服务的漏�
 >CVE-2018-16845漏洞存在于ngx\_http\_mp4\_module模块中，当用户对Nginx添加MP4流媒体支持，恶意的MP4文件会导致处理进程无限循环、崩溃或者内存泄露。
 >   
 >总的来说，HTTP/2 漏洞影响 1.9.5 和 1.15.5 之间的所有 nginx 版本，MP4 模块安全问题影响运行 nginx 1.0.7, 1.1.3 及更高版本的服务器。*[更多详细信息](https://cert.360.cn/warning/detail?id=7145d4cac6db4b7ca609990ad8a71f83)*
-
+    
 目前宝塔面板内的Tengine还没有更新，依然是v2.2.2版本，所以打算手动编译升级到Tengine-2.2.3，然后竟然打算重新编译升级Tengine的话，打算顺便把TLSv1.3也给弄上，关于为什么宝塔官方没有直接在面板上支持TLSv1.3开启以及升级OpenSSL的影响有如下说明：
    
 >关于openssl，你要支持tls1.3就必须用nginx mainline版，而且换成openssl-1.1.0f/g/openssl-1.1.1等版本 那么php7.0以下的Php版本都编译不上 mariadb10.0/10.1编译不上，而我们所做的rpm包用的openssl版本还是1.0.2k的，若要升级至openssl-1.1.1,则要花费大量时间重新编译rpm包，同时还要考虑之前安装过的宝塔的兼容问题。
@@ -27,7 +27,7 @@ Nginx 11月6日的安全更新中，修补了三个可导致拒绝服务的漏�
 >如果你能给我一套方案让几十万的宝塔使用用户可以完美升级的方案，或者给我找几十万需要Tls1.3的用户的话，我也很乐意去升级的。
 >   
 >作为开发人员，我也很想让面板支持所有新功能/新特性，但1是人手不足，很多东西想弄来不及弄出来，2是新功能就意味着可能会有新的漏洞/BUG，让几十万用户遭受，我们承受不起。*[引用自宝塔官方论坛](https://www.bt.cn/bbs/thread-11560-1-1.html)*
-   
+    
 因为我那台服务器上没有用到PHP7.0以下的版本，也没有使用mariadb10.0/10.1，所以我打算直接把OpenSSL升级到1.1.1版本并开启TLSv1.3
    
 升级OpenSSL
@@ -55,7 +55,7 @@ echo -e "openssl_installed" >> /www/server/lib.pl
    
 **注意：** `ln -sf /usr/lib64/openssl/engines/*.so /usr/lib/` 这一步，可能因为宝塔版本原因，OpenSSL的位置可能不同，例如可能位于 `/usr/lib/openssl/engines/` ，通过 `find / -name openssl` 命令可以查看位置：
 
-```bash
+```shell
 [root@ggc ~]# find / -name openssl
 /usr/local/openssl
 /usr/local/openssl/include/openssl
@@ -74,9 +74,7 @@ echo -e "openssl_installed" >> /www/server/lib.pl
 /www/server/nginx/src/auto/lib/openssl
 /www/server/nginx/src/openssl
 /etc/pki/ca-trust/extracted/openssl
-```   
-    
-可以看到我的 OpenSSL 位于 /usr/lib64/ 目录下。
+```
     
 >升级完过后查看一下OpenSSL版本是否正确
    
@@ -91,7 +89,7 @@ echo -e "openssl_installed" >> /www/server/lib.pl
    
 >在里面添加内容：
    
-```bash
+```shell
 [CityFan]
 name=City Fan Repo
 baseurl=http://www.city-fan.org/ftp/contrib/yum-repo/rhel$releasever/$basearch/
@@ -115,7 +113,7 @@ yum install libcurl
    
 `nginx -V` 结果如下：
    
-```bash
+```shell
 [root@ggc ~]# nginx -V
 Tengine version: Tengine/2.2.2 (nginx/1.8.1)
 built by gcc 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) 
@@ -152,7 +150,7 @@ make
    
 需要注意, **不要直接** `make install` ，这样可能会覆盖一些配置文件, 先通过 `find / -name nginx` 查找当前服务器里名为 nginx 的文件或目录。
    
-```bash
+```shell
 [root@ggc ~]# find / -name nginx
 /usr/local/nginx
 /usr/bin/nginx
@@ -176,7 +174,7 @@ cp objs/nginx /www/server/nginx/sbin/nginx
    
 替换成功后使用 `nginx -V` 命令可以看到 Tengine 已经成功升级到了2.2.3
    
-```bash
+```shell
 [root@ggc ~]# nginx -V
 Tengine version: Tengine/2.2.3 (nginx/1.8.1)
 built by gcc 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) 
@@ -197,10 +195,8 @@ nginx:     ngx_dso_module (static)
    
 如图所示，打开宝塔面板的站点设置选型卡，在 ssl\_protocols 后面加 TLSv1.3 ，可以选择删除 TLSv1（图中已删除），因为 TLSv1.0 不符合 PCI DSS 规范。然后将 ssl\_ciphers 后面修改为：
    
-```conf
-TLS13-AES-256-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-128-GCM-SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH+ECDSA+3DES:EECDH+aRSA+3DES:RSA+3DES:!MD5;
-```
-
+>TLS13-AES-256-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-128-GCM-SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH+ECDSA+3DES:EECDH+aRSA+3DES:RSA+3DES:!MD5;
+   
 ![p1](/assets/img/bt_switch_to_tls1.3.jpg)
    
 保存成功过后，使用 [https://myssl.com](https://myssl.com) 就可以查看 TLSv1.3 是否配置成功以及其他的SSL信息了喵。
