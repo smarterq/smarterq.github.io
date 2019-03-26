@@ -194,7 +194,7 @@ System Benchmarks Index Score                                        1357.3
 ======= Script description and score comparison completed! ======= 
 ```
 
->GoogleCloud HK 1C512M OpenStack
+>GoogleCloud HK 1C512M OpenStack 共享核心
 
 ```shell
 ========================================================================
@@ -251,7 +251,62 @@ System Benchmarks Index Score                                         270.4
 
 ======= Script description and score comparison completed! ======= 
 ```
+    
+>GoogleCloud US 1C3.75G OpenStack 独享核心
+    
+```shell
+========================================================================
 
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: hanabi: GNU/Linux
+   OS: GNU/Linux -- 4.9.0-8-amd64 -- #1 SMP Debian 4.9.110-3+deb9u6 (2018-10-08)
+   Machine: x86_64 (unknown)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Intel(R) Xeon(R) CPU @ 2.30GHz (4600.0 bogomips)
+          Hyper-Threading, x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   15:32:20 up 4 min,  1 user,  load average: 0.36, 0.12, 0.04; runlevel 5
+------------------------------------------------------------------------
+Benchmark Run: Tue Mar 26 2019 15:32:20 - 16:00:30
+1 CPU in system; running 1 parallel copy of tests
+Dhrystone 2 using register variables       31768531.0 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     3811.6 MWIPS (9.9 s, 7 samples)
+Execl Throughput                               3795.6 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        552835.2 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          169407.3 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       1249921.8 KBps  (30.0 s, 2 samples)
+Pipe Throughput                              957183.8 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 210082.9 lps   (10.0 s, 7 samples)
+Process Creation                               9180.3 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   7099.9 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    914.6 lpm   (60.0 s, 2 samples)
+System Call Overhead                         820673.9 lps   (10.0 s, 7 samples)
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   31768531.0   2722.2
+Double-Precision Whetstone                       55.0       3811.6    693.0
+Execl Throughput                                 43.0       3795.6    882.7
+File Copy 1024 bufsize 2000 maxblocks          3960.0     552835.2   1396.0
+File Copy 256 bufsize 500 maxblocks            1655.0     169407.3   1023.6
+File Copy 4096 bufsize 8000 maxblocks          5800.0    1249921.8   2155.0
+Pipe Throughput                               12440.0     957183.8    769.4
+Pipe-based Context Switching                   4000.0     210082.9    525.2
+Process Creation                                126.0       9180.3    728.6
+Shell Scripts (1 concurrent)                     42.4       7099.9   1674.5
+Shell Scripts (8 concurrent)                      6.0        914.6   1524.3
+System Call Overhead                          15000.0     820673.9    547.1
+                                                                   ========
+System Benchmarks Index Score                                        1064.1
+
+======= Script description and score comparison completed! ======= 
+```
+    
 >ygeIDC CN 1C512M KVM
 
 ```shell
