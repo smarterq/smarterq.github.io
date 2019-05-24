@@ -20,7 +20,7 @@ chmod +x unixbench.sh
 
 **注意：**有好几台跑步起来，都是在 make 的时候报错了（一台是CentOS 7x64，另一台是Debian 8x64），不知道为什么，最近几天老是遇到这些奇奇怪怪的问题，前几天装 redsocks 也是，好气呀。
     
->GigsgigsCloud LAX Anti-DDoS 1C1G KVM
+> GigsgigsCloud LAX Anti-DDoS 1C1G KVM
 
 ```shell
 ========================================================================
@@ -78,7 +78,7 @@ System Benchmarks Index Score                                         952.6
 ======= Script description and score comparison completed! ======= 
 ```
 
->Hostsolutions Romania 1C1G OpenVZ
+> Hostsolutions Romania 1C1G OpenVZ
 
 ```shell
 ========================================================================
@@ -136,7 +136,7 @@ System Benchmarks Index Score                                        1179.2
 ======= Script description and score comparison completed! ======= 
 ```
 
->AlibabaCloud CN Stu 1C2G OpenStack
+> AlibabaCloud CN Stu 1C2G OpenStack
 
 ```shell
 ========================================================================
@@ -194,7 +194,7 @@ System Benchmarks Index Score                                        1357.3
 ======= Script description and score comparison completed! ======= 
 ```
 
->GoogleCloud HK 1C512M OpenStack 共享核心
+> GoogleCloud HK 1C512M OpenStack 共享核心
 
 ```shell
 ========================================================================
@@ -251,9 +251,9 @@ System Benchmarks Index Score                                         270.4
 
 ======= Script description and score comparison completed! ======= 
 ```
-    
->GoogleCloud US 1C3.75G OpenStack 独享核心
-    
+
+> GoogleCloud US 1C3.75G OpenStack 独享核心
+
 ```shell
 ========================================================================
 
@@ -306,8 +306,8 @@ System Benchmarks Index Score                                        1064.1
 
 ======= Script description and score comparison completed! ======= 
 ```
-    
->ygeIDC CN 1C512M KVM
+
+> ygeIDC CN 1C512M KVM
 
 ```shell
 ========================================================================
@@ -365,7 +365,7 @@ System Benchmarks Index Score                                        1170.3
 ======= Script description and score comparison completed! ======= 
 ```
 
->JustHost Russia 1C512M KVM
+> JustHost Russia 1C512M KVM
 
 ```shell
 ========================================================================
@@ -423,7 +423,7 @@ System Benchmarks Index Score                                         352.1
 ======= Script description and score comparison completed! ======= 
 ```
 
->CloudCone LAX 1C512M KVM
+> CloudCone LAX 1C512M KVM
 
 ```shell
 ========================================================================
@@ -481,7 +481,7 @@ System Benchmarks Index Score                                         330.5
 ======= Script description and score comparison completed! =======
 ```
 
->AWS Lightsail Tokyo 1C1G KVM
+> AWS Lightsail Tokyo 1C1G KVM
 
 ```shell
 ========================================================================
@@ -538,3 +538,64 @@ System Benchmarks Index Score                                        1254.2
 
 ======= Script description and score comparison completed! ======= 
 ```
+
+> AWS EC2 Tokyo 1C1G HVM
+
+```shell
+========================================================================
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: ip-172-31-46-237.ap-northeast-1.compute.internal: GNU/Linux
+   OS: GNU/Linux -- 4.11.8-1.el7.elrepo.x86_64 -- #1 SMP Thu Jun 29 10:01:10 EDT 2017
+   Machine: x86_64 (x86_64)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz (4800.1 bogomips)
+          Hyper-Threading, x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   01:58:49 up 29 min,  4 users,  load average: 0.29, 0.32, 0.24; runlevel 3
+
+------------------------------------------------------------------------
+Benchmark Run: Sat May 25 2019 01:58:49 - 02:26:57
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       30504388.9 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     3906.3 MWIPS (9.9 s, 7 samples)
+Execl Throughput                               4558.1 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks       1003763.6 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          263272.8 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       2931725.4 KBps  (30.0 s, 2 samples)
+Pipe Throughput                             1513844.3 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 284978.0 lps   (10.0 s, 7 samples)
+Process Creation                              12762.6 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   6014.5 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    810.8 lpm   (60.0 s, 2 samples)
+System Call Overhead                        2122321.8 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   30504388.9   2613.9
+Double-Precision Whetstone                       55.0       3906.3    710.2
+Execl Throughput                                 43.0       4558.1   1060.0
+File Copy 1024 bufsize 2000 maxblocks          3960.0    1003763.6   2534.8
+File Copy 256 bufsize 500 maxblocks            1655.0     263272.8   1590.8
+File Copy 4096 bufsize 8000 maxblocks          5800.0    2931725.4   5054.7
+Pipe Throughput                               12440.0    1513844.3   1216.9
+Pipe-based Context Switching                   4000.0     284978.0    712.4
+Process Creation                                126.0      12762.6   1012.9
+Shell Scripts (1 concurrent)                     42.4       6014.5   1418.5
+Shell Scripts (8 concurrent)                      6.0        810.8   1351.3
+System Call Overhead                          15000.0    2122321.8   1414.9
+                                                                   ========
+System Benchmarks Index Score                                        1462.2
+
+
+
+======= Script description and score comparison completed! ======= 
+```
+
