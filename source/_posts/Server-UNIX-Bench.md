@@ -194,6 +194,66 @@ System Benchmarks Index Score                                        1357.3
 ======= Script description and score comparison completed! ======= 
 ```
 
+> AlibabaCloud CN Stu (Simple Application Server) 1C2G OpenStack
+
+```shell
+========================================================================
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: iZwz96yoko50h1fjg9ytxtZ: GNU/Linux
+   OS: GNU/Linux -- 4.16.3-041603-generic -- #201804190730 SMP Thu Apr 19 07:32:02 UTC 2018
+   Machine: x86_64 (unknown)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz (5000.0 bogomips)
+          Hyper-Threading, x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   11:55:26 up  1:19,  2 users,  load average: 0.51, 0.28, 0.11; runlevel 5
+
+------------------------------------------------------------------------
+Benchmark Run: Sun May 26 2019 11:55:26 - 12:23:36
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       30840657.9 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     3845.5 MWIPS (9.8 s, 7 samples)
+Execl Throughput                               5076.8 lps   (29.9 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        562018.7 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          168976.9 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       1287546.6 KBps  (30.0 s, 2 samples)
+Pipe Throughput                              942771.6 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 212749.9 lps   (10.0 s, 7 samples)
+Process Creation                              13536.2 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   8025.8 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                   1018.6 lpm   (60.0 s, 2 samples)
+System Call Overhead                         862778.1 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   30840657.9   2642.7
+Double-Precision Whetstone                       55.0       3845.5    699.2
+Execl Throughput                                 43.0       5076.8   1180.7
+File Copy 1024 bufsize 2000 maxblocks          3960.0     562018.7   1419.2
+File Copy 256 bufsize 500 maxblocks            1655.0     168976.9   1021.0
+File Copy 4096 bufsize 8000 maxblocks          5800.0    1287546.6   2219.9
+Pipe Throughput                               12440.0     942771.6    757.9
+Pipe-based Context Switching                   4000.0     212749.9    531.9
+Process Creation                                126.0      13536.2   1074.3
+Shell Scripts (1 concurrent)                     42.4       8025.8   1892.9
+Shell Scripts (8 concurrent)                      6.0       1018.6   1697.7
+System Call Overhead                          15000.0     862778.1    575.2
+                                                                   ========
+System Benchmarks Index Score                                        1154.7
+
+
+
+======= Script description and score comparison completed! ======= 
+```
+
 > GoogleCloud HK 1C512M OpenStack 共享核心
 
 ```shell
