@@ -1,9 +1,10 @@
 ---
 title: CentOS宝塔面板Tengine手动升级到 v2.2.3 修复 HTTP/2 安全问题 并开启TLSv1.3
-date: 2018-11-18 14:21:43
 tags: 笔记
-comments:  true
+comments: true
 reward: true
+abbrlink: 391521421
+date: 2018-11-18 14:21:43
 ---
 Nginx 11月6日的安全更新中，修补了三个可导致拒绝服务的漏洞：CVE-2018-16843,CVE-2018-16844和CVE-2018-16845。位于Nginx HTTP/2 模块和流媒体MP4模块。基于Nginx的Tengine也受到了影响，并于2018年11月11日发布更新版本 Tengine-2.2.3 [修复了该漏洞](https://www.oschina.net/news/101724/tengine-2-2-3-released)。只为了修复漏洞的话可以只看本文「编译升级到Tengine-2.2.3」部分。
     
