@@ -1,7 +1,7 @@
 ---
 title: 用过的服务器的 UNIX Bench
 date: 2019-3-26 23:08:28
-tags: 程序
+tags: 笔记
 comments:  true
 reward: true
 ---
