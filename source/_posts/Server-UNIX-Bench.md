@@ -1,6 +1,7 @@
 ---
 title: 用过的服务器的 UNIX Bench
 tags: 笔记
+categories: 程序
 comments: true
 reward: true
 abbrlink: 3446765825

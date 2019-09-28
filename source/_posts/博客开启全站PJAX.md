@@ -1,6 +1,7 @@
 ---
 title: 博客开启全站PJAX
 tags: 随笔
+categories: 日志
 comments: true
 reward: true
 abbrlink: 4241411385

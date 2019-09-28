@@ -1,6 +1,7 @@
 ---
 title: CentOS宝塔面板Tengine手动升级到 v2.2.3 修复 HTTP/2 安全问题 并开启TLSv1.3
 tags: 笔记
+categories: 程序
 comments: true
 reward: true
 abbrlink: 391521421
