@@ -1,0 +1,112 @@
+# Nav
+menu:
+  主页: /
+  时光轴: /archives/
+  分类: /categories/
+  #关于: /about
+  留言板: /message.html
+
+# SubNav
+subnav:
+  github: "https://github.com/smarterq"
+  weibo: "https://weibo.com/smarterq"
+  mail: "mailto:i@xhtml.love"
+  twitter: "https://twitter.com/Julydate"
+  #rss: "/atom.xml"
+  #zhihu: "#"
+  #douban: "#"
+  #mail: "#"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
+
+# 网站图标
+favicon: "/img/favicon.ico"
+
+# 头像
+avatar: "/img/head.jpg"
+
+# Content
+fancybox: true
+tagcloud: true
+# 文章太长，截断按钮文字
+excerpt_link: more
+# 文章卡片右下角常驻链接，不需要请设置为false
+show_all_link: '展开全文'
+# 数学公式
+mathjax: false
+# 是否在新窗口打开链接
+open_in_new: false
+
+# 分享
+share: true
+
+# gitalk
+gitalk: 
+  enable: false
+  client_id: 5a238b8c32b1e4dd2156
+  client_secret: bfb5d518626f6fdc7da0351d1e0cd37ab75c6361
+  repo: voidking.github.io
+  owner: voidking
+  admin: voidking
+
+# livere
+livere: 
+  enable: false
+  uid: MTAyMC8zODU3Mi8xNTEwMA==
+
+# 百度统计
+baidustatistic:
+  enable: false
+  siteid: b759ac2a7fa45129e3ef060bf68259f0
+
+disqus: julydate
+
+# 样式定制 - 一般不需要修改，除非有很强的定制欲望…
+style:
+  # 头像上面的背景颜色
+  header: '#fe91b4'
+  # 右滑板块背景
+  slider: 'url(https://www.julydate.com/img/bg.jpg)'
+  
+# slider的设置
+slider:
+  # 是否默认展开tags板块
+  showTags: false
+  
+# 智能菜单
+# 如不需要，将该对应项置为false
+# 比如
+#smart_menu:
+#  friends: false
+smart_menu:
+  innerArchive: '所有文章'
+  friends: '友链'
+  aboutme: '关于'
+
+#关闭友链
+#friends: false
+#开启友链
+friends:
+  xiaopc: https://xiaopc.org/
+  近泽jrotty: https://qqdie.com/
+  吟梦的梦笔记: https://kirainmoe.com/
+  萌月: http://www.moeyue.com/
+  空樱酱: https://kotori.love/
+  DIYgod: https://diygod.me/
+  蠢汤圆: https://tyzual.com/
+  立华: https://freedom.moe/
+  s7smile: http://www.s7smile.com/
+  tea9: https://tea9.xyz
+  月宅酱: https://ikmoe.com/
+  折影轻梦: https://nexmoe.com/
+  诗酒乘年华: https://shawnzeng.com/
+  蠢Lan: https://www.xx8.uk/
+  咸鱼滩音乐团队: https://www.xytsing.com/
+  王煜博客: https://blog.wixy.cn/
+  该问: http://www.theask.cn/
+  呆头鹅: https://lonelybsh.github.io/
+  猫行天下: http://www.aidcat.com/
+
+aboutme: 无关风月<br>不忘初心

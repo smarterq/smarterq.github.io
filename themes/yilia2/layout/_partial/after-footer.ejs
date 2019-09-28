@@ -1,0 +1,12 @@
+<% if (theme.fancybox){ %>
+  <%- css('fancybox/jquery.fancybox') %>
+  <%- js('fancybox/jquery.fancybox.pack') %>
+<% } %>
+
+<%- js('js/mobile') %>
+<%- js('js/main') %>
+
+<% if (theme.baidustatistic.enable){ %>
+<%- partial('post/baidustatistic') %>
+<% } %>
+
