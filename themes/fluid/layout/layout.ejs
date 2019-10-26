@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+
+<%
+var subtitle = page.subtitle || page.title
+var banner_img = page.banner_img || theme.index.banner_img
+var banner_img_height = page.banner_img_height || theme.index.banner_img_height
+%>
+
+<%- partial('_partial/head') %>
+<style>
+.banner-bg {
+  background: url('<%- banner_img %>')no-repeat center center;
+  background-size: cover;
+  background-attachment: <%- theme.banner_scroll == true ? 'scroll' : 'fixed' %>;
+}
+</style>
+
+<body class="banner-bg">
+  <%- partial('_partial/sidebar') %>
+  <header style="height: <%- banner_img_height %>vh;">
+    <%- partial('_partial/nav') %>
+    <div class="view intro-2 rgba-black-slight" id="background">
+      <div class="full-bg-img">
+        <div class="mask flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              <% if(theme.fun_features.typing.enable == false) { %>
+                <%- subtitle %>
+              <% } %>
+            </span>
+
+            <% if(is_post()) { %>
+              <br>
+              <p class="mt-3">
+                <%- full_date(page.date, theme.post.date_format) %>&nbsp;|&nbsp;
+                <i class="far fa-chart-bar"></i>
+                <span class="post-count"><%= wordcount(page.content) %></span>字&nbsp;|&nbsp;
+                <i class="far fa-clock"></i>
+                阅读预计<span class="post-count"><%= min2read(page.content) %></span>分钟
+              </p>
+            <% } %>
+          </div>
+
+          <% if (theme.scroll_down_arrow.enable && theme.scroll_down_arrow.banner_height_limit <= banner_img_height) { %>
+            <div class="scroll-down-bar">
+              <i class="fa fa-angle-down scroll-down-arrow"></i>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+
+  <main id="mainContent" class="rgba-black-slight">
+    <% if(is_post() || page.layout == '404') { %>
+      <%- body %>
+    <% } else { %>
+      <div class="container nopadding-md" style="padding-top:0.5rem;padding-bottom:0.5rem;">
+        <div class="py-5 z-depth-3" id="board">
+          <% if(page.layout == 'about') { %>
+            <div class="about-avatar">
+              <img src="<%- url_for(theme.avatar) %>"
+                   class="img-fluid z-depth-1 rounded-circle"
+                   alt="avatar">
+            </div>
+          <% } %>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                <%- body %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </main>
+
+  <% if (theme.scroll_top_arrow.enable) { %>
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  <% } %>
+
+  <% if(theme.search.enable) { %>
+    <%- partial('_partial/search') %>
+  <% } %>
+
+  <div id="footerContent"  class="rgba-black-slight">
+    <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
+  </div>
+
+
+  <script>
+    /*切换背景*/
+    <% if(theme.full_bg_img) { %>
+    $("#background").removeClass("banner-bg");
+    $("body").addClass("banner-bg");
+    var postToTopHight = $("#board").offset().top;
+    $(window).scroll(function () {
+      var bgDisplay = false;
+      var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
+      bgDisplay = scrollHeight >= postToTopHight;
+      if(bgDisplay) {
+        $('#background').removeClass("rgba-black-slight");
+        $('#mainContent').removeClass("rgba-black-slight");
+        $('#footerContent').removeClass("rgba-black-slight");
+      } else {
+        /* $('body').removeAttr("style") */
+        $('#background').addClass("rgba-black-slight");
+        $('#mainContent').addClass("rgba-black-slight");
+        $('#footerContent').addClass("rgba-black-slight");
+      }
+    });
+    <% } else { %>
+      $("body").removeClass("banner-bg");
+      $("#background").addClass("banner-bg");
+      $('#mainContent').removeClass("rgba-black-slight");
+      $('#footerContent').removeClass("rgba-black-slight");
+      if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
+        $("#background").css("background-attachment", "scroll");
+      }
+    <% } %>
+  </script>
+
+</body>
+</html>

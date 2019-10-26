@@ -1,0 +1,20 @@
+<div style="width:100%;text-align:center">
+	<span style="font-size:12px;">
+		<span style="font-size:16px;color:#E53333;">
+			<strong>关于我</strong>
+		</span>
+		<br>
+	</span> 
+	<br>
+	<span style="font-size:12px;">一个在校的大学生</span> 
+	<br>
+	<span style="font-size:12px;">不安本分</span> 
+	<br> 
+	<span style="font-size:12px;">热爱计算机，热爱网络，热爱设计</span> 
+	<br>
+	<span style="font-size:12px;">但这都和我的专业无关...</span> 
+	<br> 
+	<span style="font-size:12px;">只愿</span> 
+	<br>
+	<span style="font-size:12px;">无关风月，不忘初心</span> 
+</div>

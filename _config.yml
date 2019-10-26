@@ -6,7 +6,8 @@
 title: 七夏浅笑
 subtitle: 七月之约，夏末浅笑
 description: 七月之约，夏末浅笑
-keywords: "前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3"
+keywords:
+  - "前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3"
 author: 七夏浅笑
 language: zh-CN
 timezone:
@@ -45,7 +46,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: true
   tab_replace:
@@ -79,7 +80,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: fluid
 aplayer:
   meting: true
 
