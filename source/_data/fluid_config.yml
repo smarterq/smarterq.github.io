@@ -242,7 +242,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
   name: 七夏浅笑
   introduce: 七月之约，夏末浅笑 # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
-    "fab fa-github": https://github.com/smarterq
+    "fab fa-github": https://github.com/julydate
     "fab fa-twitter": https://twitter.com/julydate
     "fab fa-weibo": https://weibo.com/smarterq
     "fas fa-envelope": mailto:i@xhtml.love
@@ -266,7 +266,7 @@ sidebar:
     name:  # 名字，留空则使用网站title
     introduce:  # 支持 HTML，留空则使用网站subtitle
     icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
-        "fab fa-github": https://github.com/smarterq
+        "fab fa-github": https://github.com/julydate
         "fab fa-twitter": https://twitter.com/julydate
         "fab fa-weibo": https://weibo.com/smarterq
         "fas fa-envelope": mailto:i@xhtml.love
