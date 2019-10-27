@@ -4,6 +4,7 @@ var title = config.title
 if (page.title) {
   title = [page.title, title].join(joinStr)
 }
+var banner_img = page.banner_img || theme.index.banner_img
 %>
 
 <head>
@@ -26,6 +27,14 @@ if (page.title) {
     <%- css_ex(theme.static_prefix.prettify_theme, theme.highlight.theme + '.min.css') %>
   <% } %>
   <%- css_ex(theme.static_prefix.internal_css, "main.css") %>
-
+  <style type="text/css">
+    .banner-bg {
+      background: url('<%- banner_img %>')no-repeat center center;
+      background-size: cover;
+      background-attachment: <%- theme.banner_scroll == true ? 'scroll' : 'fixed' %>;
+    }
+  </style>
+  
   <%- partial('_partial/analytics.ejs') %>
+
 </head>

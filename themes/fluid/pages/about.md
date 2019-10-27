@@ -1,20 +1,7 @@
-<div style="width:100%;text-align:center">
-	<span style="font-size:12px;">
-		<span style="font-size:16px;color:#E53333;">
-			<strong>关于我</strong>
-		</span>
-		<br>
-	</span> 
-	<br>
-	<span style="font-size:12px;">一个在校的大学生</span> 
-	<br>
-	<span style="font-size:12px;">不安本分</span> 
-	<br> 
-	<span style="font-size:12px;">热爱计算机，热爱网络，热爱设计</span> 
-	<br>
-	<span style="font-size:12px;">但这都和我的专业无关...</span> 
-	<br> 
-	<span style="font-size:12px;">只愿</span> 
-	<br>
-	<span style="font-size:12px;">无关风月，不忘初心</span> 
-</div>
+已经不再是小鲜肉的95后，热爱互联网，感兴趣的事情什么都会一点点
+
+代码烂，游戏菜，天天等着大佬带
+
+常用ID: 七夏浅笑，Julydate   |   邮箱: i@xhtml.love
+
+无关风月，不忘初心
