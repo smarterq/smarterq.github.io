@@ -89,21 +89,9 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 
   <script>
     /*切换背景*/
-    var setBackground = function(){
-      $("body").removeClass("banner-bg");
-      $("#background").addClass("banner-bg");
-    }
-    var setBackgroundFull = function(){
-      $("#background").removeClass("banner-bg");
-      $("body").addClass("banner-bg");
-    }
     <% if(theme.full_bg_img) { %>
-    setBackgroundFull();
-    var flushBackground = function(){
-      setBackground();
-      setBackgroundFull();
-    }
-    $(window).resize(flushBackground);
+    $("#background").removeClass("banner-bg");
+    $("body").addClass("banner-bg");
     var postToTopHight = $("#board").offset().top;
     $(window).scroll(function () {
       var bgDisplay = false;
@@ -121,12 +109,8 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
       }
     });
     <% } else { %>
-      setBackground();
-      var flushBackground = function(){
-        setBackgroundFull();
-        setBackground();
-      }
-      $(window).resize(flushBackground);
+      $("body").removeClass("banner-bg");
+      $("#background").addClass("banner-bg");
       $('#mainContent').removeClass("rgba-black-slight");
       $('#footerContent').removeClass("rgba-black-slight");
       if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
