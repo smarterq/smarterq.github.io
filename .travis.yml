@@ -39,7 +39,7 @@ script:
 after_script:
   - cd ./public
   - git init
-  - git config user.name "smarterq"
+  - git config user.name "julydate"
   - git config user.email "smarterq@foxmail.com"
   - git add .
   - git commit -m "update"
@@ -47,5 +47,5 @@ after_script:
   #GH_TOKEN是在Travis中配置token的名称
 env:
  global:
-   - GH_REF: github.com/smarterq/smarterq.github.io.git  
+   - GH_REF: github.com/julydate/julydate.github.io.git  
    #设置GH_REF，注意更改yourname
