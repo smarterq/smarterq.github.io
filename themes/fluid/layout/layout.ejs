@@ -90,8 +90,12 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
   <script>
     /*切换背景*/
     <% if(theme.full_bg_img) { %>
-    $("#background").removeClass("banner-bg");
-    $("body").addClass("banner-bg");
+    var setBackground = function(){
+      $("#background").removeClass("banner-bg");
+      $("body").addClass("banner-bg");
+    }
+    setBackground();
+    $(window).resize(setBackground);
     var postToTopHight = $("#board").offset().top;
     $(window).scroll(function () {
       var bgDisplay = false;
@@ -109,8 +113,12 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
       }
     });
     <% } else { %>
-      $("body").removeClass("banner-bg");
-      $("#background").addClass("banner-bg");
+      var setBackground = function(){
+        $("body").removeClass("banner-bg");
+        $("#background").addClass("banner-bg");
+      }
+      setBackground();
+      $(window).resize(setBackground);
       $('#mainContent').removeClass("rgba-black-slight");
       $('#footerContent').removeClass("rgba-black-slight");
       if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
