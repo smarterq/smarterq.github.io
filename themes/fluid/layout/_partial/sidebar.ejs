@@ -8,11 +8,9 @@
     <div class="sidebar-avatar">
       <img src="<%- url_for(theme.avatar) %>" srcset="<%- url_for(theme.avatar) %>" alt="avatar"/>
     </div>
-    <div class="text-center">
+    <div class="text-center sidebar-about">
       <p class="h3 sidebar-author"><%= theme.sidebar.name || config.title %></p>
       <p class="sidebar-subtitle"><%- theme.sidebar.introduce || config.subtitle %></p>
-      <!-- <p class="h6 sidebar-social-title"><span class="sidebar-label">社交按钮</span></p> -->
-      <!-- <hr> -->
       <% for(var i in theme.sidebar.icons) { %>
         <a href="<%- theme.sidebar.icons[i] %>" class="h4" target="_blank">
           <i class="<%- i %>" aria-hidden="true"></i>
@@ -25,7 +23,6 @@
         <span class="sidebar-label-left"><i class="fas fa-user-friends"></i></span>
         <span class="sidebar-label">友情链接</span>
       </p>
-      <!-- <hr> -->
       <ul class="list-group">
         <% for(var i in theme.friends) { %>
           <a href="<%- theme.friends[i] %>" target="_blank">
