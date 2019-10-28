@@ -5,7 +5,6 @@ if (theme.index.slogan.enable) {
 page.banner_img = theme.index.banner_img
 page.banner_img_height = theme.index.banner_img_height
 %>
-
 <% page.posts.each(function (post) { %>
   <div class="row mb-4 mx-auto">
     <% var post_url = url_for(post.path) %>
@@ -32,7 +31,6 @@ page.banner_img_height = theme.index.banner_img_height
           <div class="index-text mb-1"><%- excerpt %></div>
         </div>
       </a>
-
       <div>
         <% if(theme.index.post_meta.date ) { %>
           <i class="iconfont icon-riqi2"></i>&nbsp;<%- date(post.date, config.date_format) %>&nbsp;&nbsp;
@@ -57,5 +55,4 @@ page.banner_img_height = theme.index.banner_img_height
     </div>
   </div>
 <% }) %>
-
 <%- partial('_partial/paginator') %>

@@ -6,7 +6,6 @@ if (page.title) {
 }
 var banner_img = page.banner_img || theme.index.banner_img
 %>
-
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="<%- url_for(theme.apple_touch_icon) %>">
@@ -29,12 +28,10 @@ var banner_img = page.banner_img || theme.index.banner_img
   <%- css_ex(theme.static_prefix.internal_css, "main.css") %>
   <style type="text/css">
     .banner-bg {
-      background: url('<%- banner_img %>')no-repeat center center;
+      background: url('<%- banner_img %>') center center;
+      background-repeat: repeat-y;
       background-size: cover;
       background-attachment: <%- theme.banner_scroll == true ? 'scroll' : 'fixed' %>;
     }
   </style>
-  
-  <%- partial('_partial/analytics.ejs') %>
-
 </head>

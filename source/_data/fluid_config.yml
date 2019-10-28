@@ -54,7 +54,13 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   scrollbar_color: "#fec9c9"
   scrollbar_thumb_color: "#fe4365"
 
-baidu_analytics:  # 百度统计的Key
+web_analytics:  # 网页统计代码
+  enable: true
+  baidu: # 百度统计的Key，留空则不启用
+  tencent: 500701132 # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage
+  woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index  20440495
+  cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show  1258664352
+  google: UA-150991779-1 #Google统计的Tracking ID，参见 https://analytics.google.com/analytics/web/
 
 lazyload: # 对页面中的图片进行懒加载处理，未在视口的图片不会加载
   enable: false
@@ -136,6 +142,7 @@ post:
   banner_img: /img/bg.jpg
   banner_img_height: 70  # available: 0 - 100
   date_format: "YYYY-MM-DD" #"dddd, MMMM Do YYYY, h:mm a"
+  pageview: true # 是否显示访问统计，参见 https://busuanzi.ibruce.info/
   toc:
     enable: true
   copyright:

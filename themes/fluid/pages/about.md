@@ -2,6 +2,8 @@
 
 代码烂，游戏菜，天天等着大佬带
 
-常用ID: 七夏浅笑，Julydate   |   邮箱: i@xhtml.love
+常用ID: 七夏浅笑，Julydate   |   邮箱: i#xhtml.love (#换成@)
+
+唯一会玩的游戏[守望先锋]( https://ow.blizzard.cn/home): 七夏浅笑#5977
 
 无关风月，不忘初心
