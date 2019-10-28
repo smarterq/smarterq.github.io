@@ -19,7 +19,8 @@ $(document).ready(function () {
         "top": ''
       })
     } else if (scroH > tocLimMax) {
-      toc.css("display", "none")
+      /* 滚动到页面底部时隐藏侧边目录，有bug */
+      /* toc.css("display", "none") */
     }
   }
   loadToc();
