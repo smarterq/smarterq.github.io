@@ -11,15 +11,15 @@
 #---------------------------
 avatar: /img/head.jpg # 头像
 
-favicon: /img/favicon.ico # 网站标签页的 icon
+favicon: /favicon.ico # 网站标签页的 icon
 
-apple_touch_icon: /img/favicon.ico # 用于苹果设备的 icon
+apple_touch_icon: /favicon.ico # 用于苹果设备的 icon
 
 title_join_string: ' - '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
 
 highlight: # 代码高亮
   enable: true
-  theme: github-v2 # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
+  theme: tranquil-heart # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
 
 fun_features: # 一些好玩的功能
   typing: # 为 subtitle 添加打字机效果
@@ -44,7 +44,7 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   tocbot_link_shadow: "0.1em 0.1em 0.2em #ffffff"
   tocbot_active_link_shadow: "0.1em 0.1em 0.2em #ffbcbc"
   sidebar_text_color: "#3c4858"
-  sidebar_background_color: "#f6f8fad1"
+  sidebar_background_color: "rgba(246, 248, 250, 0.82)" #f6f8fad1
   sidebar_button_color: "#99a9bf"
   sidebar_button_shift_color: "#ffffff"
   sidebar_button_shift_shadow: "0.1rem 0.1rem 0.5rem #3e3e3e"
@@ -135,7 +135,7 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: /img/bg.jpg
+  banner_img: https://ae01.alicdn.com/kf/U8720aea1269b407990ade7c258ae0d8b8.jpg
   banner_img_height: 100  # available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
@@ -155,7 +155,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/bg.jpg
+  banner_img: 
   banner_img_height: 70  # available: 0 - 100
   date_format: "YYYY-MM-DD" #"dddd, MMMM Do YYYY, h:mm a"
   pageview: true # 是否显示访问统计，参见 https://busuanzi.ibruce.info/
@@ -226,7 +226,7 @@ valine:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/bg.jpg
+  banner_img: 
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -235,7 +235,7 @@ archive:
 # Categories Page
 #---------------------------
 category:
-  banner_img: /img/bg.jpg
+  banner_img: 
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -244,7 +244,7 @@ category:
 # Tags Page
 #---------------------------
 tag:
-  banner_img: /img/bg.jpg
+  banner_img: 
   banner_img_height: 80  # available: 0 - 100
   tagcloud: # 标签云
     min_font: 15
@@ -260,7 +260,7 @@ tag:
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
-  banner_img: /img/bg.jpg
+  banner_img: # https://ae01.alicdn.com/kf/U5a5359bf841d408da19044f015af48a76.jpg
   banner_img_height: 80  # available: 0 - 100
   name: 七夏浅笑
   introduce: 七月之约，夏末浅笑 # 支持 HTML
@@ -275,7 +275,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
 # 404 Page
 #---------------------------
 page404:
-  banner_img: /img/bg.jpg
+  banner_img: https://ae01.alicdn.com/kf/Uce676c9c4a814dd88e17e6c148e2f9760.jpg
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
 
