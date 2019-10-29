@@ -25,8 +25,8 @@
 						/* * * DON'T EDIT BELOW THIS LINE * * */
              			var disqus_config = function () {
 							 this.page.url = '<%= config.url %>/<%= page.path %>';
-							 /* 原本为 /<%= page.path %> 启用 abbrlink 插件过后改为如下 */
-							 this.page.identifier = '<%= page.abbrlink %>'; 
+							 /* 兼容abbrlink插件 */
+							 this.page.identifier = '<% if(page.abbrlink) { %><%= page.abbrlink %><% } else { %>/<%= page.path %><% } %>'; 
 							 this.page.title = '<%= page.title %>';
              			};
              			(function () {
