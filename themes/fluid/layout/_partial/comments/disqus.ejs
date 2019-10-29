@@ -24,9 +24,8 @@
 						
 						/* * * DON'T EDIT BELOW THIS LINE * * */
              			var disqus_config = function () {
-							 this.page.url = '<%= config.url + config.root + page.path %>';
-							 /* 兼容abbrlink插件 */
-							 //this.page.identifier = '<% if(page.abbrlink) { %>/<%= page.abbrlink %><% } else { %>/<%= page.path %><% } %>'; 
+							 this.page.url = '<%= page.permalink %>';
+							 this.page.identifier = '<%= page.path %>'; 
 							 this.page.title = '<%= page.title %>';
              			};
              			(function () {
