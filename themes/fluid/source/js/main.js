@@ -37,14 +37,14 @@ $(document).ready(function () {
     oldLoad && oldLoad();
   };
 
-  // 向下滚动箭头的点击
+  /* 向下滚动箭头的点击 */
   $(".scroll-down-bar").on("click", scrollToBoard);
 
-  // 向顶部滚动箭头
+  /* 向顶部滚动箭头 */
   var topArrow = $("#scroll-top-button");
   var posDisplay = false;
   var scrollDisplay = false;
-  // 位置
+  /* 位置 */
   var setTopArrowPos = function () {
     var boardRight = document.getElementById('board').getClientRects()[0].right;
     var bodyWidth = document.body.offsetWidth;
@@ -57,7 +57,7 @@ $(document).ready(function () {
   };
   setTopArrowPos();
   $(window).resize(setTopArrowPos);
-  // 显示
+  /* 显示 */
   var headerHeight = $("#board").offset().top;
   $(window).scroll(function () {
     var scrollHeight = document.body.scrollTop + document.documentElement.scrollTop;
@@ -66,7 +66,7 @@ $(document).ready(function () {
       "bottom": posDisplay && scrollDisplay ? "20px" : "-60px"
     });
   });
-  // 点击
+  /* 点击 */
   topArrow.on("click", function () {
     $("body,html").animate({
       scrollTop: 0,
@@ -92,7 +92,7 @@ $("#footerContent").on("click",hideSidebar);
 /*加载disqus评论框*/
 $(document).ready(function(){
   if(document.getElementById('disqus_thread')) {
-    //recheckDQ();
+    recheckDQ();
   }
 });
 /*重载disqus评论框*/
