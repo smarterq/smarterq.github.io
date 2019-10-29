@@ -90,11 +90,11 @@ $("#mainContent").on("click",hideSidebar);
 $("#footerContent").on("click",hideSidebar);
 
 /*加载disqus评论框*/
-//$(document).ready(function(){
+$(document).ready(function(){
   if(document.getElementById('disqus_thread')) {
-    recheckDQ();
+    //recheckDQ();
   }
-//});
+});
 /*重载disqus评论框*/
 var reload_disqus = function () {
   recheckDQ();
