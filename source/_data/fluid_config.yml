@@ -135,7 +135,7 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: https://ae01.alicdn.com/kf/U8720aea1269b407990ade7c258ae0d8b8.jpg
+  banner_img: https://ae01.alicdn.com/kf/U8720aea1269b407990ade7c258ae0d8b8.jpg #/img/bg.jpg
   banner_img_height: 100  # available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
@@ -260,7 +260,7 @@ tag:
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
-  banner_img: # https://ae01.alicdn.com/kf/U5a5359bf841d408da19044f015af48a76.jpg
+  banner_img: 
   banner_img_height: 80  # available: 0 - 100
   name: 七夏浅笑
   introduce: 七月之约，夏末浅笑 # 支持 HTML
@@ -275,7 +275,7 @@ about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/a
 # 404 Page
 #---------------------------
 page404:
-  banner_img: https://ae01.alicdn.com/kf/Uce676c9c4a814dd88e17e6c148e2f9760.jpg
+  banner_img: 
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
 
