@@ -26,7 +26,7 @@
              			var disqus_config = function () {
 							 this.page.url = '<%= config.url + config.root + page.path %>';
 							 /* 兼容abbrlink插件 */
-							 this.page.identifier = '<% if(page.abbrlink) { %>/<%= page.abbrlink %><% } else { %>/<%= page.path %><% } %>'; 
+							 //this.page.identifier = '<% if(page.abbrlink) { %>/<%= page.abbrlink %><% } else { %>/<%= page.path %><% } %>'; 
 							 this.page.title = '<%= page.title %>';
              			};
              			(function () {
