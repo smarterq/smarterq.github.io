@@ -90,7 +90,7 @@ fancybox: # 文章图片灯箱
   enable: true
 
 smooth_scroll: # 平滑滚动效果
-  enable: true
+  enable: false
 
 #---------------------------
 # 页头
