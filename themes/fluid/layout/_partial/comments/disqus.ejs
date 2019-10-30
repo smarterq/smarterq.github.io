@@ -52,6 +52,17 @@
 			xhr.send(null);
 		}
 	}
+	/*异步加载评论框*/
+	$(document).ready(function(){
+  		if(document.getElementById('disqus_thread')) {
+    		recheckDQ();
+  		}
+	});
+	/*重载评论框*/
+	var reload_disqus = function () {
+  		recheckDQ();
+  		$('#disqus_loading').css('display','none');
+	}
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments
       powered by Disqus.</a></noscript>

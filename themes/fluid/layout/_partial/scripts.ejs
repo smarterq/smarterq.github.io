@@ -4,7 +4,7 @@
 <%- js_ex(theme.static_prefix.mdbootstrap, "js/mdb.min.js") %>
 <% if(is_post && theme.fancybox.enable){ %>
   <%- js_ex(theme.static_prefix.fancybox, "jquery.fancybox.min.js") %>
-  <script>
+  <script type="text/javascript">
   /* Fancybox */
   var setupFancybox = function () {
     $("#post img:not(.no-zoom img, img[no-zoom])").each(function() {
@@ -29,7 +29,7 @@
 <% } %>
 <% if(theme.highlight.enable){ %>
   <%- js_ex(theme.static_prefix.prettify, "/prettify.min.js") %>
-  <script>
+  <script type="text/javascript">
     $(document).ready(function () {
       $('pre').addClass('prettyprint  <%- config.highlight.line_number ? 'linenums' : '' %>');
       prettyPrint();
@@ -38,7 +38,7 @@
 <% } %>
 <% if(theme.fun_features.typing.enable){ %>
   <%- js_ex(theme.static_prefix.typed, "/typed.min.js") %>
-  <script>
+  <script type="text/javascript">
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
@@ -57,7 +57,7 @@
 <% } %>
 <% if(theme.fun_features.anchorjs.enable){ %>
   <%- js_ex(theme.static_prefix.anchor, "/anchor.min.js") %>
-  <script>
+  <script type="text/javascript">
     anchors.options = {
       placement: "<%- theme.fun_features.anchorjs.placement %>",
       visible: "<%- theme.fun_features.anchorjs.visible %>",
@@ -75,7 +75,7 @@
 <% } %>
 <% if(theme.search.enable){ %>
   <%- js_ex(theme.static_prefix.internal_js, "local-search.js") %>
-  <script>
+  <script type="text/javascript">
     var path = "<%- theme.search.path || '/local-search.xml' %>";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
@@ -86,8 +86,18 @@
 <% } %>
 <% if (theme.smooth_scroll.enable) { %>
   <%- js_ex(theme.static_prefix.smooth_scroll, "SmoothScroll.min.js") %>
+  <style type="text/css">
+    html, body{
+      scroll-behavior: smooth;
+    }
+    @media screen and (prefers-reduced-motion: reduce){
+      html, body{
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 <% } %>
-<script>
+<script type="text/javascript">
   /* 切换背景 */
   <% if(theme.full_bg_img) { %>
   $("#background").removeClass("banner-bg");
@@ -117,6 +127,56 @@
     }
   <% } %>
 </script>
+<% if(theme.footer.date.enable) { %>
+<script type="text/javascript">
+/*显示博客运行时间*/
+var blogRunTime = function () {
+  var runTime = document.getElementById("runtime");
+  var runtimeDate = "<%- theme.footer.date.create_date %>";
+	var createDate = new Date(runtimeDate);
+	var nowDate = new Date();
+	var dateLine = nowDate.getTime() - createDate.getTime();
+	var runDate = Math.floor(dateLine / (1000 * 60 * 60 * 24));
+	runTime.innerHTML = runDate;
+};
+$(document).ready(function(){
+	blogRunTime();
+});
+</script>
+<% } %>
+<% if(theme.fun_features.monitortext.enable) { %>
+<script type="text/javascript">
+/*窗口监视*/
+var originalTitle = document.title;
+window.onblur = function(){document.title = "<%- theme.fun_features.monitortext.text %>"};
+window.onfocus = function(){document.title = originalTitle};
+</script>
+<% } %>
+<% if(theme.footer.hitokoto) { %>
+<script type="text/javascript">
+/*一言API*/
+$(document).ready(function(){
+  getHitokoto();
+});
+function hitokoto(e) {
+  $("#hitokoto").stop().fadeOut(function() {
+    $("#hitokoto").html(e.hitokoto);
+    var element = document.getElementById('hitokotoa');
+    element.href = "https://hitokoto.cn?id=" + e.id;
+    $("#hitokoto").stop().fadeIn()
+  })
+};
+function getHitokoto() {
+  var e = ["a", "b", "c", "d"],
+  t = document.createElement("script");
+  t.type = "text/javascript";
+  t.id = "hitokotoko_js";
+  t.src = "https://v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat=" + e[Math.floor(Math.random() * e.length)];
+  $("#hitokoto").append(t);
+};
+setInterval(getHitokoto, 1e4);
+</script>
+<% } %>
 <% if(theme.fun_features.snow.enable) { %>
 <script type="text/javascript">
 /* 雪花效果 */
