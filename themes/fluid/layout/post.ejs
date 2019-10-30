@@ -10,7 +10,7 @@ page.banner_img_height = theme.post.banner_img_height
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
+        <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <%- page.content %>
             <hr>
@@ -31,6 +31,12 @@ page.banner_img_height = theme.post.banner_img_height
               <% page.tags.each(function(tag) { %>
                 <a class="hover-with-bg" href="/tags/<%- encodeURI(tag.name) %>"><%= tag.name %></a>
               <% }) %>
+              <% if (theme.valine.visitor) { %>
+                <span id="/<%= page.path %>" class="visitors leancloud_visitors" data-flag-title="<%= page.title %>">
+                  <em id="visitors-text" class="post-meta-item-text"></em>
+                  <i id="visitors-count"></i>
+                </span>
+              <% } %>
             </p>
             <% if(theme.post.copyright.enable) { %>
               <p class="note note-warning"><%- theme.post.copyright.content %></p>

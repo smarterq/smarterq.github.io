@@ -56,3 +56,7 @@ prettify_theme: /lib/prettify
 tocbot: https://cdn.staticfile.org/tocbot/4.8.1 #/lib/tocbot
 
 typed: https://cdn.staticfile.org/typed.js/2.0.9 #/lib/typed
+
+fancybox: https://cdn.staticfile.org/fancybox/3.5.7 #/lib/fancybox
+
+smooth_scroll: https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.10 #/lib/smooth-scroll

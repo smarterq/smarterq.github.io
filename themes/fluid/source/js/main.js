@@ -10,10 +10,9 @@ function scrollToBoard() {
   scrollToElement('#board', -$("#navbar").height());
 }
 
-document.getElementById('board').onload = scrollToBoard;
-
 
 $(document).ready(function () {
+  /* 顶部菜单的动效 */
   var navbar = $("#navbar");
   if (navbar.offset().top > 0) {
     navbar.addClass("navbar-custom");
@@ -32,10 +31,6 @@ $(document).ready(function () {
     $('#navbar').toggleClass('navbar-col-show');
   });
 
-  var oldLoad = window.onload;
-  window.onload = function () {
-    oldLoad && oldLoad();
-  };
 
   /* 向下滚动箭头的点击 */
   $(".scroll-down-bar").on("click", scrollToBoard);
