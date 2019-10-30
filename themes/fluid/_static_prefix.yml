@@ -33,34 +33,34 @@ internal_img: /img
 # Third-party library
 #---------------------------
 
-anchor: /lib/anchor # https://cdn.staticfile.org/anchor-js/4.2.0
+anchor: /lib/anchor # 推荐 https://cdn.staticfile.org/anchor-js/4.2.0
 
-font_awesome: /lib/font-awesome # https://cdn.staticfile.org/font-awesome/5.10.0
+font_awesome: /lib/font-awesome # 推荐 https://cdn.staticfile.org/font-awesome/5.10.0
 
-github_markdown: /lib/github-markdown # https://cdn.staticfile.org/github-markdown-css/3.0.1
+github_markdown: /lib/github-markdown # 推荐 https://cdn.staticfile.org/github-markdown-css/3.0.1
 
-jquery: /lib/jquery # https://cdn.staticfile.org/jquery/3.4.1
+jquery: /lib/jquery # 推荐 https://cdn.staticfile.org/jquery/3.4.1
 
-bootstrap: /lib/bootstrap # https://cdn.staticfile.org/twitter-bootstrap/4.3.1
+bootstrap: /lib/bootstrap # 推荐 https://cdn.staticfile.org/twitter-bootstrap/4.3.1
 
-mdbootstrap: /lib/mdbootstrap # https://cdn.staticfile.org/mdbootstrap/4.8.7
+mdbootstrap: /lib/mdbootstrap # 推荐 https://cdn.staticfile.org/mdbootstrap/4.8.7
 
 # umd
-popper: /lib/popper # https://cdn.staticfile.org/popper.js/1.15.0
+popper: /lib/popper # 推荐 https://cdn.staticfile.org/popper.js/1.15.0
 
-prettify: /lib/prettify # https://cdn.staticfile.org/prettify/r298
+prettify: /lib/prettify # 推荐 https://cdn.staticfile.org/prettify/r298
 # 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
 # the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
 prettify_theme: /lib/prettify
 
-tocbot: /lib/tocbot # https://cdn.staticfile.org/tocbot/4.8.1
+tocbot: /lib/tocbot # 推荐 https://cdn.staticfile.org/tocbot/4.8.1
 
-typed: /lib/typed # https://cdn.staticfile.org/typed.js/2.0.9
+typed: /lib/typed # 推荐 https://cdn.staticfile.org/typed.js/2.0.9
 
-fancybox: /lib/fancybox # https://cdn.staticfile.org/fancybox/3.5.7
+fancybox: /lib/fancybox # 推荐 https://cdn.staticfile.org/fancybox/3.5.7
 
-smooth_scroll: /lib/smooth-scroll # https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.10
+smooth_scroll: /lib/smooth-scroll # 推荐 https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.10
 
-mathjax: /lib/mathjax # https://cdn.staticfile.org/mathjax/2.7.6/MathJax.js
+mathjax: /lib/mathjax # 推荐 https://cdn.staticfile.org/mathjax/2.7.6/MathJax.js
 
-katex: /lib/katex # https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css 
+katex: /lib/katex # 推荐 https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css 
