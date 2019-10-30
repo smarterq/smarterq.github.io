@@ -122,6 +122,23 @@
     <%- css_ex(theme.static_prefix.katex, "katex.min.css") %>
   <% } %>
 <% } %>
+<% if(theme.index.post_img.enable && theme.index.post_img.random) { %>
+<script type="text/javascript">
+  /* 首页文章列表随机图片 */
+  $("img.image_random").each(function(){
+    var _this = $(this);
+    var ctypeAll = <% if(theme.index.post_img.ctype === "auto") { %>["acg","nature"]<% } else { %>["<%= theme.index.post_img.ctype %>"]<% } %>;
+    var ctype = ctypeAll[Math.floor(Math.random() * ctypeAll.length)];
+    $.get("//img.xjh.me/random_img.php?return=json&type=bg&ctype=" + ctype,function(data,status){
+      if(status === "success"){
+        if(data.result === 200){
+          _this[0].src = data.img;
+        }
+      }
+    });
+  });
+</script>
+<% } %>
 <script type="text/javascript">
   /* 切换背景 */
   <% if(theme.full_bg_img) { %>
@@ -196,7 +213,7 @@ function getHitokoto() {
   t = document.createElement("script");
   t.type = "text/javascript";
   t.id = "hitokotoko_js";
-  t.src = "https://v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat=" + e[Math.floor(Math.random() * e.length)];
+  t.src = "//v1.hitokoto.cn/?encode=json&callback=hitokoto&charset=utf-8&cat=" + e[Math.floor(Math.random() * e.length)];
   $("#hitokoto").append(t);
 };
 setInterval(getHitokoto, 1e4);

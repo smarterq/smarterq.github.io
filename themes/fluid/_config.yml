@@ -160,6 +160,11 @@ index:
     wordcount: true
     category: true
     tag: true
+  post_img: 
+    enable: true # 是否显示首页文章列表图片
+    default: /img/default.png # 首页文章列表默认图片
+    random: true # 是否开启文章列表随机图片，具体参见：https://www.xjh.me/3069.html?replytocom=4888
+    ctype: auto # 可选 auto,acg,nature
 
 
 #---------------------------
