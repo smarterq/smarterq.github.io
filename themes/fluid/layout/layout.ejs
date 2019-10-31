@@ -22,7 +22,8 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
             <% if(is_post()) { %>
               <br>
               <p class="mt-3">
-                <%- full_date(page.date, theme.post.date_format) %>&nbsp;|&nbsp;
+                <i class="far fa-calendar-alt"></i>
+                <span class="post-date"><%- full_date(page.date, theme.post.date_format) %>&nbsp;|&nbsp;</span>
                 <i class="far fa-chart-bar"></i>
                 <span class="post-count"><%= wordcount(page.content) %></span>字&nbsp;|&nbsp;
                 <i class="far fa-clock"></i>

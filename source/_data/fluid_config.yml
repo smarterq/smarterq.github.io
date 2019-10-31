@@ -172,7 +172,7 @@ index:
     category: true
     tag: true
   post_img: 
-    enable: true # 是否显示首页文章列表图片
+    enable: false # 是否显示首页文章列表图片
     default: /img/default.png # 首页文章列表默认图片
     random: true # 是否开启文章列表随机图片，具体参见：https://www.xjh.me/3069.html?replytocom=4888
     ctype: # 可选 random,auto,acg,nature ，auto 为不指定 ctype，random 为在两种 ctype 中随机，留空则不限制图片类型为 bg
