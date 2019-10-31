@@ -136,11 +136,11 @@ footer:
     create_date: 2015,04,20 # 博客创立时间，格式如 2015,04,20
     text: 萌萌哒%d天啦 # 要显示的文字，%d 是指日期数，不要漏掉
   site_pv:
-    enable: true # 是否显示本站总访问量
+    enable: false # 是否显示本站总访问量
     text: 被瞅了%d次 # %d 是指访问数量
     offset:  # 总访问量数值修正，不清楚请留空
   site_uv:
-    enable: true # 是否显示本站访客数
+    enable: false # 是否显示本站访客数
     text: 被%d人看爆
     offset:  # 访客数数值修正，不清楚请留空
   beian:  # The footer of China's website policy, other areas keep disable
@@ -172,7 +172,7 @@ index:
     category: true
     tag: true
   post_img: 
-    enable: false # 是否显示首页文章列表图片
+    enable: true # 是否显示首页文章列表图片
     default: /img/default.png # 首页文章列表默认图片
     random: true # 是否开启文章列表随机图片，具体参见：https://www.xjh.me/3069.html?replytocom=4888
     ctype: # 可选 random,auto,acg,nature ，auto 为不指定 ctype，random 为在两种 ctype 中随机，留空则不限制图片类型为 bg
