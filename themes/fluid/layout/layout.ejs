@@ -5,7 +5,7 @@ var subtitle = page.subtitle || page.title
 var banner_img = page.banner_img || theme.index.banner_img
 var banner_img_height = page.banner_img_height || theme.index.banner_img_height
 %>
-<%- partial('_partial/head') %>
+<%- partial('_partial/head', {banner_img: banner_img}) %>
 <body class="banner-bg">
   <%- partial('_partial/sidebar') %>
   <header style="height: <%- banner_img_height %>vh;">
