@@ -242,13 +242,6 @@ body
     transform translateY(0)
 
 
-/* valine阅读数统计 */
-.visitors
-  font-size .8em
-  padding .45rem
-  float right
-
-
 /* pagination */
 .pagination a, .pagination .current
   outline 0
@@ -467,13 +460,13 @@ footer .iconfont
 
 
 /* 博客运行时间样式 */
-#runtime 
+#runtime, #busuanzi_value_site_pv, #busuanzi_value_site_uv
     cursor pointer
     -webkit-transition all .2s ease-in-out
     -o-transition all .2s ease-in-out
     transition all .2s ease-in-out
 
-#runtime:hover 
+#runtime:hover, #busuanzi_value_site_pv:hover, #busuanzi_value_site_uv:hover
     color $footer-a-hover-color
     text-shadow $footer-shadow
     -webkit-transition all .2s ease-in-out

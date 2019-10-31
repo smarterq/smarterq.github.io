@@ -79,9 +79,12 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
     <%- partial('_partial/search') %>
   <% } %>
   <%- partial('_partial/footer', { data: { 'subtitle': subtitle } }) %>
-  <%- partial('_partial/analytics.ejs') %>
-  <% if(is_post() && theme.post.pageview) { %>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <% if(banner_img_height === 100 && theme.full_banner) { %>
+    <script type="text/javascript">
+      /* 页面 banner 覆盖全屏 */
+      $(".scroll-down-bar .scroll-down-arrow").css({"margin-top":"3rem"});
+      $("#board").css({"margin-top":"0"});
+    </script>
   <% } %>
 </body>
 </html>

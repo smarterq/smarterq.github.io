@@ -4,24 +4,43 @@
     <div class="footer-theme">
       <a href="https://hexo.io" target="_blank" rel="nofollow noopener noreferrer">Hexo</a> theme <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener noreferrer">Fluid</a> mod by <a href="https://github.com/julydate/hexo-theme-fluid-mod" target="_blank" rel="nofollow noopener noreferrer">Julydate</a>
     </div>
-    <div class="footer-copyright">
+    <% if(theme.footer.show_copyright || theme.footer.date.enable) { %>
+      <div class="footer-copyright">
         <% if(theme.footer.show_copyright) { %>
           ©<%= date(new Date(), 'YYYY') %>&nbsp;<%= config.author || config.title %>
         <% } %>
-        <% if(theme.footer.show_copyright && theme.footer.date.enable) { %>
-          <i class="iconfont icon-love"></i>
-        <% } %>
         <% if(theme.footer.date.enable) { %>
-          <span>勉强运行<span id="runtime"></span>天</span>
+          <% if(theme.footer.show_copyright) { %>
+            <i class="iconfont icon-love"></i>
+          <% } %>
+          <span><%= theme.footer.date.text.split('%d')[0] %><span id="runtime"></span><%= theme.footer.date.text.split('%d')[1] %></span>
         <% } %>
-    </div>
+      </div>
+    <% } %>
+    <% if(theme.footer.site_pv.enable || theme.footer.site_uv.enable) { %>
+      <div class="footer-siteview">
+        <% if(theme.footer.site_pv.enable) { %>
+          <span id="busuanzi_container_site_pv" style="display:none">
+              <%= theme.footer.site_pv.text.split('%d')[0] %><span id="busuanzi_value_site_pv"></span><%= theme.footer.site_pv.text.split('%d')[1] %>
+          </span>
+        <% } %>
+        <% if(theme.footer.site_uv.enable) { %>
+          <span id="busuanzi_container_site_uv" style="display:none">
+            <% if(theme.footer.site_pv.enable) { %>|<% } %>
+            <%= theme.footer.site_uv.text.split('%d')[0] %><span id="busuanzi_value_site_uv"></span><%= theme.footer.site_uv.text.split('%d')[1] %>
+          </span>
+        <% } %>
+      </div>
+    <% } %>
     <% if(theme.footer.beian.enable) { %>
-      <a href="http://beian.miit.gov.cn/" target="_blank"
-         rel="nofollow noopener noreferrer"><%- theme.footer.beian.icp_text %></a>
-      <% if(theme.footer.beian.police_text && theme.footer.beian.police_code) { %>
-        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
-           target="_blank" rel="nofollow noopener noreferrer"> | <%- theme.footer.beian.police_text %></a>
-      <% } %>
+      <div class="footer-beian">
+        <a href="http://beian.miit.gov.cn/" target="_blank"
+          rel="nofollow noopener noreferrer"><%- theme.footer.beian.icp_text %></a>
+        <% if(theme.footer.beian.police_text && theme.footer.beian.police_code) { %>
+          <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=<%- theme.footer.beian.police_code %>"
+            target="_blank" rel="nofollow noopener noreferrer"> | <%- theme.footer.beian.police_text %></a>
+        <% } %>
+      </div>
     <% } %>
     <% if(theme.footer.hitokoto) { %>
       <div class="footer-hitokoto">
@@ -34,3 +53,36 @@
 </footer>
 </div>
 <%- partial('_partial/scripts.ejs') %>
+<%- partial('_partial/analytics.ejs') %>
+<% if(theme.post.pageview || theme.footer.site_pv.enable || theme.footer.site_uv.enable) { %>
+  <%- js_async("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js") %>
+  <% if(theme.footer.site_pv.offset || theme.footer.site_uv.offset) { %>
+    <script>
+      /* 不蒜子计数初始值纠正 */
+      $(document).ready(function() {
+        var busuanziPvOffset = 0;
+        var busuanziUvOffset = 0;
+        <% if(theme.footer.site_pv.offset){ %>
+          busuanziPvOffset = parseInt(<%= theme.footer.site_pv.offset %>);
+        <% } %>
+        <% if(theme.footer.site_uv.offset){ %>
+          busuanziUvOffset = parseInt(<%= theme.footer.site_uv.offset %>);
+        <% } %>
+        if(busuanziPvOffset !== 0) var intPv = setInterval(function(){fixPvCount(intPv, busuanziPvOffset)}, 100);
+        if(busuanziUvOffset !== 0) var intUv = setInterval(function(){fixUvCount(intUv, busuanziUvOffset)}, 100);
+        function fixPvCount(int, offset) {
+          if ($("#busuanzi_container_site_pv").css("display") !== "none") {
+            clearInterval(int);
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + offset);
+          }
+        }
+        function fixUvCount(int, offset) {
+          if ($("#busuanzi_container_site_uv").css("display") != "none") {
+            clearInterval(int);
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + offset);
+          }
+        }
+      });
+    </script>
+  <% } %>
+<% } %>
