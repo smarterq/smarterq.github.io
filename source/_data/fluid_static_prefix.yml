@@ -64,3 +64,5 @@ smooth_scroll: https://cdn.jsdelivr.net/npm/smoothscroll-for-websites@1.4.10/ #/
 mathjax: https://cdn.staticfile.org/mathjax/2.7.6/ #/lib/mathjax
 
 katex: https://cdn.staticfile.org/KaTeX/0.11.1/ #/lib/katex
+
+backstretch: https://cdn.staticfile.org/danielgindi-jquery-backstretch/2.1.15/ #/lib/backstretch

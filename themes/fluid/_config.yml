@@ -123,6 +123,23 @@ scroll_down_arrow:  # 向下滚动的箭头
 full_banner: true # 头图和页面头部是否占满全屏，开启需同时设置对应页面 banner_img_height 为100
 full_bg_img: true # 头图是否铺满全屏
 banner_scroll: false  # 头图是否跟随页面滚动
+random_bg:
+  enable: false # 是否开启随机背景
+  time: 20 # 随机背景轮换时间，单位为秒
+  fade: 2  # 随机背景渐变时间，单位为秒
+  type: local # 随机背景类型，可选 online,local ，online 为在线随机背景，local为自定义随机背景
+  ctype: auto # 可选 random,auto,acg,nature ，auto 为不指定 ctype，random 为在两种 ctype 中随机，留空则不限制图片类型为 bg，具体参见：https://www.xjh.me/3069.html?replytocom=4888
+  num: 3 # 在线随机背景个数，请不要设置太大
+  url: # 自定义随机背景地址（可以为相对链接），上方 type 为 local 时填写，每行一个链接，前面的数值编号可以随便填但不要重复
+    1: http://img.xjh.me/desktop/bg/acg/64082849_p0.jpg
+    2: http://img.xjh.me/desktop/bg/acg/63946708_p0.jpg
+    3: http://img.xjh.me/desktop/bg/acg/59756207_p0.jpg
+    4: http://img.xjh.me/desktop/bg/acg/63374320_p0.jpg
+    5: http://img.xjh.me/desktop/bg/nature/59190594_p0.jpg
+    6: http://img.xjh.me/desktop/bg/acg/63093148_p0.jpg
+    7: http://img.xjh.me/desktop/bg/acg/62494753_p0.jpg
+    8: http://img.xjh.me/desktop/bg/acg/61749296_p0.jpg
+
 
 #---------------------------
 # 页脚
@@ -157,15 +174,15 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: /img/default.png
-  banner_img_height: 100  # available: 0 - 100
+  banner_img: /img/default.png  # 首页 Banner 头图，以下相同
+  banner_img_height: 100  # 头图高度，屏幕百分比，available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
     text:  # 为空则按 hexo config.subtitle 显示
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
-  post_meta: # 是否显示文章信息（时间、分类、标签）
+  post_meta: # 是否显示文章信息（时间、字数、分类、标签）
     date: true
     wordcount: true
     category: true
@@ -186,12 +203,12 @@ post:
   banner_img_height: 70  # available: 0 - 100
   date_format: "YYYY-MM-DD"
   pageview: true # 是否显示访问统计，参见 https://busuanzi.ibruce.info/
-  toc:
+  toc:  # 右侧导航条
     enable: true
-  copyright:
+  copyright:  # 版权声明
     enable: true
     content: '本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！'
-  custom:
+  custom:  # 文章底部自定义内容
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
   comments:
@@ -207,6 +224,8 @@ post:
 # 评论
 # Comments
 #---------------------------
+
+# 开启评论在上方的 post.comments 配置
 
 # utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
