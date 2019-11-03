@@ -38,7 +38,7 @@ fun_features: # 一些好玩的功能
     enable: true
     text: 你不爱我了QAQ
   snow: 
-    enable: true # 是否开启背景飘雪效果
+    enable: false # 是否开启背景飘雪效果
     color: rgba(255, 255, 255, 0.7) # 雪花颜色
 
 color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
@@ -175,7 +175,7 @@ scroll_top_arrow:  # 向顶部滚动的箭头
 # Index Page
 #---------------------------
 index:
-  banner_img: https://ae01.alicdn.com/kf/U8720aea1269b407990ade7c258ae0d8b8.jpg #/img/bg.jpg
+  banner_img: https://ae01.alicdn.com/kf/U8720aea1269b407990ade7c258ae0d8b8.jpg #/img/bg.jpg # bg:https://ae01.alicdn.com/kf/U8720aea1269b407990ade7c258ae0d8b8.jpg | sakura1:https://ae01.alicdn.com/kf/U05a569955d8e4cfbae97f48a38290440e.jpg | sakura2: https://ae01.alicdn.com/kf/Uf0c80a27e7b94925b41f42d958f74ccbn.jpg
   banner_img_height: 100  # available: 0 - 100
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
@@ -207,7 +207,7 @@ post:
     enable: true
   copyright:
     enable: true
-    content: '本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！'
+    content: '本站文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.zh" rel="nofollow noopener">CC BY-NC-SA 3.0 CN</a> 协议进行许可'
   custom:
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
@@ -362,7 +362,7 @@ friends:
   s7smile: http://www.s7smile.com/
   Brian’s Blog: https://blog.brianhe.me/ #未更新
   月宅酱: https://ikmoe.com/ #无反链
+  空樱酱: https://kotori.love/ #无反链
   萌月(打不开): http://www.moeyue.com/ #打不开
   立华(打不开): https://freedom.moe/ #打不开
-  空樱酱(打不开): https://kotori.love/ #打不开
   猫行天下(打不开): http://www.aidcat.com/ #打不开
