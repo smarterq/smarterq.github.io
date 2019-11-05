@@ -136,15 +136,3 @@
     }();
   </script>
 <% } %>
-<% if(theme.fun_features.qcloudoss.enable) { %>
-  <script type="text/javascript">
-    $("#post img").each(function(){
-      $(this)[0].src = "//<%= theme.fun_features.qcloudoss.domain %>" + $(this)[0].getAttribute('src');
-    });
-    $("#post a").each(function(){
-      if($(this)[0].getAttribute('data-fancybox')){
-        $(this)[0].href = "//<%= theme.fun_features.qcloudoss.domain %>" + $(this)[0].getAttribute('href');
-      }
-    });
-  </script>
-<% } %>

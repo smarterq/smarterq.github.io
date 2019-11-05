@@ -71,6 +71,18 @@ var banner_img_height = page.banner_img_height || theme.index.banner_img_height
       </div>
     <% } %>
   </main>
+  <% if(theme.fun_features.qcloudoss.enable) { %>
+    <script type="text/javascript">
+      $("#post img").each(function(){
+        $(this)[0].src = "//<%= theme.fun_features.qcloudoss.domain %>" + $(this)[0].getAttribute('src');
+      });
+      $("#post a").each(function(){
+        if($(this)[0].getAttribute('data-fancybox')){
+          $(this)[0].href = "//<%= theme.fun_features.qcloudoss.domain %>" + $(this)[0].getAttribute('href');
+        }
+      });
+    </script>
+  <% } %>
   <% if (theme.scroll_top_arrow.enable) { %>
     <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
       <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
