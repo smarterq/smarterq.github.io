@@ -95,11 +95,6 @@ fancybox: # 文章图片灯箱
 
 smooth_scroll: # 平滑滚动效果
   enable: false
-  
-qcloudcos:
-  enable: true
-  domain: julydate-1251438221.file.myqcloud.com
-  onlypost: true
 
 
 #---------------------------

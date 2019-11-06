@@ -93,12 +93,15 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: fluid
 
+# aplayer
 aplayer:
   meting: true
   
+# sitemap
 sitemap:
   path: sitemap.xml
-  
+
+# rss
 feed:
     type: atom
     path: atom.xml
@@ -108,7 +111,8 @@ feed:
     content_limit:
     content_limit_delim: ' '
 
-all_minifier: true
+# minifier
+all_minifier: false
 
 html_minifier:
   enable: true
@@ -136,6 +140,20 @@ image_minifier:
   pngquant: false
   progressive: false
 
+# qcloudcos
+qcloudcos:
+  enable: true # 是否开启腾讯云对象储存
+  domain: julydate-1251438221.file.myqcloud.com # 腾讯云对象储存或CDN域名
+  onlypost: false # 是否只替换文章资源
+  img: true # 是否替换 img 标签，下列项目同理
+  link: true
+  script: true
+  audio: false
+  video: false
+  source: false
+  track: false
+  area: false
+  
 #img lazyload
 #lazyload:
  # enable: true
