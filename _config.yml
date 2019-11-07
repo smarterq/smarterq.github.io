@@ -112,7 +112,7 @@ feed:
     content_limit_delim: ' '
 
 # minifier
-all_minifier: true
+all_minifier: false
 
 html_minifier:
   enable: true

@@ -89,6 +89,7 @@ web_analytics:  # 网页统计代码
 lazyload: # 对页面中的图片进行懒加载处理，未在视口的图片不会加载
   enable: true
   onlypost: true
+  loadingimg: /img/loading.svg
   
 fancybox: # 文章图片灯箱
   enable: true
@@ -203,7 +204,7 @@ post:
   banner_img: 
   banner_img_height: 70  # available: 0 - 100
   date_format: "YYYY-MM-DD" #"dddd, MMMM Do YYYY, h:mm a"
-  pageview: true # 是否显示访问统计，参见 https://busuanzi.ibruce.info/
+  pageview: false # 是否显示访问统计，参见 https://busuanzi.ibruce.info/
   toc:
     enable: true
   copyright:
