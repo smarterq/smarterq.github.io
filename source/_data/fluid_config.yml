@@ -89,7 +89,7 @@ web_analytics:  # 网页统计代码
 lazyload: # 对页面中的图片进行懒加载处理，未在视口的图片不会加载
   enable: true
   onlypost: true
-  loadingimg: /img/loading.svg
+  loadingimg: https://ae01.alicdn.com/kf/U0bf96ebd47f94261b40e8156ee6d98a9K.gif
   
 fancybox: # 文章图片灯箱
   enable: true
