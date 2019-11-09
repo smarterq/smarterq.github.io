@@ -331,6 +331,10 @@ DDoS-Guard 有**免费**的高防 CDN 套餐，不过分配到的节点只有一
 
 ![image-20191108182941628](/assets/img/image-20191108182941628.png)
 
+**2019/11/09 更新**：UCloud 海外可能暂时用不起啦，客服回复如下
+
+![image-20191109170600546](/assets/img/image-20191109170600546.png)
+
 ### 总结
 
 我只推荐一下下我自己真正用过的，上面收录的没有在这推荐的不一定不好，因为有的没用过确实不了解哈~
@@ -343,7 +347,7 @@ DDoS-Guard 有**免费**的高防 CDN 套餐，不过分配到的节点只有一
 
 收费的里面比较推荐的是 [NodeCache](https://www.nodecache.com/product/cdn) 和[阿里云](https://www.aliyun.com/product/cdn)，另外 [UDomain](https://www.udomain.hk/tc/service/network/global-cdn-content-delivery-network-international#payAsYouGotab) 购买付费确实比较麻烦
 
-腾讯云和 UCloud 可能需要过段时间再看看吧，另外挺想试试 CloudCone 的
+腾讯云和可能需要过段时间再看看吧，另外挺想试试 CloudCone 的
 
 > 可以使用类似阿里云域名解析一类的分区域解析，国外和国内分开解析到不同的 CDN
 
