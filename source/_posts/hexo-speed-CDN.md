@@ -307,9 +307,19 @@ DDoS-Guard 有**免费**的高防 CDN 套餐，不过分配到的节点只有一
 
 测试链接：http://www.julydate.com.w.kunlunsl.com/
 
-阿里云 CDN，国内版注册需要实名认证（当然你也可以选择注册阿里云国际版不过比较麻烦），不备案的情况下可以添加域名选择海外加速，功能完善稳定性高，大陆访问分配到的都是日本或者香港阿里云的节点，速度相当不错，就是有时候被分配到的 IP 段可能绕路到美西造成卡顿
+阿里云 CDN，国内版注册需要实名认证（当然你也可以选择注册阿里云国际版不过比较麻烦），不备案的情况下可以添加域名选择海外加速，功能完善稳定性高，大陆访问分配到的都是日本或者香港阿里云的节点，速度不错，就是有时候被分配到的 IP 段可能绕路到美西造成卡顿
 
 ![image-20191108193510929](/assets/img/image-20191108193510929.png)
+
+#### 华为云
+
+链接：https://www.huaweicloud.com/product/cdn.html
+
+测试链接：http://www.example.com.c.cdnhwc1.com/
+
+华为云 CDN，不备案的情况下同样可以添加域名选择海外加速，大陆访问分配到的都是日本 CDNetworks 的节点（走 KDDI 线路），部分会分配到 HiNet，线路全部大陆直连所以整体速度优于阿里云，后台基本功能也都有，国内版注册同样需要实名
+
+![image-20191109213535217](/assets/img/image-20191109213535217.png)
 
 #### Qcloud
 
@@ -325,15 +335,15 @@ DDoS-Guard 有**免费**的高防 CDN 套餐，不过分配到的节点只有一
 
 测试链接：暂无
 
-最近在做活动  https://www.ucloud.cn/site/active/cdn-ufile.html 
-
-优刻得，国内云服务提供商，注册需要实名认证，但是有单独的海外加速，添加的节点不需要备案，后台选项很少，而且我测试的时候不知道为什么加速一直没有生效，解析记录是直接回源的，所以暂时没有测试链接，还有更重要的是 SSL 证书那里不知道什么原因还不能设置
-
-![image-20191108182941628](/assets/img/image-20191108182941628.png)
+最近在做活动  https://www.ucloud.cn/site/active/cdn-ufile.html
 
 **2019/11/09 更新**：UCloud 海外可能暂时用不起啦，客服回复如下
 
 ![image-20191109170600546](/assets/img/image-20191109170600546.png)
+
+优刻得，国内云服务提供商，注册需要实名认证，但是有单独的海外加速，添加的节点不需要备案，后台选项很少，而且我测试的时候不知道为什么加速一直没有生效，解析记录是直接回源的，所以暂时没有测试链接，还有更重要的是 SSL 证书那里不知道什么原因还不能设置
+
+![image-20191108182941628](/assets/img/image-20191108182941628.png)
 
 ### 总结
 
@@ -345,7 +355,7 @@ DDoS-Guard 有**免费**的高防 CDN 套餐，不过分配到的节点只有一
 
 其次是面向境内访问不是很好的 [Hostry](https://hostry.com/products/cdn/)，但是境外访问还行，每个月免费 5G
 
-收费的里面比较推荐的是 [NodeCache](https://www.nodecache.com/product/cdn) 和[阿里云](https://www.aliyun.com/product/cdn)，另外 [UDomain](https://www.udomain.hk/tc/service/network/global-cdn-content-delivery-network-international#payAsYouGotab) 购买付费确实比较麻烦
+收费的里面比较推荐的是[华为云](https://www.huaweicloud.com/product/cdn.html)、[阿里云](https://www.aliyun.com/product/cdn)和 [NodeCache](https://www.nodecache.com/product/cdn) ，另外 [UDomain](https://www.udomain.hk/tc/service/network/global-cdn-content-delivery-network-international#payAsYouGotab) 购买付费确实比较麻烦（但是便宜）
 
 腾讯云和可能需要过段时间再看看吧，另外挺想试试 CloudCone 的
 
