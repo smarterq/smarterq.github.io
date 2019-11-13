@@ -267,7 +267,7 @@ valine:
   notify: true # mail notifier, See: https://github.com/xCss/Valine/wiki
   verify: true # Verification code
   placeholder: 说点什么吧quq # comment box placeholder
-  avatar: robohash # gravatar style https://valine.js.org/avatar.html
+  avatar: mp # gravatar style https://valine.js.org/avatar.html
   pageSize: 10 # pagination size
 
 
