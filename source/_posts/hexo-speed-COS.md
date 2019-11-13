@@ -6,6 +6,7 @@ comments: true
 reward: true
 abbrlink: 1756138088
 date: 2019-11-08 20:32:29
+typora-root-url: ..
 ---
 
 本文为 hexo 博客访问优化下篇，主要介绍了使用腾讯云对象存储来加速博客静态资源的访问的方法，上篇主讲选用合适的国内外 CDN 来加速 hexo 博客全局访问速度，两篇文章均是在**没有备案域名**的前提下进行的 。
@@ -84,7 +85,7 @@ UCloud：https://www.ucloud.cn/site/active/cdn-ufile.html
 
 ![image-20191112223738245](/assets/img/image-20191112223738245.png)
 
-> 到这里设置就基本结束啦，如果你前面设置的是**公有读私有写**的话，可以直接去看下一部分 [COS 使用](#COS 使用)
+> 到这里设置就基本结束啦，如果你前面设置的是**公有读私有写**的话，可以直接去看下一部分 [COS 使用](#COS-使用)
 
 如果你和我一样设置的是私有读写的话，请继续看。这里说一下下我为什么要开鉴权，因为 COS 直接回源的话相当于你源站的一个镜像站了，直接打开能进行访问的，我担心会分走我博客的权重被搜索引擎错误收录，所以开启了鉴权（只允许直接访问图片和 css 等静态文件，禁止访问 html），腾讯云这里 CDN 鉴权是单独设置的，有的厂商（比如百度智能云和 UCloud）的鉴权只能在对象存储的控制台设置，就在那边进行相关的设置吧，一般是在对象存储控制台的“Policy权限设置”里面，添加指定策略即可。
 
@@ -132,6 +133,6 @@ qcloudcos:
 
 ## 注意事项
 
-使用本文方法和插件有一个前提，你文章内的资源地址必须是相对于博客根目录的链接，比如你在博客 markdown 文件内引用图片的格式为`![example](/assets/img/example.jpg)`，或者如果你启用了 hexo 的 post_asset_folder 功能的话你的图片引用格式应该为`{% asset_img example.jpg This is an example image %}`，而不是`![example](example.jpg)`或`![example](postName/example.jpg)`（除非你使用了  hexo-asset-image 插件），如果你要替换 css 和 js 等静态资源那你博客主题内引用静态资源的链接也必须是相对于博客根目录的（一般主题都是这样）
+使用本文方法和插件有一个前提，你文章内的资源地址必须是相对于博客根目录的链接，比如你在博客 markdown 文件内引用图片的格式为`![example](/assets/img/example.jpg)`，或者如果你启用了 hexo 的 post_asset_folder 功能的话你的图片引用格式应该为`{% raw %}{% asset_img example.jpg This is an example image %}{% endraw %}`，而不是`![example](example.jpg)`或`![example](postName/example.jpg)`（除非你使用了  hexo-asset-image 插件），如果你要替换 css 和 js 等静态资源那你博客主题内引用静态资源的链接也必须是相对于博客根目录的（一般主题都是这样）
 
 博客的配置比较简单，而关于对象存储和 CDN 的更多详细设置请多多阅读对应的官方文档，如腾讯云的《[对象存储-控制台指南](https://cloud.tencent.com/document/product/436/11365)》和《[内容分发网络-用户指南](https://cloud.tencent.com/document/product/228/6288)》

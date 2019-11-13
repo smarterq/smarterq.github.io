@@ -6,6 +6,7 @@ comments: true
 reward: true
 abbrlink: 2040671323
 date: 2016-05-17 18:12:01
+typora-root-url: ..
 ---
 许久没有开自己的博客了，也没有更新，今天就水一发吧。
 

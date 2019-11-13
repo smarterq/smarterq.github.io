@@ -6,6 +6,7 @@ comments: true
 reward: true
 abbrlink: 3446765825
 date: 2019-03-26 23:08:28
+typora-root-url: ..
 ---
 没事做给手上的服务器都跑了一遍 UNIX Bench ，我发现单核的VPS的CPU真的都好差诶，阿里云和AWS还挺不错
     

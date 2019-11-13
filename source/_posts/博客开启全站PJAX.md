@@ -6,6 +6,7 @@ comments: true
 reward: true
 abbrlink: 4241411385
 date: 2016-01-08 18:12:01
+typora-root-url: ..
 ---
 博客开启全站PJAX
 
