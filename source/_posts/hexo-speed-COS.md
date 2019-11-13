@@ -29,9 +29,9 @@ typora-root-url: ..
 
 然后看看国内各个云服务厂商关于对象存储和 CDN 的免费活动和收费情况（大部分数据来自《[米扑博客调研一览表（2018-09-16）](https://blog.mimvp.com/article/28407.html)》，自己整理收集了一小部分）  
 
-| 服务商名称                                                   | 云存储   |               |                                                | CDN      |                                   |                                   |
+| 服务商                                                       | 云存储   |               |                                                | CDN      |                                   |                                   |
 | ------------------------------------------------------------ | -------- | ------------- | :--------------------------------------------- | -------- | --------------------------------- | --------------------------------- |
-| 免费空间                                                     | 收费价格 | 备注          | 免费流量                                       | 收费价格 | 备注                              |                                   |
+| 名称                                                         | 免费空间 | 收费价格      | 备注                                           | 免费流量 | 收费价格                          | 备注                              |
 | [七牛云](https://www.qiniu.com/prices?source=kodo)           | 10GB     | 0.148元/GB/月 | 标准存储免费10GB/月                            | 10GB/月  | HTTP  0.24元/GB & HTTPS 0.28元/GB | HTTP  免费/HTTPS 收费             |
 | [又拍云](https://www.upyun.com/league)                       | 10GB     | 0.129元/GB/月 | 标准存储免费10GB/月，需要挂官方 logo           | 15GB/月  | 0.29元/GB                         | HTTP/HTTS均免费，需要挂官方 logo  |
 | [腾讯云](https://cloud.tencent.com/document/product/436/6240) | 50GB     | 0.130元/GB/月 | 标准存储免费50GB/月，开通后免费六个月          | 10GB/月  | 0.21元/GB                         | HTTP/HTTS均免费，开通后免费六个月 |
@@ -132,6 +132,8 @@ qcloudcos:
 
 其中 domain 改为前文提到的加速域名`hanabi-1251438221.file.myqcloud.com`，如果你只想加速文章内的图片就把`onlypost`设置为`true`，下面的`img`也设置为`true`，如果你还需要加速博客内的 css 和 js，则需要把`onlypost`设置为`false`，下面的`img link script`也设置为`true`，其他的以此类推，根据需要开启，然后你博客内的对应静态资源链接就会在`hexo g`时自动生成为腾讯云对象存储的地址了
 
+> 其实还可以直接使用  jsDelivr 来充当加速域名，具体可以看看这位敲厉害的大佬的博客哦《[JsDelivr 全站托管](https://chanshiyu.com/#/post/94)》，我也是看了过后才知道居然还可以这样诶，不过感觉白嫖 jsDelivr 有点太无情啦哈哈
+
 ## 注意事项
 
 使用本文方法和插件有一个前提，你文章内的图片资源地址必须是相对于博客根目录的链接，比如你在博客 markdown 文件内引用图片的格式为
@@ -143,7 +145,7 @@ qcloudcos:
 或者如果你启用了 hexo 的 post_asset_folder 功能的话你的图片引用格式应该为
 
 ```swig
-{% raw %}{% asset_img example.jpg This is an example image %}{% endraw %}
+{% asset_img example.jpg This is an example image %}
 ```
 
 如果为以下几种格式时必须安装 [hexo-asset-image](https://github.com/xcodebuild/hexo-asset-image) 插件且将本插件的 priority 设置为 11
@@ -157,3 +159,5 @@ qcloudcos:
 另外如果你要替换 css 和 js 等静态资源那你博客主题内引用静态资源的链接也必须是相对于博客根目录的（一般主题都是这样）
 
 到这里节结束啦，博客的配置比较简单，而关于对象存储和 CDN 的更多详细设置请多多阅读对应的官方文档，如腾讯云的《[对象存储-控制台指南](https://cloud.tencent.com/document/product/436/11365)》和《[内容分发网络-用户指南](https://cloud.tencent.com/document/product/228/6288)》
+
+附件 - 对象存储调研一览表：[objectStorage.xlsx](/assets/file/objectStorage.xlsx)
