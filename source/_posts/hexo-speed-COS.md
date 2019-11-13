@@ -119,6 +119,7 @@ qcloudcos:
   enable: true # 是否开启对象储存
   domain: usersubject.file.myqcloud.com # 对象储存或 CDN 域名，无需填写 http/https
   onlypost: false # 是否只替换文章内资源
+  priority: 10 # 插件执行优先级，数值越小越先执行，默认为 10
   img: true # 是否替换 html img 标签，下列项目同理
   link: true
   script: true
@@ -133,6 +134,26 @@ qcloudcos:
 
 ## 注意事项
 
-使用本文方法和插件有一个前提，你文章内的资源地址必须是相对于博客根目录的链接，比如你在博客 markdown 文件内引用图片的格式为`![example](/assets/img/example.jpg)`，或者如果你启用了 hexo 的 post_asset_folder 功能的话你的图片引用格式应该为`{% raw %}{% asset_img example.jpg This is an example image %}{% endraw %}`，而不是`![example](example.jpg)`或`![example](postName/example.jpg)`（除非你使用了  hexo-asset-image 插件），如果你要替换 css 和 js 等静态资源那你博客主题内引用静态资源的链接也必须是相对于博客根目录的（一般主题都是这样）
+使用本文方法和插件有一个前提，你文章内的图片资源地址必须是相对于博客根目录的链接，比如你在博客 markdown 文件内引用图片的格式为
 
-博客的配置比较简单，而关于对象存储和 CDN 的更多详细设置请多多阅读对应的官方文档，如腾讯云的《[对象存储-控制台指南](https://cloud.tencent.com/document/product/436/11365)》和《[内容分发网络-用户指南](https://cloud.tencent.com/document/product/228/6288)》
+```markdown
+![example](/assets/img/example.jpg)
+```
+
+或者如果你启用了 hexo 的 post_asset_folder 功能的话你的图片引用格式应该为
+
+```swig
+{% raw %}{% asset_img example.jpg This is an example image %}{% endraw %}
+```
+
+如果为以下几种格式时必须安装 [hexo-asset-image](https://github.com/xcodebuild/hexo-asset-image) 插件且将本插件的 priority 设置为 11
+
+```markdown
+![example](example.jpg)
+![example](postName/example.jpg)
+![example](/postName/example.jpg)
+```
+
+另外如果你要替换 css 和 js 等静态资源那你博客主题内引用静态资源的链接也必须是相对于博客根目录的（一般主题都是这样）
+
+到这里节结束啦，博客的配置比较简单，而关于对象存储和 CDN 的更多详细设置请多多阅读对应的官方文档，如腾讯云的《[对象存储-控制台指南](https://cloud.tencent.com/document/product/436/11365)》和《[内容分发网络-用户指南](https://cloud.tencent.com/document/product/228/6288)》
