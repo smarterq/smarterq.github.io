@@ -9,11 +9,10 @@ date: 2019-03-26 23:08:28
 typora-root-url: ..
 ---
 没事做给手上的服务器都跑了一遍 UNIX Bench ，我发现单核的VPS的CPU真的都好差诶，阿里云和AWS还挺不错
-    
+
 <!-- more -->
-    
-使用秋水逸冰的UNIX Bench一键脚本
---
+
+## 使用秋水逸冰脚本 UNIX Bench
 
 ```bash
 wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh
@@ -22,8 +21,10 @@ chmod +x unixbench.sh
 ```
 
 **注意：**有好几台跑步起来，都是在 make 的时候报错了（一台是CentOS 7x64，另一台是Debian 8x64），不知道为什么，最近几天老是遇到这些奇奇怪怪的问题，前几天装 redsocks 也是，好气呀。
-    
-> GigsgigsCloud LAX Anti-DDoS 1C1G KVM
+
+## GigsgigsCloud
+
+### LAX Anti-DDoS 1C1G KVM
 
 ```shell
 ========================================================================
@@ -81,7 +82,9 @@ System Benchmarks Index Score                                         952.6
 ======= Script description and score comparison completed! ======= 
 ```
 
-> Hostsolutions Romania 1C1G OpenVZ
+## Hostsolutions
+
+### Romania 1C1G OpenVZ
 
 ```shell
 ========================================================================
@@ -139,7 +142,9 @@ System Benchmarks Index Score                                        1179.2
 ======= Script description and score comparison completed! ======= 
 ```
 
-> AlibabaCloud CN Stu 1C2G OpenStack
+## AlibabaCloud
+
+### CN Stu 1C2G OpenStack
 
 ```shell
 ========================================================================
@@ -197,7 +202,7 @@ System Benchmarks Index Score                                        1357.3
 ======= Script description and score comparison completed! ======= 
 ```
 
-> AlibabaCloud CN Stu (Simple Application Server) 1C2G OpenStack
+### CN Stu 1C2G OpenStack (Simple Application Server)
 
 ```shell
 ========================================================================
@@ -255,7 +260,7 @@ System Benchmarks Index Score                                        1154.7
 ======= Script description and score comparison completed! ======= 
 ```
 
-> AlibabaCloud SGP 1C512M OpenStack
+### SGP 1C512M OpenStack
 
 ```shell
 ========================================================================
@@ -313,7 +318,9 @@ System Benchmarks Index Score                                        1077.6
 ======= Script description and score comparison completed! ======= 
 ```
 
-> GoogleCloud HK 1C512M OpenStack 共享核心
+## GoogleCloud
+
+### HK 1C512M OpenStack 共享核心
 
 ```shell
 ========================================================================
@@ -371,7 +378,7 @@ System Benchmarks Index Score                                         270.4
 ======= Script description and score comparison completed! ======= 
 ```
 
-> GoogleCloud US 1C3.75G OpenStack 独享核心
+### US 1C3.75G OpenStack 独享核心
 
 ```shell
 ========================================================================
@@ -426,7 +433,9 @@ System Benchmarks Index Score                                        1064.1
 ======= Script description and score comparison completed! ======= 
 ```
 
-> ygeIDC CN 1C512M KVM
+## ygeIDC
+
+### CN 1C512M KVM
 
 ```shell
 ========================================================================
@@ -484,7 +493,9 @@ System Benchmarks Index Score                                        1170.3
 ======= Script description and score comparison completed! ======= 
 ```
 
-> JustHost Russia 1C512M KVM
+## JustHost
+
+### Russia 1C512M KVM
 
 ```shell
 ========================================================================
@@ -542,7 +553,9 @@ System Benchmarks Index Score                                         352.1
 ======= Script description and score comparison completed! ======= 
 ```
 
-> CloudCone LAX 1C512M KVM
+## CloudCone
+
+### LAX 1C512M KVM
 
 ```shell
 ========================================================================
@@ -600,7 +613,9 @@ System Benchmarks Index Score                                         330.5
 ======= Script description and score comparison completed! =======
 ```
 
-> AWS Lightsail Tokyo 1C1G KVM
+## AWS
+
+### Tokyo 1C1G KVM Lightsail
 
 ```shell
 ========================================================================
@@ -658,7 +673,7 @@ System Benchmarks Index Score                                        1254.2
 ======= Script description and score comparison completed! ======= 
 ```
 
-> AWS EC2 Tokyo 1C1G HVM
+### Tokyo 1C1G HVM EC2
 
 ```shell
 ========================================================================
@@ -716,7 +731,9 @@ System Benchmarks Index Score                                        1462.2
 ======= Script description and score comparison completed! ======= 
 ```
 
-> 90VM  HK HKBN 1C1G KVM
+## 90VM
+
+### HK HKBN 1C1G KVM
 
 ```shell
 ========================================================================
@@ -774,7 +791,9 @@ System Benchmarks Index Score                                         563.7
 ======= Script description and score comparison completed! =======
 ```
 
-> Oracle  JP  2C1G OpenStack
+## Oracle
+
+### Tokyo  2C1G OpenStack
 
 ```shell
 ========================================================================
@@ -867,7 +886,9 @@ System Benchmarks Index Score                                         626.1
 ======= Script description and score comparison completed! ======= 
 ```
 
-> Scaleway  AMS  2C2G ARM
+## Scaleway
+
+### AMS  2C2G ARM
 
 ```shell
 ========================================================================
@@ -958,4 +979,184 @@ System Call Overhead                          15000.0    3461779.5   2307.9
 System Benchmarks Index Score                                        1634.0
 
 ======= Script description and score comparison completed! ======= 
+```
+
+## Digitalocean
+
+### Singapore 1C1G KVM
+
+```shell
+========================================================================
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: debian-s-1vcpu-1gb-sgp1-wrk-s-1vcpu-1gb-sgp1-01: GNU/Linux
+   OS: GNU/Linux -- 4.11.8-041108-generic -- #201706290836 SMP Thu Jun 29 12:38:45 UTC 2017
+   Machine: x86_64 (unknown)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Intel(R) Xeon(R) Gold 6140 CPU @ 2.30GHz (4589.2 bogomips)
+          x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET, Intel virtualization
+   21:58:14 up 2 days,  6:19,  2 users,  load average: 0.02, 0.02, 0.05; runlevel 5
+
+------------------------------------------------------------------------
+Benchmark Run: Sat Nov 16 2019 21:58:14 - 22:26:25
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       31489322.4 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     4142.2 MWIPS (9.9 s, 7 samples)
+Execl Throughput                               4660.0 lps   (29.9 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        777653.2 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          249147.3 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       1727431.0 KBps  (30.0 s, 2 samples)
+Pipe Throughput                             1981419.7 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 279699.4 lps   (10.0 s, 7 samples)
+Process Creation                              12268.9 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   7045.7 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    921.4 lpm   (60.1 s, 2 samples)
+System Call Overhead                        3129864.5 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   31489322.4   2698.3
+Double-Precision Whetstone                       55.0       4142.2    753.1
+Execl Throughput                                 43.0       4660.0   1083.7
+File Copy 1024 bufsize 2000 maxblocks          3960.0     777653.2   1963.8
+File Copy 256 bufsize 500 maxblocks            1655.0     249147.3   1505.4
+File Copy 4096 bufsize 8000 maxblocks          5800.0    1727431.0   2978.3
+Pipe Throughput                               12440.0    1981419.7   1592.8
+Pipe-based Context Switching                   4000.0     279699.4    699.2
+Process Creation                                126.0      12268.9    973.7
+Shell Scripts (1 concurrent)                     42.4       7045.7   1661.7
+Shell Scripts (8 concurrent)                      6.0        921.4   1535.7
+System Call Overhead                          15000.0    3129864.5   2086.6
+                                                                   ========
+System Benchmarks Index Score                                        1481.7
+
+======= Script description and score comparison completed! ======= 
+```
+
+## BuyVM
+
+### LasVegas 1C512M OpenStack
+
+```shell
+========================================================================
+   
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+   
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: img: GNU/Linux
+   OS: GNU/Linux -- 4.14.91-bbrplus -- #1 SMP Thu Jan 3 08:14:30 UTC 2019
+   Machine: x86_64 (x86_64)
+   Language: en_US.utf8 (charmap="UTF-8", collate="UTF-8")
+   CPU 0: Intel(R) Xeon(R) CPU E3-1270 v3 @ 3.50GHz (6999.9 bogomips)
+          x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   22:46:46 up 8 days, 19:16,  2 users,  load average: 0.25, 0.57, 0.77; runlevel 3
+
+------------------------------------------------------------------------
+Benchmark Run: Sat Nov 16 2019 22:46:46 - 23:15:18
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       36790501.6 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     3997.1 MWIPS (12.3 s, 7 samples)
+Execl Throughput                               4391.2 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        689541.8 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          202982.7 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       1723227.6 KBps  (30.0 s, 2 samples)
+Pipe Throughput                             1112471.4 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 239849.8 lps   (10.0 s, 7 samples)
+Process Creation                              10517.0 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   5394.8 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    701.1 lpm   (60.1 s, 2 samples)
+System Call Overhead                         912917.2 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   36790501.6   3152.6
+Double-Precision Whetstone                       55.0       3997.1    726.7
+Execl Throughput                                 43.0       4391.2   1021.2
+File Copy 1024 bufsize 2000 maxblocks          3960.0     689541.8   1741.3
+File Copy 256 bufsize 500 maxblocks            1655.0     202982.7   1226.5
+File Copy 4096 bufsize 8000 maxblocks          5800.0    1723227.6   2971.1
+Pipe Throughput                               12440.0    1112471.4    894.3
+Pipe-based Context Switching                   4000.0     239849.8    599.6
+Process Creation                                126.0      10517.0    834.7
+Shell Scripts (1 concurrent)                     42.4       5394.8   1272.4
+Shell Scripts (8 concurrent)                      6.0        701.1   1168.4
+System Call Overhead                          15000.0     912917.2    608.6
+                                                                   ========
+System Benchmarks Index Score                                        1161.2
+
+======= Script description and score comparison completed! =======
+```
+
+## 9s9s
+
+### LAX 1C256M KVM
+
+```shell
+========================================================================
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: vm331343.t667.com: GNU/Linux
+   OS: GNU/Linux -- 4.14.91-bbrplus -- #1 SMP Thu Jan 3 14:16:45 UTC 2019
+   Machine: x86_64 (unknown)
+   Language: en_US.utf8 (charmap="ANSI_X3.4-1968", collate="ANSI_X3.4-1968")
+   CPU 0: Intel(R) Xeon(R) CPU E5-2620 v3 @ 2.40GHz (4794.4 bogomips)
+          x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   22:47:18 up 55 days, 23:28,  2 users,  load average: 0.62, 0.28, 0.38; runlevel 5
+
+------------------------------------------------------------------------
+Benchmark Run: Sat Nov 16 2019 22:47:18 - 23:15:37
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       24918882.1 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     3287.7 MWIPS (9.7 s, 7 samples)
+Execl Throughput                               2999.3 lps   (30.0 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        568645.0 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks          155690.5 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks       1278102.5 KBps  (30.0 s, 2 samples)
+Pipe Throughput                              880830.3 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                 187521.7 lps   (10.0 s, 7 samples)
+Process Creation                               7061.4 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   5865.1 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    751.3 lpm   (60.0 s, 2 samples)
+System Call Overhead                         741817.6 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   24918882.1   2135.3
+Double-Precision Whetstone                       55.0       3287.7    597.8
+Execl Throughput                                 43.0       2999.3    697.5
+File Copy 1024 bufsize 2000 maxblocks          3960.0     568645.0   1436.0
+File Copy 256 bufsize 500 maxblocks            1655.0     155690.5    940.7
+File Copy 4096 bufsize 8000 maxblocks          5800.0    1278102.5   2203.6
+Pipe Throughput                               12440.0     880830.3    708.1
+Pipe-based Context Switching                   4000.0     187521.7    468.8
+Process Creation                                126.0       7061.4    560.4
+Shell Scripts (1 concurrent)                     42.4       5865.1   1383.3
+Shell Scripts (8 concurrent)                      6.0        751.3   1252.1
+System Call Overhead                          15000.0     741817.6    494.5
+                                                                   ========
+System Benchmarks Index Score                                         930.7
+
+======= Script description and score comparison completed! =======
 ```
