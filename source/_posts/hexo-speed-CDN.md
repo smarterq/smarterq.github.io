@@ -180,7 +180,7 @@ mdbootstrap: https://cdn.staticfile.org/mdbootstrap/4.8.7/ #/lib/mdbootstrap
 
 测试链接：https://www.cloudflare.com/ 
 
-很有名的啦，我就不介绍啦，服务稳定功能全面，许多人都直接用的这个的，就是免费版只能用美西的几个节点，大陆访问速度一般般吧
+很有名的啦，我就不介绍啦，服务稳定功能全面，许多人都直接用的这个的，就是免费版只能用美西的几个节点，大陆访问速度一般般吧，不过 Cloudflare 还有一些其它的用法比如说自定义指定 IP 之类的，可以参考一下《[Cloudflare自定义节点(指定IP)的方法](https://loukky.com/archives/641)》
 
 ![image-20191108182808889](/assets/img/image-20191108182808889.png)
 
@@ -271,6 +271,14 @@ DDoS-Guard 有**免费**的高防 CDN 套餐，不过分配到的节点只有一
 每个月**免费 5G** 流量，超出部分可以按量付费 0.0585 USD/GB，说是全球加速，但是大陆访问到的基本都是美西和欧洲的节点，真的很慢。后台功能比较完整，就是操作起来比较麻烦
 
 ![image-20191108175237331](/assets/img/image-20191108175237331.png)
+
+#### RapidSTART
+
+链接：https://cdn.tokyo/
+
+测试链接：http://free.rs.cdnw.net/
+
+[RedBox](https://www.redbox.ne.jp/) 旗下的免费 CDN （收费服务暂时还没上线），节点好像就两台 [SAKURA Internet](https://www.sakura.ad.jp/) 东京机房的服务器，国内线路走 IIJ，带宽是共享 100Mbps，速度应该一般（我还没有测试）。不过免费版限制比较多，每个账号只能绑定一个域名，单文件最大3M（大于3M的文件直接会返回404），不支持https回源，不能刷新指定文件缓存和指定缓存时间等。还有一个就是源站地址是直接暴露出来的，不过 Github Pages 的话好像没什么影响。具体注册使用方法可以参考《[CDN.TOKYO东京免费CDN](https://blog.moelty.cn/112.html)》
 
 #### Bitmitigate
 
