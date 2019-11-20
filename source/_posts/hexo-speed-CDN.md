@@ -174,13 +174,13 @@ mdbootstrap: https://cdn.staticfile.org/mdbootstrap/4.8.7/ #/lib/mdbootstrap
 
 因为我**没有备案域名**，所以这里只介绍海外CDN，当然大佬们还可以考虑[自建CDN](https://www.openos.org/post/154/)。之前自己收集了不少，这里简单介绍一下，测试效果可以使用站长之家的工具：https://ping.chinaz.com/
 
-#### Cloudflare
+#### CloudFlare
 
 链接：https://www.cloudflare.com/
 
 测试链接：https://www.cloudflare.com/ 
 
-很有名的啦，我就不介绍啦，服务稳定功能全面，许多人都直接用的这个的，就是免费版只能用美西的几个节点，大陆访问速度一般般吧，不过 Cloudflare 还有一些其它的用法比如说自定义指定 IP 之类的，可以参考一下《[Cloudflare自定义节点(指定IP)的方法](https://loukky.com/archives/641)》
+很有名的啦，我就不介绍啦，服务稳定功能全面，许多人都直接用的这个的，就是免费版只能用美西的几个节点，大陆访问速度一般般吧，不过 CloudFlare 还有一些其它的用法比如说自定义指定 IP 之类的，可以参考一下《[CloudFlare CDN - 自定义IP](https://geekgens.com/archives/4.html)》
 
 ![image-20191108182808889](/assets/img/image-20191108182808889.png)
 
@@ -278,7 +278,9 @@ DDoS-Guard 有**免费**的高防 CDN 套餐，不过分配到的节点只有一
 
 测试链接：http://free.rs.cdnw.net/
 
-[RedBox](https://www.redbox.ne.jp/) 旗下的免费 CDN （收费服务暂时还没上线），节点好像就两台 [SAKURA Internet](https://www.sakura.ad.jp/) 东京机房的服务器，国内线路走 IIJ，带宽是共享 100Mbps，速度应该一般（我还没有测试）。不过免费版限制比较多，每个账号只能绑定一个域名，单文件最大3M（大于3M的文件直接会返回404），不支持https回源，不能刷新指定文件缓存和指定缓存时间等。还有一个就是源站地址是直接暴露出来的，不过 Github Pages 的话好像没什么影响。具体注册使用方法可以参考《[CDN.TOKYO东京免费CDN](https://blog.moelty.cn/112.html)》
+[RedBox](https://www.redbox.ne.jp/) 旗下的免费 CDN （收费服务暂时还没上线），节点好像就两台 [SAKURA Internet](https://www.sakura.ad.jp/) 东京机房的服务器，国内线路走 IIJ，带宽是共享 100Mbps，速度应该一般（我还没有测试）。不过免费版限制比较多，每个账号只能绑定一个域名，单文件最大3M（大于3M的文件直接会返回404），不支持https回源，不能刷新指定文件缓存和指定缓存时间等。还有一个就是源站地址是直接暴露出来的，不过 Github Pages 的话好像没什么影响。后台功能很少，具体注册使用方法可以参考《[CDN.TOKYO东京免费CDN](https://blog.moelty.cn/112.html)》
+
+![image-20191121010856077](/assets/img/image-20191121010856077.png)
 
 #### Bitmitigate
 
