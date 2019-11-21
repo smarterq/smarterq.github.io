@@ -111,7 +111,7 @@ UCloud：https://www.ucloud.cn/site/active/cdn-ufile.html
 npm install hexo-static-cos --save
 ```
 
-打开主题配置文件`_config.yml`添加以下内容
+打开 hexo 配置文件`_config.yml`添加以下内容
 
 ```yaml
 # qcloudcos
