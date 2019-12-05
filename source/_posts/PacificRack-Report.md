@@ -718,10 +718,10 @@ traceroute to 211.156.140.17 (211.156.140.17), 30 hops max, 60 byte packets
 
 关于 [LemonBench](https://github.com/LemonBench)
 
-报告链接：https://paste.ubuntu.com/p/mfymdZMGz9/
+报告链接：https://paste.ubuntu.com/p/nQ7GQ26XtW/
 
 下面这个是我之前那台 VPS 的测试结果
 
 死海网络互联 LAX C3
 
-报告链接：https://paste.ubuntu.com/p/6Jn88gRY42/
+报告链接：https://paste.ubuntu.com/p/Kg2j3PtpQj/
