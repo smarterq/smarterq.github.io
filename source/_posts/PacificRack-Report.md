@@ -11,7 +11,7 @@ date: 2019-12-03 16:46:12
 
 前几天黑色星期五，然后看见大佬们都在说 PacificRack 的服务器，所以我也去凑热闹收了一台，刚好把自己之前那台 256M 的小可怜换掉，顺便也跑了一下测试之类哒。
 
-CPU 真的还是有点差，不过和之前那台也差不多，但是这台商家没有开 aes_ni，路由的话我看见别人的电信回程是 CN2 GT，联通移动直连，但是我这台不知道为什么电信也是直连的没有走 CN2 好惨诶。
+CPU 真的还是有点差，不过和之前那台也差不多，但是这台商家没有开 aes_ni，路由的话我看见别人的电信回程是 CN2 GT，联通移动直连，~~但是我这台不知道为什么电信也是直连的没有走 CN2 好惨诶~~（电信回程切到 CN2 GT 啦，具体见[更新测试结果](#更新测试结果)）。
 
 > PacificRack 为机房运营商 QuadraNET 旗下的全资子品牌。目前推出 QuadraNET 洛杉矶线路的 VPS，混合云和独立服务器等业务。2019 双十一/黑五活动正式启动，50% 优惠码后，最便宜的机型 512M/25G SSD/500G 仅需 12.5 美金一年。
 
@@ -725,3 +725,300 @@ traceroute to 211.156.140.17 (211.156.140.17), 30 hops max, 60 byte packets
 死海网络互联 LAX C3
 
 报告链接：https://paste.ubuntu.com/p/Kg2j3PtpQj/
+
+## 更新测试结果
+
+### 20191207
+
+网络和路由有点变更，电信回程好像已经切换到 CN2 GT 了
+
+报告链接：https://paste.ubuntu.com/p/pghgs8pXhT/
+
+```shell
+ -> Speedtest.net Network Speed Test
+ 
+ Node Name                      Upload Speed    Download Speed  Ping Latency
+ Speedtest Default              58.79 MB/s      64.38 MB/s      3.592 ms
+ China, Jilin CU                5.09 MB/s       3.15 MB/s       180.903 ms
+ China, Shandong CU             1.27 MB/s       1.89 MB/s       762.615 ms
+ China, Nanjing CU              2.72 MB/s       2.62 MB/s       198.584 ms
+ China, Shanghai CU             8.10 MB/s       7.13 MB/s       198.152 ms
+ China, Guangxi CU              2.27 MB/s       1.53 MB/s       321.498 ms
+ China, Lanzhou CU              1.97 MB/s       1.51 MB/s       334.353 ms
+ China, Beijing CT              12.06 MB/s      4.07 MB/s       449.869 ms
+ China, Hangzhou CT             0.25 MB/s       3.58 MB/s       152.372 ms
+ China, Nanjing CT              Fail: ERROR: No matched servers: 26352
+ China, Guangzhou CT            1.86 MB/s       2.04 MB/s       164.714 ms
+ China, Wuhan CT                Fail: ERROR: No matched servers: 23844
+ China, Shenyang CM             0.97 MB/s       0.64 MB/s       340.458 ms
+ China, Hangzhou CM             0.87 MB/s       9.88 MB/s       295.61 ms
+ China, Shanghai CM             1.36 MB/s       1.44 MB/s       428.57 ms
+ China, Nanning CM              1.59 MB/s       6.99 MB/s       410.127 ms
+ China, Lanzhou CM              1.71 MB/s       1.09 MB/s       226.8 ms
+
+ -> Traceroute Test (IPV4)
+
+Traceroute to China, Beijing CU (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 123.125.99.1 (123.125.99.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  25.88 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  0.33 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  18.58 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  207.254.191.121  4.67 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  207.254.191.89  48.26 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 6  219.158.98.17  150.42 ms  AS4837  China Beijing ChinaUnicom
+ 7  219.158.16.81  151.62 ms  AS4837  China Beijing ChinaUnicom
+ 8  219.158.8.113  176.48 ms  AS4837  China Guangdong Guangzhou ChinaUnicom
+ 9  61.148.157.170  167.46 ms  AS4808  China Beijing ChinaUnicom
+10  123.126.0.214  202.76 ms  AS4808  China Beijing ChinaUnicom
+11  61.135.113.154  231.81 ms  AS4808  China Beijing ChinaUnicom
+12  124.65.194.50  173.49 ms  AS4808  China Beijing ChinaUnicom
+13  *
+14  123.125.99.1  150.92 ms  AS4808  China Beijing ChinaUnicom
+
+Traceroute to China, Beijing CT (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 180.149.128.1 (180.149.128.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  3.05 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  16.52 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  218.30.48.145  0.81 ms  AS4134  United States California Los Angeles ctamericas.com
+ 4  59.43.186.213  14.96 ms  AS4809  United States California San Jose ChinaTelecom
+ 5  59.43.247.101  149.81 ms  AS4809  China Beijing ChinaTelecom
+ 6  59.43.247.101  363.83 ms  AS4809  China Beijing ChinaTelecom
+ 7  59.43.247.101  230.15 ms  AS4809  China Beijing ChinaTelecom
+ 8  *
+ 9  *
+10  *
+11  180.149.159.6  174.87 ms  AS23724  China Beijing ChinaTelecom
+12  180.149.128.1  163.05 ms  AS23724  China Beijing ChinaTelecom
+
+Traceroute to China, Beijing CM (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 211.136.88.117 (211.136.88.117), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.20 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  0.35 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  14.36 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  223.119.64.245  3.77 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  223.120.6.2  1.03 ms  AS58453  United States California Los Angeles ChinaMobile
+ 6  *
+ 7  *
+ 8  *
+ 9  221.176.27.253  220.96 ms  AS9808  China Beijing ChinaMobile
+10  *
+11  221.179.158.110  224.76 ms  AS56048  China Beijing ChinaMobile
+12  211.136.88.117  216.76 ms  AS56048  China Beijing ChinaMobile
+
+Traceroute to China, Shanghai CU (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 58.247.0.49 (58.247.0.49), 30 hops max, 60 byte packets
+ 1  66.212.29.97  11.15 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  58.46 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  2.47 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  207.254.191.102  1.31 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  207.254.191.42  42.24 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 6  219.158.98.17  169.99 ms  AS4837  China Beijing ChinaUnicom
+ 7  219.158.103.41  168.65 ms  AS4837  China Guangdong Guangzhou ChinaUnicom
+ 8  219.158.16.86  195.17 ms  AS4837  China Shanghai ChinaUnicom
+ 9  *
+10  58.247.0.49  180.33 ms  AS17621  China Shanghai ChinaUnicom
+
+Traceroute to China, Shanghai CT (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 180.153.28.1 (180.153.28.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  28.09 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  22.52 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  0.62 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  59.43.248.106  18.96 ms  AS4809  United States California San Jose ChinaTelecom
+ 5  59.43.246.237  145.56 ms  AS4809  China Shanghai ChinaTelecom
+ 6  59.43.182.138  206.74 ms  AS4809  China Shanghai ChinaTelecom
+ 7  202.97.57.26  144.55 ms  AS4134  China Shanghai ChinaTelecom
+ 8  202.97.57.26  149.72 ms  AS4134  China Shanghai ChinaTelecom
+ 9  101.95.207.234  167.95 ms  AS4812  China Shanghai ChinaTelecom
+10  *
+11  *
+12  180.153.28.1  144.12 ms  AS4812  China Shanghai ChinaTelecom
+
+Traceroute to China, Shanghai CM (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 221.183.55.22 (221.183.55.22), 30 hops max, 60 byte packets
+ 1  66.212.29.97  2.38 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  0.28 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  11.50 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  223.119.64.245  0.91 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  223.120.6.17  0.84 ms  AS58453  United States California Los Angeles ChinaMobile
+ 6  223.120.6.126  1.73 ms  AS58453  United States California Los Angeles ChinaMobile
+ 7  *
+ 8  *
+ 9  221.176.24.205  168.73 ms  AS9808  China Guangdong Guangzhou ChinaMobile
+10  *
+11  *
+12  221.176.17.178  224.95 ms  AS9808  China Shanghai ChinaMobile
+13  221.183.55.22  230.39 ms  AS9808  China Shanghai ChinaMobile
+
+Traceroute to China, Guangzhou CU (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 210.21.4.130 (210.21.4.130), 30 hops max, 60 byte packets
+ 1  66.212.29.97  5.65 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  18.17 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  204.152.204.2  11.41 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  207.254.191.102  0.68 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  207.254.191.102  69.85 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 6  219.158.25.113  202.78 ms  AS4837  China Guangdong Guangzhou ChinaUnicom
+ 7  219.158.3.181  204.41 ms  AS4837  China Beijing ChinaUnicom
+ 8  *
+ 9  *
+10  120.80.175.78  203.62 ms  AS17622  China Guangdong Guangzhou ChinaUnicom
+11  210.21.4.130  216.09 ms  AS17622  China Guangdong Guangzhou ChinaUnicom
+
+Traceroute to China, Guangzhou CT (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 113.108.209.1 (113.108.209.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  1.78 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  4.49 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  0.46 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  59.43.182.78  156.26 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 5  59.43.182.74  154.55 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 6  202.97.12.42  156.20 ms  AS4134  China Guangdong Guangzhou ChinaTelecom
+ 7  202.97.94.125  162.92 ms  AS4134  China Guangdong Guangzhou ChinaTelecom
+ 8  113.108.208.38  162.78 ms  AS58466  China Guangdong Guangzhou ChinaTelecom
+ 9  113.108.209.1  157.27 ms  AS58466  China Guangdong Guangzhou ChinaTelecom
+
+Traceroute to China, Guangzhou CM (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 211.139.129.5 (211.139.129.5), 30 hops max, 60 byte packets
+ 1  66.212.29.97  1.19 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  1.03 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  0.43 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  223.120.6.17  0.69 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  223.120.6.17  1.14 ms  AS58453  United States California Los Angeles ChinaMobile
+ 6  *
+ 7  *
+ 8  221.176.24.5  196.19 ms  AS9808  China Guangdong Guangzhou ChinaMobile
+ 9  221.183.14.142  185.22 ms  AS9808  China Guangdong Guangzhou ChinaMobile
+10  *
+11  183.235.226.133  220.25 ms  AS56040  China Guangdong Guangzhou ChinaMobile
+12  183.235.226.237  192.71 ms  AS56040  China Guangdong Guangzhou ChinaMobile
+13  211.139.129.5  192.79 ms  AS56040  China Guangdong Guangzhou ChinaMobile
+
+Traceroute to China, Shanghai CU AS9929 (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 210.13.66.238 (210.13.66.238), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.98 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  16.45 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  69.12.69.1  1.41 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  62.115.136.46  5.88 ms  AS1299  United States California Los Angeles telia.com
+ 5  62.115.136.46  28.42 ms  AS1299  United States California Los Angeles telia.com
+ 6  140.222.236.27  2.62 ms  *  United States California Los Angeles verizon.com
+ 7  208.222.0.98  171.98 ms  AS701  China Beijing verizon.com
+ 8  208.222.0.98  160.54 ms  AS701  China Beijing verizon.com
+ 9  218.105.2.89  150.98 ms  AS9929  China Beijing ChinaUnicom
+10  218.105.2.198  152.41 ms  AS9929  China Shanghai ChinaUnicom
+11  218.105.2.198  163.31 ms  AS9929  China Shanghai ChinaUnicom
+12  210.13.66.237  170.96 ms  AS9929  China Shanghai ChinaUnicom
+13  *
+14  210.13.66.238  152.17 ms  AS9929  China Shanghai ChinaUnicom
+
+Traceroute to China, Shanghai CT CN2 (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 58.32.0.1 (58.32.0.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.79 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  52.20 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  3.91 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  218.30.48.145  0.92 ms  AS4134  United States California Los Angeles ctamericas.com
+ 5  59.43.189.33  128.34 ms  AS4809  China Shanghai ChinaTelecom
+ 6  *
+ 7  101.95.88.214  139.13 ms  AS4812  China Shanghai ChinaTelecom
+ 8  101.95.88.226  149.09 ms  AS4812  China Shanghai ChinaTelecom
+ 9  58.32.0.1  128.62 ms  AS4812  China Shanghai ChinaTelecom
+
+Traceroute to China, Beijing Dr.Peng Home Network (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 14.131.125.1 (14.131.125.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  1.46 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  46.91 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  0.43 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  218.30.48.145  12.52 ms  AS4134  United States California Los Angeles ctamericas.com
+ 5  59.43.248.106  9.13 ms  AS4809  United States California San Jose ChinaTelecom
+ 6  59.43.247.101  165.30 ms  AS4809  China Beijing ChinaTelecom
+ 7  59.43.246.142  200.51 ms  AS4809  China Beijing ChinaTelecom
+ 8  202.97.85.57  157.54 ms  AS4134  China Beijing ChinaTelecom
+ 9  202.97.18.205  170.89 ms  AS4134  China Beijing ChinaTelecom
+10  *
+11  106.120.235.22  184.03 ms  AS4847  China Beijing ChinaTelecom
+12  *
+13  *
+14  218.241.245.25  204.16 ms  AS4847  China Beijing DRPENG
+15  218.241.246.42  173.43 ms  AS4847  China Beijing DRPENG
+16  218.241.255.186  184.68 ms  AS4847  China Beijing DRPENG
+17  *
+18  218.241.254.246  181.16 ms  AS4847  China Beijing DRPENG
+
+Traceroute to China, Beijing Dr.Peng Network IDC Network (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 115.47.124.254 (115.47.124.254), 30 hops max, 60 byte packets
+ 1  66.212.29.97  4.73 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  22.74 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  218.30.48.145  0.78 ms  AS4134  United States California Los Angeles ctamericas.com
+ 4  59.43.246.237  127.59 ms  AS4809  China Shanghai ChinaTelecom
+ 5  59.43.248.106  9.95 ms  AS4809  United States California San Jose ChinaTelecom
+ 6  59.43.246.154  159.73 ms  AS4809  China Beijing ChinaTelecom
+ 7  59.43.247.125  162.55 ms  AS4809  China Beijing ChinaTelecom
+ 8  202.97.12.49  220.51 ms  AS4134  China Beijing ChinaTelecom
+
+Traceroute to China, Beijing CERNET (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 202.205.109.205 (202.205.109.205), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.43 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  20.76 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  204.152.204.2  2.49 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  59.43.182.78  159.57 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 5  59.43.244.130  181.33 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 6  202.97.47.2  156.44 ms  AS4134  China Xinjiang Urumqi ChinaTelecom
+ 7  219.158.5.145  159.81 ms  AS4837  China Beijing ChinaUnicom
+ 8  219.158.6.253  253.03 ms  AS4837  China Shanghai ChinaUnicom
+ 9  219.158.113.170  174.76 ms  AS4837  China Shanghai ChinaUnicom
+10  202.105.95.18  210.23 ms  AS4134  China Guangdong Guangzhou ChinaTelecom
+11  101.4.117.217  285.14 ms  AS4538  China Shanghai CHINAEDU
+12  101.4.114.245  197.19 ms  AS4538  China Shanghai CHINAEDU
+13  101.4.117.30  242.25 ms  AS4538  China Beijing CHINAEDU
+14  101.4.112.38  165.61 ms  AS4538  China Hubei Wuhan CHINAEDU
+15  101.4.117.38  182.03 ms  AS4538  China Henan Zhengzhou CHINAEDU
+16  219.224.102.234  186.36 ms  AS4538  China Beijing CHINAEDU
+17  219.224.102.230  205.26 ms  AS4538  China Beijing CHINAEDU
+18  202.205.109.205  251.52 ms  AS4538  China Beijing CHINAEDU
+
+Traceroute to China, Beijing CSTNET (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 159.226.254.1 (159.226.254.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  12.88 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  23.75 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  218.30.48.145  0.64 ms  AS4134  United States California Los Angeles ctamericas.com
+ 4  207.254.191.102  3.62 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  59.43.182.138  136.54 ms  AS4809  China Shanghai ChinaTelecom
+ 6  *
+ 7  63.218.211.65  194.05 ms  AS3491  China Hong Kong pccw.com
+ 8  219.158.3.218  149.45 ms  AS4837  China Beijing ChinaUnicom
+ 9  219.158.5.118  231.15 ms  AS4837  China Beijing ChinaUnicom
+10  *
+11  159.226.254.1  176.72 ms  AS7497  China Beijing CSTNET
+
+Traceroute to China, Beijing GCable (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 211.156.140.17 (211.156.140.17), 30 hops max, 60 byte packets
+ 1  66.212.29.97  11.14 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  16.69 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  223.119.64.245  1.17 ms  AS58453  United States California Los Angeles ChinaMobile
+ 4  223.119.64.245  0.90 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  *
+ 6  *
+ 7  221.183.25.189  195.87 ms  AS9808  China Shanghai ChinaMobile
+ 8  221.183.23.25  200.51 ms  AS9808  China Shanghai ChinaMobile
+ 9  221.176.22.38  195.18 ms  AS9808  China Shanghai ChinaMobile
+10  221.176.22.18  186.90 ms  AS9808  China Shanghai ChinaMobile
+11  *
+12  211.156.129.89  188.28 ms  AS7641  China Beijing chinabtn.com CATV
+13  211.156.129.89  281.02 ms  AS7641  China Beijing chinabtn.com CATV
+14  211.156.128.229  206.44 ms  AS7641  China Beijing chinabtn.com CATV
+15  211.156.140.17  176.49 ms  AS7641  China Beijing chinabtn.com CATV
+```
+
