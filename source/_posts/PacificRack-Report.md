@@ -277,6 +277,11 @@ Softlayer, HongKong, CN   119.81.130.170    4.34MB/s            160.135 ms
 西北-兰州电信		0.44 MB/s	1.15 MB/s	377.571 ms
 西北-兰州移动		1.65 MB/s	5.63 MB/s	265.209 ms
 ```
+### Ping 丢包测试
+
+使用 Ping.pe 测试：https://ping.pe/
+
+![img_k5uRvNNv](/assets/img/img_k5uRvNNv.png)
 
 ### 代理测试
 
