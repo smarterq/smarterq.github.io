@@ -208,6 +208,14 @@ System Benchmarks Index Score                                         481.6
 ======= Script description and score comparison completed! ======= 
 ```
 
+## 宝塔跑分
+
+使用宝塔面板版本：7.0.3
+
+使用宝塔跑分版本：1.3
+
+![image-20191210212401106](/assets/img/image-20191210212401106.png)
+
 ## 网络测试
 
 ### 带宽测试
