@@ -190,7 +190,9 @@ mdbootstrap: https://cdn.staticfile.org/mdbootstrap/4.8.7/ #/lib/mdbootstrap
 
 测试链接：http://ys.test.cdn.16tx.cn/
 
-大佬推荐的，说是还不错，不过套餐起步 500G 好贵诶，反正我是用不起
+~~大佬推荐的，说是还不错，不过套餐起步 500G 好贵诶，~~反正我是用不起
+
+**恰啦倒闭啦**，大佬又推荐了这个：https://www.43c55.com/ 反正我是用不起
 
 ![image-20191108145832256](/assets/img/image-20191108145832256.png)
 
