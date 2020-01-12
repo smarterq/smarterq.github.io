@@ -121,8 +121,10 @@ navbar:
     主页: /
     归档: /archives/
     分类: /categories/
-    学习笔记: /tags/笔记/
-    诗文随笔: /tags/随笔/
+    # 学习笔记: /tags/笔记/
+    # 诗文随笔: /tags/随笔/
+    随笔: /tags/随笔/
+    友链: /links/
     关于: /about/
 
 search: # 搜索栏
@@ -350,9 +352,11 @@ tag:
 # About Page
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
+  enable: true # 是否开启关于页
   md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
   banner_img: 
   banner_img_height: 80  # available: 0 - 100
+  comments: true # 是否开启页面评论功能，评论相关设置见文章页设置
   name: 七夏浅笑
   introduce: 七月之约，夏末浅笑 # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/v4.7.0/icons/ 查找，并以 "图标名: url" 的格式添加在下方
@@ -373,6 +377,32 @@ page404:
 
 
 #---------------------------
+# 友链页
+# Links Page
+#---------------------------
+links:
+  enable: true # 是否开启友链页
+  banner_img: 
+  banner_img_height: 80  # available: 0 - 100
+  comments: false # 是否开启页面评论功能，评论相关设置见文章页设置
+  items:
+    侧栏友链: ["/links/", "其余友链在侧边栏"]
+    猎风: ["https://www.chnliefeng.ink/", "猎风"]
+    吟梦的梦笔记: ["https://kirainmoe.com/", "宇宙よりも遠い場所"]
+    王煜博客: ["https://blog.wixy.cn/", "Ultron Blog"]
+    折影轻梦: ["https://nexmoe.com/", "Entorevolution"]
+    诗酒乘年华: ["https://shawnzeng.com/", "一个爱鼓捣前端的产品汪"] #未更新
+    小丁的个人博客: ["https://tding.top/", "世间所有的相遇，都是久别重逢"]
+    Faber: ["https://www.faber.cc/", "永不言弃"]
+    没有人: ["https://hewanyue.com", "BOHC!"]
+    Brian’s Blog: ["https://blog.brianhe.me/", "Happy Coding"] #未更新
+    空樱酱: ["https://kotori.love/", "ことりのおやつにしてやるぞー！"] #无反链
+    萌月: ["http://www.moeyue.com/", "打不开了"] #打不开
+    立华: ["https://freedom.moe/", "打不开了"] #打不开
+    猫行天下: ["http://www.aidcat.com/", "打不开了"] #打不开
+
+
+#---------------------------
 # 侧边栏
 # Sidebar
 #---------------------------
@@ -388,15 +418,16 @@ sidebar:
 
 
 #---------------------------
-# 友链
+# 侧栏友链
 # Friends
 #---------------------------    
 friends: 
+  其余友链在内页: /links/
   xiaopc: https://xiaopc.org/
-  近泽jrotty: https://qqdie.com/
   DIYgod: https://diygod.me/
   蠢汤圆: https://tyzual.com/
   茶姐姐: https://tea9.xyz
+  近泽jrotty: https://qqdie.com/
   千灵夙赋: https://qianling.pw/
   蝉時雨: https://chanshiyu.com/
   Luminous’ Home: https://luotianyi.vc/
@@ -405,15 +436,3 @@ friends:
   马猴烧酒: https://mhsjo.com/
   蠢Lan: https://www.xx8.uk/
   咸鱼滩音乐团队: https://www.xytsing.com/
-  猎风: https://www.chnliefeng.ink/
-  吟梦的梦笔记: https://kirainmoe.com/
-  王煜博客: https://blog.wixy.cn/
-  折影轻梦: https://nexmoe.com/
-  诗酒乘年华: https://shawnzeng.com/ #未更新
-  小丁的个人博客: https://tding.top
-  Faber: https://www.faber.cc/
-  Brian’s Blog: https://blog.brianhe.me/ #未更新
-  空樱酱: https://kotori.love/ #无反链
-  萌月(打不开): http://www.moeyue.com/ #打不开
-  立华(打不开): https://freedom.moe/ #打不开
-  猫行天下(打不开): http://www.aidcat.com/ #打不开

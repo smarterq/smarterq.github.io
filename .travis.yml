@@ -32,6 +32,7 @@ before_script:
   - npm install hexo-generator-feed --save
   - npm install hexo-all-minifier --save
   - npm install hexo-static-cos --save
+  - npm install hexo-filter-nofollow --save
 # - npm install hexo-renderer-jade --save
 # - npm install https://github.com/CodeFalling/hexo-asset-image --save
  
