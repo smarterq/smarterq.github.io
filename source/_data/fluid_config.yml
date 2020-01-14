@@ -387,11 +387,16 @@ links:
   comments: false # 是否开启页面评论功能，评论相关设置见文章页设置
   items:
     侧栏友链: ["/links/", "其余友链在侧边栏"]
+    近泽jrotty: ["https://qqdie.com/", "专注于Typecho的个人博客"]
+    蠢Lan: ["https://www.xx8.uk/", "北落の后花园"]
+    蝉時雨: ["https://chanshiyu.com/", "蝉鸣如雨，花宵道中"]
+    Luminous’ Home: ["https://luotianyi.vc/", "Luminous的个人小窝"]
     猎风: ["https://www.chnliefeng.ink/", "猎风"]
     吟梦的梦笔记: ["https://kirainmoe.com/", "宇宙よりも遠い場所"]
     王煜博客: ["https://blog.wixy.cn/", "Ultron Blog"]
     折影轻梦: ["https://nexmoe.com/", "Entorevolution"]
     诗酒乘年华: ["https://shawnzeng.com/", "一个爱鼓捣前端的产品汪"] #未更新
+    月宅酱: ["https://ikmoe.com/", "月宅神社"]
     小丁的个人博客: ["https://tding.top/", "世间所有的相遇，都是久别重逢"]
     Faber: ["https://www.faber.cc/", "永不言弃"]
     没有人: ["https://hewanyue.com", "BOHC!"]
@@ -424,15 +429,11 @@ sidebar:
 friends: 
   其余友链在内页: /links/
   xiaopc: https://xiaopc.org/
+  孔壕: https://webdoger.club/
   DIYgod: https://diygod.me/
   蠢汤圆: https://tyzual.com/
   茶姐姐: https://tea9.xyz
-  近泽jrotty: https://qqdie.com/
   千灵夙赋: https://qianling.pw/
-  蝉時雨: https://chanshiyu.com/
-  Luminous’ Home: https://luotianyi.vc/
   s7smile: http://www.s7smile.com/
-  月宅酱: https://ikmoe.com/
   马猴烧酒: https://mhsjo.com/
-  蠢Lan: https://www.xx8.uk/
   咸鱼滩音乐团队: https://www.xytsing.com/
