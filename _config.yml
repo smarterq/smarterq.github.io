@@ -157,7 +157,7 @@ image_minifier:
 # qcloudcos
 qcloudcos:
   enable: true # 是否开启腾讯云对象储存
-  domain: julydate-1251438221.file.myqcloud.com # 腾讯云对象储存或CDN域名
+  domain: july.staticapi.prpr.ltd # 腾讯云对象储存或CDN域名 julydate-1251438221.file.myqcloud.com
   onlypost: false # 是否只替换文章资源
   priority: 10 # 插件执行优先级，数值越小越先执行，默认为 10
   img: true # 是否替换 img 标签，下列项目同理
