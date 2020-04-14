@@ -102,8 +102,8 @@ SWAP大小             : 511 MB (15 MB Used)
 ASN信息:	AS8100 (美国 加利福尼亚州 洛杉矶 )
 运营商:		quadranet.com
 IPInfo:
-  ip: "155.94.143.32"
-  hostname: "155.94.143.32.static.quadranet.com"
+  ip: "155.94.*.*"
+  hostname: "155.94.*.*.static.quadranet.com"
   city: "Los Angeles"
   region: "California"
   country: "US"
