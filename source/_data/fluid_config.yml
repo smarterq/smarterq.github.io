@@ -387,7 +387,7 @@ links:
   comments: false # 是否开启页面评论功能，评论相关设置见文章页设置
   items:
     侧栏友链: ["/links/", "其余友链在左下角侧边栏"]
-    近泽jrotty: ["https://qqdie.com/", "专注于Typecho的个人博客"]
+    泽泽社: ["https://zezeshe.com/", "泽泽社长的个人博客"]
     蠢Lan: ["https://www.xx8.uk/", "北落の后花园"]
     蝉時雨: ["https://chanshiyu.com/", "蝉鸣如雨，花宵道中"]
     Luminous’ Home: ["https://luotianyi.vc/", "Luminous的个人小窝"]
