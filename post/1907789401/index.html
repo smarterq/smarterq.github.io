@@ -1,0 +1,675 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="//julydate-1251438221.file.myqcloud.com/favicon.ico"><link rel="icon" type="image/png" href="//julydate-1251438221.file.myqcloud.com/favicon.ico"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="author" content="七夏浅笑"><meta name="description" content="前几天黑色星期五，然后看见大佬们都在说 PacificRack 的服务器，所以我也去凑热闹收了一台，刚好把自己之前那台 256M 的小可怜换掉，顺便也跑了一下测试之类哒。"><meta name="keywords" content="笔记,测评,VPS,"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><title>PacificRack VPS 测试报告 - 七夏浅笑</title><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.10.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.8.7/css/mdb.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css"><link rel="stylesheet" href="//julydate-1251438221.file.myqcloud.com/lib/prettify/tranquil-heart.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="//julydate-1251438221.file.myqcloud.com/css/main.css"><script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><style type="text/css">.banner-bg{background-image:url(https://ae01.alicdn.com/kf/U8720aea1269b407990ade7c258ae0d8b8.jpg);background-position:center;background-repeat:repeat-y;background-size:cover;background-attachment:fixed}</style><link rel="alternate" href="//julydate-1251438221.file.myqcloud.com/atom.xml" title="七夏浅笑" type="application/atom+xml"></head><body class="banner-bg"><header style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/">&nbsp;<strong>七夏浅笑</strong>&nbsp;</a> <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/">主页</a></li><li class="nav-item"><a class="nav-link" href="/archives/">归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/">分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li><li class="nav-item"><a class="nav-link" href="/links/">友链</a></li><li class="nav-item"><a class="nav-link" href="/about/">关于</a></li><li class="nav-item" id="search-btn"><a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a></li></ul></div></div></nav><div class="view intro-2 rgba-black-slight" id="background"><div class="full-bg-img"><div class="mask flex-center"><div class="container text-center white-text fadeInUp"><span class="h2" id="subtitle"></span><br><p class="mt-3"><i class="far fa-calendar-alt"></i> <span class="post-date">2019-12-03&nbsp;|&nbsp;</span> <i class="far fa-chart-bar"></i> <span class="post-count">11.7k</span>字&nbsp;|&nbsp; <i class="far fa-clock"></i> <span class="post-count">61</span>分钟</p></div></div></div></div></header><main id="mainContent" class="rgba-black-slight"><div class="container-fluid"><div class="row"><div class="d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-md"><div class="py-5 z-depth-3" id="board"><div class="post-content mx-auto" id="post"><div class="markdown-body"><p>前几天黑色星期五，然后看见大佬们都在说 PacificRack 的服务器，所以我也去凑热闹收了一台，刚好把自己之前那台 256M 的小可怜换掉，顺便也跑了一下测试之类哒。</p><a id="more"></a><p>CPU 真的还是有点差，不过和之前那台也差不多，但是这台商家没有开 aes_ni，路由的话我看见别人的电信回程是 CN2 GT，联通移动直连，<del>但是我这台不知道为什么电信也是直连的没有走 CN2 好惨诶</del>（电信回程切到 CN2 GT 啦，具体见<a href="#更新测试结果">更新测试结果</a>）。</p><blockquote><p>PacificRack 为机房运营商 QuadraNET 旗下的全资子品牌。目前推出 QuadraNET 洛杉矶线路的 VPS，混合云和独立服务器等业务。2019 双十一/黑五活动正式启动，50% 优惠码后，最便宜的机型 512M/25G SSD/500G 仅需 12.5 美金一年。</p></blockquote><h2 id="机器配置"><a href="#机器配置" class="headerlink" title="机器配置"></a>机器配置</h2><h3 id="常规机型"><a href="#常规机型" class="headerlink" title="常规机型"></a>常规机型</h3><p>我的这台是最低配的那个，之前半价的</p><p><strong>512M KVM VPS</strong></p><ul><li>CPU：<strong>1x Intel Xeon vCore</strong> CPU</li><li>内存：<strong>512 MB</strong> RAM</li><li>磁盘：<strong>25 GB RAID-10</strong> SSD</li><li>带宽：<strong>1 Gigabit</strong> Link speed</li><li>流量：<strong>500GB/mo</strong> Transfer</li><li>IP数：<strong>1 Free Dedicated IP Address</strong> IP Space</li><li>虚拟类型： <strong>KVM</strong> Virtualization</li><li>DDoS防御： <strong>3Gbps</strong> DDoS Protection</li></ul><p>购买地址：<a href="https://pacificrack.com/portal/cart.php?a=add&amp;pid=1&amp;aff=575" target="_blank" rel="noopener external nofollow noreferrer">https://pacificrack.com/portal/cart.php?a=add&amp;pid=1&amp;aff=575</a></p><p>半价优惠码：<strong>VPS50OFF</strong>（不过现在好像活动结束了，原价就…很贵了）</p><p>所有机型：<a href="https://pacificrack.com/portal/cart.php?aff=575" target="_blank" rel="noopener external nofollow noreferrer">https://pacificrack.com/portal/cart.php?aff=575</a></p><h3 id="活动机型"><a href="#活动机型" class="headerlink" title="活动机型"></a>活动机型</h3><p>下面是最近还在做活动的机型</p><p><strong>Cyber Monday Sale – 512MB KVM VPS</strong></p><ul><li>RAM: 512 MB</li><li>SSD: 20 GB RAID-10</li><li>CPU: 1x Intel Xeon vCore</li><li>Transfer: 500GB /mo</li><li>Link speed: 1 Gigabit</li><li>DDoS Protection: 3Gbps</li><li>IP Space: 1 Free Dedicated IP Address</li><li>Virtualization: KVM</li></ul><p><a href="https://pacificrack.com/portal/aff.php?aff=575&pid=33" target="_blank" rel="noopener external nofollow noreferrer">$13.95一年(限量700台)</a></p><p><strong>Black Friday Sale – 1G KVM VPS</strong></p><ul><li>RAM: 1GB</li><li>SSD: 30 GB RAID-10</li><li>CPU: 2x Intel Xeon vCore</li><li>Transfer: 1TB/mo</li><li>Link speed: 1 Gigabit</li><li>DDoS Protection: 3Gbps</li><li>IP Space: 1 Free Dedicated IP Address</li></ul><p><a href="https://pacificrack.com/portal/aff.php?aff=575&pid=32" target="_blank" rel="noopener external nofollow noreferrer">$18.95一年(限量1000台)</a></p><h2 id="测试-IP"><a href="#测试-IP" class="headerlink" title="测试 IP"></a>测试 IP</h2><p>155.94.143.100</p><p>192.161.179.106</p><blockquote><p>PacificRack 更换 IP 需要 6 美元一次</p></blockquote><h2 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h2><pre><code class="shell">CPU 型号             : QEMU Virtual CPU version (cpu64-rhel6)
+CPU 核心数           : 1
+CPU 频率             : 2199.998 MHz
+CPU 缓存大小         : 4096 KB
+总硬盘大小           : 25.2 GB (3.9 GB Used)
+总内存大小           : 485 MB (221 MB Used)
+SWAP大小             : 511 MB (15 MB Used)
+开机时长             : 1 days, 23 hour 54 min
+系统负载             : 0.21, 0.10, 0.07
+系统                 : Debian GNU/Linux 9
+架构                 : x86_64 (64 Bit)
+内核                 : 4.14.129-bbrplus
+虚拟化平台           : kvm</code></pre><h2 id="IP-信息"><a href="#IP-信息" class="headerlink" title="IP 信息"></a>IP 信息</h2><pre><code class="shell">本机IP:        155.94.*.*
+ASN信息:    AS8100 (美国 加利福尼亚州 洛杉矶 )
+运营商:        quadranet.com
+IPInfo:
+  ip: &quot;155.94.*.*&quot;
+  hostname: &quot;155.94.*.*.static.quadranet.com&quot;
+  city: &quot;Los Angeles&quot;
+  region: &quot;California&quot;
+  country: &quot;US&quot;
+  loc: &quot;34.0522,-118.2437&quot;
+  postal: &quot;90009&quot;
+  timezone: &quot;America/Los_Angeles&quot;
+  asn: 
+    asn: &quot;AS8100&quot;
+    name: &quot;QuadraNet Enterprises LLC&quot;
+    domain: &quot;quadranet.com&quot;
+    route: &quot;155.94.128.0/17&quot;
+    type: &quot;hosting&quot;
+  hosting: 
+    host: &quot;quadranet&quot;
+    id: &quot;QUADRANET&quot;
+    name: &quot;QuadraNet Enterprises LLC&quot;
+    network: &quot;155.94.128.0/17&quot;
+  company: 
+    name: &quot;QuadraNet Enterprises LLC&quot;
+    domain: &quot;quadranet.com&quot;
+    type: &quot;hosting&quot;
+  abuse: 
+    address: &quot;US, CA, Los Angeles, 530 W 6th Street Suite 901, 90014&quot;
+    country: &quot;US&quot;
+    email: &quot;abuse@quadranet.com&quot;
+    name: &quot;QuadraNet Abuse&quot;
+    network: &quot;155.94.128.0/17&quot;
+    phone: &quot;+1-213-614-8371&quot;</code></pre><h2 id="磁盘性能"><a href="#磁盘性能" class="headerlink" title="磁盘性能"></a>磁盘性能</h2><pre><code class="shell">硬盘I/O (第一次测试) : 97.9 MB/s
+硬盘I/O (第二次测试) : 137 MB/s
+硬盘I/O (第三次测试) : 167 MB/s
+磁盘性能测试 (4K块/1M块, Direct写入)
+测试项目      写入速度                           读取速度
+10MB-4K块    8.4 MB/s (2038 IOPS, 1.26 秒)    16.4 MB/s (4002 IOPS, 0.64 秒)
+10MB-1M块    146 MB/s (139 IOPS, 0.07 秒)        860 MB/s (820 IOPS, 0.01 秒)
+100MB-4K块    9.4 MB/s (2302 IOPS, 11.12 秒)    14.7 MB/s (3596 IOPS, 7.12 秒)
+100MB-1M块    117 MB/s (111 IOPS, 0.90 秒)        135 MB/s (128 IOPS, 0.78 秒)
+1000MB-4K块    8.3 MB/s (2037 IOPS, 125.65 秒)    15.6 MB/s (3807 IOPS, 67.23 秒)
+1000MB-1M块    126 MB/s (120 IOPS, 8.29 秒)        199 MB/s (190 IOPS, 5.26 秒)</code></pre><h2 id="UnixBench"><a href="#UnixBench" class="headerlink" title="UnixBench"></a>UnixBench</h2><p>使用秋水逸冰脚本 <a href="https://github.com/teddysun/across/#unixbenchsh" target="_blank" rel="noopener external nofollow noreferrer">UNIX Bench</a></p><pre><code class="shell">========================================================================
+
+   Version 5.1.3                      Based on the Byte Magazine Unix Benchmark
+
+   Multi-CPU version                  Version 5 revisions by Ian Smith,
+                                      Sunnyvale, CA, USA
+   January 13, 2011                   johantheghost at yahoo period com
+
+========================================================================
+   BYTE UNIX Benchmarks (Version 5.1.3)
+
+   System: prprvps: GNU/Linux
+   OS: GNU/Linux -- 4.14.129-bbrplus -- #1 SMP Mon Jun 24 16:51:05 UTC 2019
+   Machine: x86_64 (unknown)
+   Language: en_US.utf8 (charmap=&quot;UTF-8&quot;, collate=&quot;UTF-8&quot;)
+   CPU 0: QEMU Virtual CPU version (cpu64-rhel6) (4400.0 bogomips)
+          x86-64, MMX, Physical Address Ext, SYSENTER/SYSEXIT, SYSCALL/SYSRET
+   04:26:17 up 42 min,  2 users,  load average: 0.73, 0.26, 0.30; runlevel 5
+
+------------------------------------------------------------------------
+Benchmark Run: Sun Dec 01 2019 04:26:17 - 04:54:14
+1 CPU in system; running 1 parallel copy of tests
+
+Dhrystone 2 using register variables       18940501.0 lps   (10.0 s, 7 samples)
+Double-Precision Whetstone                     2840.5 MWIPS (9.7 s, 7 samples)
+Execl Throughput                               2450.5 lps   (29.8 s, 2 samples)
+File Copy 1024 bufsize 2000 maxblocks        206406.9 KBps  (30.0 s, 2 samples)
+File Copy 256 bufsize 500 maxblocks           53804.1 KBps  (30.0 s, 2 samples)
+File Copy 4096 bufsize 8000 maxblocks        592374.4 KBps  (30.0 s, 2 samples)
+Pipe Throughput                              302962.8 lps   (10.0 s, 7 samples)
+Pipe-based Context Switching                  66757.5 lps   (10.0 s, 7 samples)
+Process Creation                               5128.5 lps   (30.0 s, 2 samples)
+Shell Scripts (1 concurrent)                   4350.3 lpm   (60.0 s, 2 samples)
+Shell Scripts (8 concurrent)                    581.8 lpm   (60.0 s, 2 samples)
+System Call Overhead                         171607.8 lps   (10.0 s, 7 samples)
+
+System Benchmarks Index Values               BASELINE       RESULT    INDEX
+Dhrystone 2 using register variables         116700.0   18940501.0   1623.0
+Double-Precision Whetstone                       55.0       2840.5    516.5
+Execl Throughput                                 43.0       2450.5    569.9
+File Copy 1024 bufsize 2000 maxblocks          3960.0     206406.9    521.2
+File Copy 256 bufsize 500 maxblocks            1655.0      53804.1    325.1
+File Copy 4096 bufsize 8000 maxblocks          5800.0     592374.4   1021.3
+Pipe Throughput                               12440.0     302962.8    243.5
+Pipe-based Context Switching                   4000.0      66757.5    166.9
+Process Creation                                126.0       5128.5    407.0
+Shell Scripts (1 concurrent)                     42.4       4350.3   1026.0
+Shell Scripts (8 concurrent)                      6.0        581.8    969.7
+System Call Overhead                          15000.0     171607.8    114.4
+                                                                   ========
+System Benchmarks Index Score                                         481.6
+
+======= Script description and score comparison completed! ======= </code></pre><h2 id="宝塔跑分"><a href="#宝塔跑分" class="headerlink" title="宝塔跑分"></a>宝塔跑分</h2><p>使用宝塔面板版本：7.0.3</p><p>使用宝塔跑分版本：1.3</p><p><img src="//julydate-1251438221.file.myqcloud.com/assets/img/image-20191210212401106.png" srcset="https://ae01.alicdn.com/kf/U0bf96ebd47f94261b40e8156ee6d98a9K.gif" alt="image-20191210212401106"></p><h2 id="网络测试"><a href="#网络测试" class="headerlink" title="网络测试"></a>网络测试</h2><h3 id="带宽测试"><a href="#带宽测试" class="headerlink" title="带宽测试"></a>带宽测试</h3><p>以下测速在开启了 bbrplus 加速插件后进行</p><p>SpeedTest: <a href="https://www.speedtest.net/result/8818851622" target="_blank" rel="noopener external nofollow noreferrer">https://www.speedtest.net/result/8818851622</a></p><p><img src="//julydate-1251438221.file.myqcloud.com/assets/img/speedtest_net_8818851622.png" srcset="https://ae01.alicdn.com/kf/U0bf96ebd47f94261b40e8156ee6d98a9K.gif" alt="speedtest"></p><h3 id="国外网络测试"><a href="#国外网络测试" class="headerlink" title="国外网络测试"></a>国外网络测试</h3><pre><code class="shell">节点名称                   IP地址            下载速度             延迟      
+CacheFly                  205.234.175.175   34.5MB/s            36.223 ms   
+Linode, Singapore, SG     139.162.23.4      4.71MB/s            174.827 ms  
+Linode, London, UK        176.58.107.39     6.33MB/s            134.622 ms  
+Linode, Frankfurt, DE     139.162.130.8     4.54MB/s            140.710 ms  
+Linode, Fremont, CA       50.116.14.9       28.8MB/s            10.968 ms   
+Softlayer, Dallas, TX     173.192.68.18     22.3MB/s            59.636 ms   
+Softlayer, Seattle, WA    67.228.112.250    24.0MB/s            24.740 ms   
+Softlayer, Frankfurt, DE  159.122.69.4      3.98MB/s            148.515 ms  
+Softlayer, Singapore, SG  119.81.28.170     5.14MB/s            220.955 ms  
+Softlayer, HongKong, CN   119.81.130.170    4.34MB/s            160.135 ms  </code></pre><h3 id="国内网络测试"><a href="#国内网络测试" class="headerlink" title="国内网络测试"></a>国内网络测试</h3><pre><code class="shell">国内网络测试
+节点名称                  上传速度           下载速度             延迟      
+上海电信                  2.03 Mbit/s       72.49 Mbit/s        000.000 ms 
+西安电信                  55.38 Mbit/s      44.67 Mbit/s        301.5 ms   
+北京联通                  61.46 Mbit/s      56.30 Mbit/s        289.113 ms 
+
+国内网络延迟测试
+合肥        : 174.67 ms  北京        : 167.77 ms  武汉        : 179.01 ms 
+杭州        : 143.09 ms  宁夏        : 181.69 ms  呼和浩特    : 174.41 ms 
+兰州        : 238.37 ms  济南        : 158.84 ms  西安        : 202.28 ms 
+重庆        : 197.94 ms  长春        : 159.72 ms  福州        : 191.54 ms 
+乌鲁木齐    : 231.01 ms   天津        : 173.94 ms  郑州        : 160.81 ms </code></pre><h3 id="Speedtest-net-网络测试"><a href="#Speedtest-net-网络测试" class="headerlink" title="Speedtest.net 网络测试"></a>Speedtest.net 网络测试</h3><pre><code class="shell">节点名称         上传速度      下载速度       Ping延迟
+距离最近测速点       78.03 MB/s  59.47 MB/s  5.986 ms
+东北-吉林联通        8.45 MB/s    6.09 MB/s    186.77 ms
+东北-沈阳移动        0.93 MB/s    0.26 MB/s    232.305 ms
+华北-山东联通        0.81 MB/s    4.91 MB/s    600400.933 ms
+华中-南京联通        8.32 MB/s    4.40 MB/s    164.451 ms
+华中-杭州电信        0.93 MB/s    0.72 MB/s    172.854 ms
+华中-杭州移动        0.98 MB/s    5.75 MB/s    267.247 ms
+华东-上海联通        5.28 MB/s    5.98 MB/s    183.763 ms
+华东-上海移动        0.63 MB/s    6.57 MB/s    221.509 ms
+西南-南宁移动        1.54 MB/s    8.98 MB/s    240.192 ms
+西北-兰州联通        7.39 MB/s    3.80 MB/s    272.142 ms
+西北-兰州电信        0.44 MB/s    1.15 MB/s    377.571 ms
+西北-兰州移动        1.65 MB/s    5.63 MB/s    265.209 ms</code></pre><h3 id="Ping-丢包测试"><a href="#Ping-丢包测试" class="headerlink" title="Ping 丢包测试"></a>Ping 丢包测试</h3><p>使用 Ping.pe 测试：<a href="https://ping.pe/" target="_blank" rel="noopener external nofollow noreferrer">https://ping.pe/</a></p><p><img src="//julydate-1251438221.file.myqcloud.com/assets/img/img_k5uRvNNv.png" srcset="https://ae01.alicdn.com/kf/U0bf96ebd47f94261b40e8156ee6d98a9K.gif" alt="img_k5uRvNNv"></p><h3 id="代理测试"><a href="#代理测试" class="headerlink" title="代理测试"></a>代理测试</h3><p>测速在广东联通 100M 网络下进行</p><p>测速时间：2019 年 12 月 8 日 11:55 AM</p><h4 id="网速测试"><a href="#网速测试" class="headerlink" title="网速测试"></a>网速测试</h4><p>SpeedTest: <a href="https://www.speedtest.net/result/8833509926" target="_blank" rel="noopener external nofollow noreferrer">https://www.speedtest.net/result/8833509926</a></p><p><img src="//julydate-1251438221.file.myqcloud.com/assets/img/speedtest_net_8833509926.png" srcset="https://ae01.alicdn.com/kf/U0bf96ebd47f94261b40e8156ee6d98a9K.gif" alt="speedtest"></p><h4 id="YouTube-测试"><a href="#YouTube-测试" class="headerlink" title="YouTube 测试"></a>YouTube 测试</h4><p><img src="//julydate-1251438221.file.myqcloud.com/assets/img/image-20191208120153623.png" srcset="https://ae01.alicdn.com/kf/U0bf96ebd47f94261b40e8156ee6d98a9K.gif" alt="image-20191208120153623"></p><h2 id="国内路由追踪"><a href="#国内路由追踪" class="headerlink" title="国内路由追踪"></a>国内路由追踪</h2><h3 id="去程路由"><a href="#去程路由" class="headerlink" title="去程路由"></a>去程路由</h3><h4 id="江苏宿迁电信"><a href="#江苏宿迁电信" class="headerlink" title="江苏宿迁电信"></a>江苏宿迁电信</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">2</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.61.1/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.61.1</a></td><td align="center">10.254.61.1</td><td align="center">局域网</td><td align="center"></td><td align="center">15.4 / 3.6 / 4.8</td></tr><tr><td align="center">3</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.51.1/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.51.1</a></td><td align="center">10.254.51.1</td><td align="center">局域网</td><td align="center"></td><td align="center">1.1 / 1 / 1.1</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/61.147.244.221/32" target="_blank" rel="noopener external nofollow noreferrer">61.147.244.221</a></td><td align="center">61.147.244.221</td><td align="center">江苏宿迁 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">0.8 / 0.8 / 1.5</td></tr><tr><td align="center">5</td><td align="center"><a href="https://whois.ipip.net/cidr/222.187.244.161/32" target="_blank" rel="noopener external nofollow noreferrer">222.187.244.161</a></td><td align="center">222.187.244.161</td><td align="center">江苏宿迁 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">1.1 / 1.1 / 1.3</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/61.147.244.57/32" target="_blank" rel="noopener external nofollow noreferrer">61.147.244.57</a></td><td align="center">61.147.244.57</td><td align="center">江苏宿迁 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">6.8 / 6 / 8.6</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.92.13/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.92.13</a></td><td align="center">202.97.92.13</td><td align="center">上海 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">12.4 / 10.1 / 11.8</td></tr><tr><td align="center">8</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.62.26/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.62.26</a></td><td align="center">202.97.62.26</td><td align="center">上海 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">25.1 / 26.9 / 24.5</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.51.241/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.51.241</a></td><td align="center">202.97.51.241</td><td align="center">上海 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">28.7 / 34.3 / 31.8</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/59.43.244.113/32" target="_blank" rel="noopener external nofollow noreferrer">59.43.244.113</a></td><td align="center">59.43.244.113</td><td align="center">上海 电信</td><td align="center">*</td><td align="center">15.4</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/59.43.246.238/32" target="_blank" rel="noopener external nofollow noreferrer">59.43.246.238</a></td><td align="center">59.43.246.238</td><td align="center">美国加利福尼亚州洛杉矶 电信</td><td align="center">*</td><td align="center">149.4</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/218.30.48.146/32" target="_blank" rel="noopener external nofollow noreferrer">218.30.48.146</a></td><td align="center">218.30.48.146</td><td align="center">美国加利福尼亚州洛杉矶 ctamericas.com</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">160.8</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.33/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.33</a></td><td align="center">96.44.175.33.static.quadranet.com</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">169</td></tr><tr><td align="center">14</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">156.8 / 156.8 / 156.9</td></tr></tbody></table><h4 id="广东深圳电信"><a href="#广东深圳电信" class="headerlink" title="广东深圳电信"></a>广东深圳电信</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">2</td><td align="center"><a href="https://whois.ipip.net/cidr/172.20.250.252/32" target="_blank" rel="noopener external nofollow noreferrer">172.20.250.252</a></td><td align="center">172.20.250.252</td><td align="center">局域网</td><td align="center"></td><td align="center">15.1 / 7 / 4.3</td></tr><tr><td align="center">3</td><td align="center"><a href="https://whois.ipip.net/cidr/103.45.0.53/32" target="_blank" rel="noopener external nofollow noreferrer">103.45.0.53</a></td><td align="center">103.45.0.53</td><td align="center">广东深圳 niaoyun.com</td><td align="center"></td><td align="center">161.3 / 1.4 / 1.1</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/183.56.167.125/32" target="_blank" rel="noopener external nofollow noreferrer">183.56.167.125</a></td><td align="center">183.56.167.125</td><td align="center">广东深圳 电信</td><td align="center"><a href="https://whois.ipip.net/AS4816" target="_blank" rel="noopener external nofollow noreferrer">AS4816</a> / <a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">3.3 / 10.5 / 3.2</td></tr><tr><td align="center">5</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/121.14.112.125/32" target="_blank" rel="noopener external nofollow noreferrer">121.14.112.125</a></td><td align="center">121.14.112.125</td><td align="center">广东深圳 电信</td><td align="center"><a href="https://whois.ipip.net/AS4816" target="_blank" rel="noopener external nofollow noreferrer">AS4816</a> / <a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">1.2 / 1.4 / 1.1</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/119.147.223.113/32" target="_blank" rel="noopener external nofollow noreferrer">119.147.223.113</a></td><td align="center">119.147.223.113</td><td align="center">广东深圳 电信</td><td align="center"><a href="https://whois.ipip.net/AS4816" target="_blank" rel="noopener external nofollow noreferrer">AS4816</a> / <a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">5.1 / 6.3 / 4</td></tr><tr><td align="center">8</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.91.154/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.91.154</a></td><td align="center">202.97.91.154</td><td align="center">广东广州 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">19.7 / 20.3 / 21.7</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.91.194/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.91.194</a></td><td align="center">202.97.91.194</td><td align="center">广东广州 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">35.7</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/59.43.244.129/32" target="_blank" rel="noopener external nofollow noreferrer">59.43.244.129</a></td><td align="center">59.43.244.129</td><td align="center">广东广州 电信</td><td align="center"></td><td align="center">33 / 32.7 / 32.9</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/59.43.182.73/32" target="_blank" rel="noopener external nofollow noreferrer">59.43.182.73</a></td><td align="center">59.43.182.73</td><td align="center">美国加利福尼亚州洛杉矶 电信</td><td align="center"></td><td align="center">189.2 / 189.1 / 188.6</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/218.30.48.146/32" target="_blank" rel="noopener external nofollow noreferrer">218.30.48.146</a></td><td align="center">218.30.48.146</td><td align="center">美国加利福尼亚州洛杉矶 ctamericas.com</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">209.4 / 189.6 / 189.6</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.33/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.33</a></td><td align="center">96.44.175.33</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">209.7</td></tr><tr><td align="center">14</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">187 / 187.5 / 188.9</td></tr></tbody></table><h4 id="江苏宿迁联通"><a href="#江苏宿迁联通" class="headerlink" title="江苏宿迁联通"></a>江苏宿迁联通</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">2</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.61.1/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.61.1</a></td><td align="center">10.254.61.1</td><td align="center">局域网</td><td align="center"></td><td align="center">16.2 / 1.7 / 1.9</td></tr><tr><td align="center">3</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.51.1/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.51.1</a></td><td align="center">10.254.51.1</td><td align="center">局域网</td><td align="center"></td><td align="center">1.3 / 1 / 1</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.11.2/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.11.2</a></td><td align="center">10.254.11.2</td><td align="center">局域网</td><td align="center"></td><td align="center">1.5 / 1.6 / 1.6</td></tr><tr><td align="center">5</td><td align="center"><a href="https://whois.ipip.net/cidr/153.36.202.5/32" target="_blank" rel="noopener external nofollow noreferrer">153.36.202.5</a></td><td align="center">153.36.202.5</td><td align="center">江苏宿迁 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">1.6 / 1.6 / 1.6</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/221.6.174.69/32" target="_blank" rel="noopener external nofollow noreferrer">221.6.174.69</a></td><td align="center">221.6.174.69</td><td align="center">江苏宿迁 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">10.2 / 9 / 8.8</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/219.158.18.13/32" target="_blank" rel="noopener external nofollow noreferrer">219.158.18.13</a></td><td align="center">219.158.18.13</td><td align="center">北京 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">32.6 / 70.7 / 32.6</td></tr><tr><td align="center">8</td><td align="center"><a href="https://whois.ipip.net/cidr/219.158.4.174/32" target="_blank" rel="noopener external nofollow noreferrer">219.158.4.174</a></td><td align="center">219.158.4.174</td><td align="center">北京 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">78.4 / 74.9 / 80.2</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/219.158.3.178/32" target="_blank" rel="noopener external nofollow noreferrer">219.158.3.178</a></td><td align="center">219.158.3.178</td><td align="center">北京 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">70.2 / 82.9 / 80.6</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/219.158.117.18/32" target="_blank" rel="noopener external nofollow noreferrer">219.158.117.18</a></td><td align="center">219.158.117.18</td><td align="center">美国加利福尼亚州洛杉矶 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">222.3 / 211.9 / 202.2</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/207.254.191.126/32" target="_blank" rel="noopener external nofollow noreferrer">207.254.191.126</a></td><td align="center">207.254.191.126</td><td align="center">美国加利福尼亚州洛杉矶 chinaunicom.com</td><td align="center"><a href="https://whois.ipip.net/AS19174" target="_blank" rel="noopener external nofollow noreferrer">AS19174</a></td><td align="center">193.9 / 190.6 / 187.3</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/204.152.204.1/32" target="_blank" rel="noopener external nofollow noreferrer">204.152.204.1</a></td><td align="center">204.152.204.1</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">246.3</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.35/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.35</a></td><td align="center">96.44.175.35</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">218.8</td></tr><tr><td align="center">14</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">182.8 / 210 / 183.9</td></tr></tbody></table><h4 id="广东茂名联通"><a href="#广东茂名联通" class="headerlink" title="广东茂名联通"></a>广东茂名联通</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="https://whois.ipip.net/cidr/122.13.195.129/32" target="_blank" rel="noopener external nofollow noreferrer">122.13.195.129</a></td><td align="center">122.13.195.129</td><td align="center">广东茂名 联通</td><td align="center"><a href="https://whois.ipip.net/AS17816" target="_blank" rel="noopener external nofollow noreferrer">AS17816</a></td><td align="center">8.3 / 4.5 / 4.3</td></tr><tr><td align="center">2</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">3</td><td align="center"><a href="https://whois.ipip.net/cidr/172.16.69.1/32" target="_blank" rel="noopener external nofollow noreferrer">172.16.69.1</a></td><td align="center">bogon</td><td align="center">局域网</td><td align="center"></td><td align="center">11.8 / 8.1 / 5.5</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/120.80.253.101/32" target="_blank" rel="noopener external nofollow noreferrer">120.80.253.101</a></td><td align="center">120.80.253.101</td><td align="center">广东茂名 联通</td><td align="center"><a href="https://whois.ipip.net/AS17816" target="_blank" rel="noopener external nofollow noreferrer">AS17816</a></td><td align="center">2.3 / 1.9 / 2.7</td></tr><tr><td align="center">5</td><td align="center"><a href="https://whois.ipip.net/cidr/120.80.253.21/32" target="_blank" rel="noopener external nofollow noreferrer">120.80.253.21</a></td><td align="center">120.80.253.21</td><td align="center">广东茂名 联通</td><td align="center"><a href="https://whois.ipip.net/AS17816" target="_blank" rel="noopener external nofollow noreferrer">AS17816</a></td><td align="center">2.6 / 4.5 / 6.1</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/112.91.0.45/32" target="_blank" rel="noopener external nofollow noreferrer">112.91.0.45</a></td><td align="center">112.91.0.45</td><td align="center">广东茂名 联通</td><td align="center"><a href="https://whois.ipip.net/AS17816" target="_blank" rel="noopener external nofollow noreferrer">AS17816</a></td><td align="center">8.5 / 8.3 / 8.5</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/219.158.8.122/32" target="_blank" rel="noopener external nofollow noreferrer">219.158.8.122</a></td><td align="center">219.158.8.122</td><td align="center">广东广州 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">16.9 / 14.5 / 12.1</td></tr><tr><td align="center">8</td><td align="center"><a href="https://whois.ipip.net/cidr/219.158.103.38/32" target="_blank" rel="noopener external nofollow noreferrer">219.158.103.38</a></td><td align="center">219.158.103.38</td><td align="center">广东广州 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">15 / 12.5 / 10.8</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/219.158.97.210/32" target="_blank" rel="noopener external nofollow noreferrer">219.158.97.210</a></td><td align="center">219.158.97.210</td><td align="center">美国加利福尼亚州洛杉矶 联通</td><td align="center"><a href="https://whois.ipip.net/AS4837" target="_blank" rel="noopener external nofollow noreferrer">AS4837</a></td><td align="center">227.5 / 225.5 / 231.8</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/207.254.191.101/32" target="_blank" rel="noopener external nofollow noreferrer">207.254.191.101</a></td><td align="center">207.254.191.101</td><td align="center">美国加利福尼亚州洛杉矶 chinaunicom.com</td><td align="center"><a href="https://whois.ipip.net/AS19174" target="_blank" rel="noopener external nofollow noreferrer">AS19174</a></td><td align="center">182.1 / 182 / 182.1</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/204.152.204.1/32" target="_blank" rel="noopener external nofollow noreferrer">204.152.204.1</a></td><td align="center">204.152.204.1 quadranet quadranet</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">181.7</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.35/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.35</a></td><td align="center">96.44.175.35.static.quadranet.com</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">209.4 / 195.1 / 209.4</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">231.9</td></tr></tbody></table><h4 id="江苏宿迁移动"><a href="#江苏宿迁移动" class="headerlink" title="江苏宿迁移动"></a>江苏宿迁移动</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">2</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.61.1/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.61.1</a></td><td align="center">10.254.61.1</td><td align="center">局域网</td><td align="center"></td><td align="center">9.7 / 5.6 / 3.1</td></tr><tr><td align="center">3</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.52.1/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.52.1</a></td><td align="center">10.254.52.1</td><td align="center">局域网</td><td align="center"></td><td align="center">1.4 / 1 / 1</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/10.254.44.2/32" target="_blank" rel="noopener external nofollow noreferrer">10.254.44.2</a></td><td align="center">10.254.44.2</td><td align="center">局域网</td><td align="center"></td><td align="center">2.5 / 1.6 / 1.7</td></tr><tr><td align="center">5</td><td align="center"><a href="https://whois.ipip.net/cidr/112.25.206.101/32" target="_blank" rel="noopener external nofollow noreferrer">112.25.206.101</a></td><td align="center">112.25.206.101</td><td align="center">江苏宿迁 移动</td><td align="center"><a href="https://whois.ipip.net/AS56046" target="_blank" rel="noopener external nofollow noreferrer">AS56046</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">21.2 / 5 / 13.8</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/223.68.13.153/32" target="_blank" rel="noopener external nofollow noreferrer">223.68.13.153</a></td><td align="center">223.68.13.153</td><td align="center">江苏宿迁 移动</td><td align="center"><a href="https://whois.ipip.net/AS56046" target="_blank" rel="noopener external nofollow noreferrer">AS56046</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">2.8 / 2 / 1.8</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/183.207.19.241/32" target="_blank" rel="noopener external nofollow noreferrer">183.207.19.241</a></td><td align="center">241.19.207.183.static.js.chinamobile.com</td><td align="center">江苏南京 移动</td><td align="center"><a href="https://whois.ipip.net/AS56046" target="_blank" rel="noopener external nofollow noreferrer">AS56046</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">6.8 / 7 / 7</td></tr><tr><td align="center">8</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.18.21/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.18.21</a></td><td align="center">221.183.18.21</td><td align="center">江苏无锡 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">9.2 / 9.2 / 9.2</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/221.176.22.245/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.22.245</a></td><td align="center">221.176.22.245</td><td align="center">广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">30.1 / 53.3 / 30.3</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/221.176.22.106/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.22.106</a></td><td align="center">221.176.22.106</td><td align="center">广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">40.4 / 33.2 / 33.4</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/221.176.19.194/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.19.194</a> <a href="https://whois.ipip.net/cidr/221.183.25.206/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.25.206</a> <a href="https://whois.ipip.net/cidr/221.176.19.210/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.19.210</a></td><td align="center">221.176.19.194 221.183.25.206 221.176.19.210</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">37.6 33.2 32.1</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.55.77/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.77</a> <a href="https://whois.ipip.net/cidr/221.183.55.77/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.77</a> <a href="https://whois.ipip.net/cidr/221.183.55.81/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.81</a></td><td align="center">221.183.55.77 221.183.55.77 221.183.55.81</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">40.6 40.5 40.2</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/223.120.12.9/32" target="_blank" rel="noopener external nofollow noreferrer">223.120.12.9</a></td><td align="center">223.120.12.9</td><td align="center">美国加利福尼亚州洛杉矶 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">255.4</td></tr><tr><td align="center">14</td><td align="center"><a href="https://whois.ipip.net/cidr/223.120.6.18/32" target="_blank" rel="noopener external nofollow noreferrer">223.120.6.18</a></td><td align="center">223.120.6.18</td><td align="center">美国加利福尼亚州洛杉矶 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">202.4</td></tr><tr><td align="center">15</td><td align="center"><a href="https://whois.ipip.net/cidr/223.119.64.246/32" target="_blank" rel="noopener external nofollow noreferrer">223.119.64.246</a></td><td align="center">223.119.64.246</td><td align="center">美国 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">255.6</td></tr><tr><td align="center">16</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.35/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.35</a></td><td align="center">96.44.175.35.static.quadranet.com</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">224.9</td></tr><tr><td align="center">17</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">255.8 / 257.1 / 258.2</td></tr></tbody></table><h4 id="广东广州移动"><a href="#广东广州移动" class="headerlink" title="广东广州移动"></a>广东广州移动</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">2</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">3</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/10.0.1.229/32" target="_blank" rel="noopener external nofollow noreferrer">10.0.1.229</a></td><td align="center">10.0.1.229</td><td align="center">局域网</td><td align="center"></td><td align="center">0.7 / 0.7 / 0.4</td></tr><tr><td align="center">5</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.63.121/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.63.121</a></td><td align="center">221.183.63.121</td><td align="center">广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">0.6 / 0.4 / 0.4</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.22.33/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.22.33</a> <a href="https://whois.ipip.net/cidr/221.183.22.33/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.22.33</a> <a href="https://whois.ipip.net/cidr/221.176.18.77/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.18.77</a></td><td align="center">221.183.22.33 221.183.22.33 221.176.18.77</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">21.5 3.8 1.9</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/221.176.22.106/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.22.106</a> <a href="https://whois.ipip.net/cidr/221.176.18.110/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.18.110</a> <a href="https://whois.ipip.net/cidr/221.176.18.110/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.18.110</a></td><td align="center">221.176.22.106 221.176.18.110 221.176.18.110</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">2.3 2 23.5</td></tr><tr><td align="center">8</td><td align="center"><a href="https://whois.ipip.net/cidr/221.176.19.198/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.19.198</a> <a href="https://whois.ipip.net/cidr/221.183.25.117/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.25.117</a> <a href="https://whois.ipip.net/cidr/221.176.20.6/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.20.6</a></td><td align="center">221.176.19.198 221.183.25.117 221.176.20.6</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">14.6 44 4.3</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.55.77/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.77</a> <a href="https://whois.ipip.net/cidr/221.183.55.81/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.81</a> <a href="https://whois.ipip.net/cidr/221.183.55.81/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.81</a></td><td align="center">221.183.55.77 221.183.55.81 221.183.55.81</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">4.8 5.6 5.7</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/223.120.12.105/32" target="_blank" rel="noopener external nofollow noreferrer">223.120.12.105</a></td><td align="center">223.120.12.105</td><td align="center">美国加利福尼亚州洛杉矶 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">155.3 / 154.6 / 154.9</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/223.120.6.18/32" target="_blank" rel="noopener external nofollow noreferrer">223.120.6.18</a></td><td align="center">223.120.6.18</td><td align="center">美国加利福尼亚州洛杉矶 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">145.6 / 145.5 / 145.2</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/223.119.64.246/32" target="_blank" rel="noopener external nofollow noreferrer">223.119.64.246</a></td><td align="center">223.119.64.246</td><td align="center">美国 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">144.1 / 143.9 / 143.9</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.35/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.35</a></td><td align="center">96.44.175.35.static.quadranet.com</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">220.4</td></tr><tr><td align="center">14</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">157.5 / 174.7 / 154.4</td></tr></tbody></table><h4 id="北京鹏博士"><a href="#北京鹏博士" class="headerlink" title="北京鹏博士"></a>北京鹏博士</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="https://whois.ipip.net/cidr/60.206.36.129/32" target="_blank" rel="noopener external nofollow noreferrer">60.206.36.129</a></td><td align="center">60.206.36.129</td><td align="center">北京 鹏博士/电信/联通</td><td align="center"><a href="https://whois.ipip.net/AS17964" target="_blank" rel="noopener external nofollow noreferrer">AS17964</a> / <a href="https://whois.ipip.net/AS17816" target="_blank" rel="noopener external nofollow noreferrer">AS17816</a></td><td align="center">4.2 / 5.4 / 3.7</td></tr><tr><td align="center">2</td><td align="center"><a href="https://whois.ipip.net/cidr/10.255.163.73/32" target="_blank" rel="noopener external nofollow noreferrer">10.255.163.73</a></td><td align="center">10.255.163.73</td><td align="center">局域网</td><td align="center"></td><td align="center">0.6 / 0.7 / 0.6</td></tr><tr><td align="center">3</td><td align="center"><a href="https://whois.ipip.net/cidr/10.255.163.85/32" target="_blank" rel="noopener external nofollow noreferrer">10.255.163.85</a></td><td align="center">10.255.163.85</td><td align="center">局域网</td><td align="center"></td><td align="center">0.3 / 0.3 / 8.3</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/10.240.34.129/32" target="_blank" rel="noopener external nofollow noreferrer">10.240.34.129</a></td><td align="center">10.240.34.129</td><td align="center">局域网</td><td align="center"></td><td align="center">0.7 / 1.1 / 0.9</td></tr><tr><td align="center">5</td><td align="center"><a href="https://whois.ipip.net/cidr/10.240.34.70/32" target="_blank" rel="noopener external nofollow noreferrer">10.240.34.70</a></td><td align="center">10.240.34.70</td><td align="center">局域网</td><td align="center"></td><td align="center">0.8 / 0.7 / 0.8</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/124.207.160.21/32" target="_blank" rel="noopener external nofollow noreferrer">124.207.160.21</a></td><td align="center">124.207.160.21</td><td align="center">北京 鹏博士/联通</td><td align="center"><a href="https://whois.ipip.net/AS17816" target="_blank" rel="noopener external nofollow noreferrer">AS17816</a> / <a href="https://whois.ipip.net/AS17964" target="_blank" rel="noopener external nofollow noreferrer">AS17964</a></td><td align="center">1.1 / 1.2 / 1.2</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/124.193.241.249/32" target="_blank" rel="noopener external nofollow noreferrer">124.193.241.249</a></td><td align="center">124.193.241.249</td><td align="center">北京 鹏博士/联通</td><td align="center"><a href="https://whois.ipip.net/AS4847" target="_blank" rel="noopener external nofollow noreferrer">AS4847</a> / <a href="https://whois.ipip.net/AS17816" target="_blank" rel="noopener external nofollow noreferrer">AS17816</a> / <a href="https://whois.ipip.net/AS17964" target="_blank" rel="noopener external nofollow noreferrer">AS17964</a></td><td align="center">2.1 / 2.4 / 2.2</td></tr><tr><td align="center">8</td><td align="center">*</td><td align="center">*</td><td align="center">N/A</td><td align="center">*</td><td align="center">*</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/218.241.244.174/32" target="_blank" rel="noopener external nofollow noreferrer">218.241.244.174</a></td><td align="center">218.241.244.174</td><td align="center">北京 鹏博士/电信/联通</td><td align="center"><a href="https://whois.ipip.net/AS4847" target="_blank" rel="noopener external nofollow noreferrer">AS4847</a></td><td align="center">4.8 / 4.8 / 4.9</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/221.239.18.133/32" target="_blank" rel="noopener external nofollow noreferrer">221.239.18.133</a></td><td align="center">221.239.18.133</td><td align="center">天津 电信</td><td align="center"><a href="https://whois.ipip.net/AS17638" target="_blank" rel="noopener external nofollow noreferrer">AS17638</a> / <a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">12 / 13.5 / 11.3</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/219.150.51.205/32" target="_blank" rel="noopener external nofollow noreferrer">219.150.51.205</a></td><td align="center">219.150.51.205</td><td align="center">天津 电信</td><td align="center"><a href="https://whois.ipip.net/AS17638" target="_blank" rel="noopener external nofollow noreferrer">AS17638</a> / <a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">6.9 / 12.4 / 6.6</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/221.238.222.225/32" target="_blank" rel="noopener external nofollow noreferrer">221.238.222.225</a></td><td align="center">221.238.222.225</td><td align="center">天津 电信</td><td align="center"><a href="https://whois.ipip.net/AS17638" target="_blank" rel="noopener external nofollow noreferrer">AS17638</a> / <a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">6.8 / 6.8 / 6.5</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.79.197/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.79.197</a></td><td align="center">202.97.79.197</td><td align="center">北京 电信</td><td align="center"></td><td align="center">10.6 / 19 / 9.5</td></tr><tr><td align="center">14</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.53.142/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.53.142</a></td><td align="center">202.97.53.142</td><td align="center">北京 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">27.2 / 24.3 / 27.1</td></tr><tr><td align="center">15</td><td align="center"><a href="https://whois.ipip.net/cidr/202.97.12.106/32" target="_blank" rel="noopener external nofollow noreferrer">202.97.12.106</a></td><td align="center">202.97.12.106</td><td align="center">中国 电信</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">25 / 27.3 / 24.9</td></tr><tr><td align="center">16</td><td align="center"><a href="https://whois.ipip.net/cidr/59.43.246.153/32" target="_blank" rel="noopener external nofollow noreferrer">59.43.246.153</a></td><td align="center">59.43.246.153</td><td align="center">北京 电信</td><td align="center">*</td><td align="center">13</td></tr><tr><td align="center">17</td><td align="center"><a href="https://whois.ipip.net/cidr/59.43.247.126/32" target="_blank" rel="noopener external nofollow noreferrer">59.43.247.126</a></td><td align="center">59.43.247.126</td><td align="center">上海 电信</td><td align="center"></td><td align="center">55.8 / 54.9 / 54.7</td></tr><tr><td align="center">18</td><td align="center"><a href="https://whois.ipip.net/cidr/59.43.189.34/32" target="_blank" rel="noopener external nofollow noreferrer">59.43.189.34</a></td><td align="center">59.43.189.34</td><td align="center">美国加利福尼亚州洛杉矶 电信</td><td align="center"></td><td align="center">219.9 / 161.3 / 160.4</td></tr><tr><td align="center">19</td><td align="center"><a href="https://whois.ipip.net/cidr/218.30.48.146/32" target="_blank" rel="noopener external nofollow noreferrer">218.30.48.146</a></td><td align="center">218.30.48.146</td><td align="center">美国加利福尼亚州洛杉矶 ctamericas.com</td><td align="center"><a href="https://whois.ipip.net/AS4134" target="_blank" rel="noopener external nofollow noreferrer">AS4134</a></td><td align="center">194.8</td></tr><tr><td align="center">20</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.33/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.33</a></td><td align="center">96.44.175.33 * *</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">195.2</td></tr><tr><td align="center">21</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">183.8</td></tr></tbody></table><h4 id="吉林长春铁通"><a href="#吉林长春铁通" class="headerlink" title="吉林长春铁通"></a>吉林长春铁通</h4><table><thead><tr><th align="center">跳数</th><th align="center">IP</th><th align="center">主机名</th><th align="center">地区（仅供参考）</th><th align="center">AS号（仅供参考）</th><th align="center">时间（毫秒）</th></tr></thead><tbody><tr><td align="center">1</td><td align="center"><a href="https://whois.ipip.net/cidr/222.34.18.254/32" target="_blank" rel="noopener external nofollow noreferrer">222.34.18.254</a></td><td align="center">222.34.18.254</td><td align="center">吉林长春 铁通</td><td align="center"><a href="https://whois.ipip.net/AS134810" target="_blank" rel="noopener external nofollow noreferrer">AS134810</a> / <a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">3.1 / 3 / 4.9</td></tr><tr><td align="center">2</td><td align="center"><a href="https://whois.ipip.net/cidr/61.235.52.209/32" target="_blank" rel="noopener external nofollow noreferrer">61.235.52.209</a></td><td align="center">61.235.52.209</td><td align="center">吉林长春 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">1.9 / 78.6 / 1.5</td></tr><tr><td align="center">3</td><td align="center"><a href="https://whois.ipip.net/cidr/61.235.52.5/32" target="_blank" rel="noopener external nofollow noreferrer">61.235.52.5</a></td><td align="center">61.235.52.5</td><td align="center">吉林长春 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">1.5 / 9.9 / 0.7</td></tr><tr><td align="center">4</td><td align="center"><a href="https://whois.ipip.net/cidr/61.235.52.41/32" target="_blank" rel="noopener external nofollow noreferrer">61.235.52.41</a></td><td align="center">61.235.52.41</td><td align="center">吉林长春 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">17.3 / 1.8 / 1.2</td></tr><tr><td align="center">5</td><td align="center"><a href="https://whois.ipip.net/cidr/61.235.59.61/32" target="_blank" rel="noopener external nofollow noreferrer">61.235.59.61</a></td><td align="center">61.235.59.61</td><td align="center">吉林长春 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">1.3 / 20.6 / 1.5</td></tr><tr><td align="center">6</td><td align="center"><a href="https://whois.ipip.net/cidr/61.235.52.33/32" target="_blank" rel="noopener external nofollow noreferrer">61.235.52.33</a></td><td align="center">61.235.52.33</td><td align="center">吉林长春 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">6.2 / 7 / 8</td></tr><tr><td align="center">7</td><td align="center"><a href="https://whois.ipip.net/cidr/61.237.127.209/32" target="_blank" rel="noopener external nofollow noreferrer">61.237.127.209</a></td><td align="center">61.237.127.209</td><td align="center">北京 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">23.1 / 20.5 / 22.4</td></tr><tr><td align="center">8</td><td align="center"><a href="https://whois.ipip.net/cidr/61.237.126.218/32" target="_blank" rel="noopener external nofollow noreferrer">61.237.126.218</a></td><td align="center">61.237.126.218</td><td align="center">广东广州 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">51.7 / 53.6 / 51.2</td></tr><tr><td align="center">9</td><td align="center"><a href="https://whois.ipip.net/cidr/61.237.126.150/32" target="_blank" rel="noopener external nofollow noreferrer">61.237.126.150</a></td><td align="center">61.237.126.150</td><td align="center">广东广州 铁通</td><td align="center"><a href="https://whois.ipip.net/AS9394" target="_blank" rel="noopener external nofollow noreferrer">AS9394</a></td><td align="center">51.5 / 51.1 / 51.5</td></tr><tr><td align="center">10</td><td align="center"><a href="https://whois.ipip.net/cidr/221.176.23.9/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.23.9</a></td><td align="center">221.176.23.9</td><td align="center">广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">51.7 / 51.4 / 52.1</td></tr><tr><td align="center">11</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.23.57/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.23.57</a> * <a href="https://whois.ipip.net/cidr/221.183.23.57/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.23.57</a></td><td align="center">221.183.23.57 * 221.183.23.57</td><td align="center">广东广州 移动 N/A 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> * <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">52.5 * 52.5</td></tr><tr><td align="center">12</td><td align="center"><a href="https://whois.ipip.net/cidr/221.176.22.106/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.22.106</a> <a href="https://whois.ipip.net/cidr/221.176.22.158/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.22.158</a> <a href="https://whois.ipip.net/cidr/221.176.22.106/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.22.106</a></td><td align="center">221.176.22.106 221.176.22.158 221.176.22.106</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">73.1 64.5 54.4</td></tr><tr><td align="center">13</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.25.121/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.25.121</a> <a href="https://whois.ipip.net/cidr/221.183.25.117/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.25.117</a> <a href="https://whois.ipip.net/cidr/221.176.19.34/32" target="_blank" rel="noopener external nofollow noreferrer">221.176.19.34</a></td><td align="center">221.183.25.121 221.183.25.117 221.176.19.34</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">64.5 55.5 66.6</td></tr><tr><td align="center">14</td><td align="center"><a href="https://whois.ipip.net/cidr/221.183.55.57/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.57</a> <a href="https://whois.ipip.net/cidr/221.183.55.53/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.53</a> <a href="https://whois.ipip.net/cidr/221.183.55.57/32" target="_blank" rel="noopener external nofollow noreferrer">221.183.55.57</a></td><td align="center">221.183.55.57 221.183.55.53 221.183.55.57</td><td align="center">广东广州 移动 广东广州 移动 广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a> <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">96.7 97.2 97.3</td></tr><tr><td align="center">15</td><td align="center"><a href="https://whois.ipip.net/cidr/223.120.22.14/32" target="_blank" rel="noopener external nofollow noreferrer">223.120.22.14</a></td><td align="center">223.120.22.14</td><td align="center">广东广州 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">100 / 99.1 / 99</td></tr><tr><td align="center">16</td><td align="center"><a href="https://whois.ipip.net/cidr/223.120.12.9/32" target="_blank" rel="noopener external nofollow noreferrer">223.120.12.9</a></td><td align="center">223.120.12.9</td><td align="center">美国加利福尼亚州洛杉矶 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">232.8 / 232.2 / 232.5</td></tr><tr><td align="center">17</td><td align="center"><a href="https://whois.ipip.net/cidr/223.120.6.18/32" target="_blank" rel="noopener external nofollow noreferrer">223.120.6.18</a></td><td align="center">223.120.6.18</td><td align="center">美国加利福尼亚州洛杉矶 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">260.6</td></tr><tr><td align="center">18</td><td align="center"><a href="https://whois.ipip.net/cidr/223.119.64.246/32" target="_blank" rel="noopener external nofollow noreferrer">223.119.64.246</a></td><td align="center">223.119.64.246</td><td align="center">美国 移动 N/A 美国 移动</td><td align="center"><a href="https://whois.ipip.net/AS58453" target="_blank" rel="noopener external nofollow noreferrer">AS58453</a> / <a href="https://whois.ipip.net/AS9808" target="_blank" rel="noopener external nofollow noreferrer">AS9808</a></td><td align="center">272</td></tr><tr><td align="center">19</td><td align="center"><a href="https://whois.ipip.net/cidr/96.44.175.35/32" target="_blank" rel="noopener external nofollow noreferrer">96.44.175.35</a></td><td align="center">96.44.175.35</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">328.4</td></tr><tr><td align="center">20</td><td align="center"><a href="https://whois.ipip.net/cidr/155.94.143.100/32" target="_blank" rel="noopener external nofollow noreferrer">155.94.143.100</a></td><td align="center">155.94.143.100</td><td align="center">美国加利福尼亚州洛杉矶 quadranet.com</td><td align="center"><a href="https://whois.ipip.net/AS8100" target="_blank" rel="noopener external nofollow noreferrer">AS8100</a></td><td align="center">219.8 / 261.6 / 257.5</td></tr></tbody></table><h3 id="回程路由"><a href="#回程路由" class="headerlink" title="回程路由"></a>回程路由</h3><h4 id="电信"><a href="#电信" class="headerlink" title="电信"></a>电信</h4><pre><code class="shell">路由追踪到 北京电信 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 180.149.128.1 (180.149.128.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  3.40 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.32  0.28 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  64.124.85.221  1.59 ms  AS6461  美国 加利福尼亚州 洛杉矶 zayo.com
+ 4  64.124.85.221  0.39 ms  AS6461  美国 加利福尼亚州 洛杉矶 zayo.com
+ 5  64.125.26.6  5.95 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 6  64.125.14.42  7.85 ms  AS6461  美国 加利福尼亚州 洛杉矶 zayo.com
+ 7  202.97.90.133  4.81 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 8  202.97.90.133  0.98 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 9  202.97.12.61  150.31 ms  AS4134  中国 北京 电信
+10  202.97.34.157  159.88 ms  AS4134  中国 北京 电信
+11  202.97.34.157  156.93 ms  AS4134  中国 北京 电信
+12  180.149.128.1  166.42 ms  AS23724  中国 北京 电信
+
+路由追踪到 上海电信 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 180.153.28.1 (180.153.28.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  5.56 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  19.08 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  69.12.69.2  0.57 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 4  89.149.130.94  37.18 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 5  213.254.230.254  0.53 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 6  202.97.92.38  51.98 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 7  202.97.92.38  4.40 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 8  202.97.59.169  139.92 ms  AS4134  中国 上海 电信
+ 9  202.97.24.253  173.78 ms  AS4134  中国 上海 电信
+10  *
+11  101.95.120.105  189.93 ms  AS4812  中国 上海 电信
+12  101.95.225.34  161.29 ms  AS4812  中国 上海 电信
+13  124.74.232.54  162.88 ms  AS4812  中国 上海 电信
+14  180.153.28.1  165.99 ms  AS4812  中国 上海 电信
+
+路由追踪到 广州电信 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 113.108.209.1 (113.108.209.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  18.24 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  0.35 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  69.12.69.2  35.01 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 4  89.149.130.94  6.84 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 5  89.149.130.94  9.22 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 6  202.97.92.38  56.04 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 7  202.97.92.38  30.33 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 8  202.97.94.113  160.88 ms  AS4134  中国 广东 广州 电信
+ 9  202.97.94.145  186.50 ms  AS4134  中国 广东 广州 电信
+10  202.97.94.125  186.48 ms  AS4134  中国 广东 广州 电信
+11  *
+12  113.108.209.1  170.74 ms  AS58466  中国 广东 广州 电信
+
+路由追踪到 上海电信CN2 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 58.32.0.1 (58.32.0.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.56 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  2.04 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  173.205.58.41  37.07 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 4  4.68.62.1  36.91 ms  AS3356  美国 加利福尼亚州 洛杉矶 level3.com
+ 5  *
+ 6  4.71.136.202  1.35 ms  AS3356  美国 加利福尼亚州 洛杉矶 level3.com
+ 7  4.71.136.202  1.27 ms  AS3356  美国 加利福尼亚州 洛杉矶 level3.com
+ 8  59.43.181.153  149.53 ms  *  中国 电信
+ 9  59.43.182.142  131.45 ms  *  中国 上海 电信
+10  59.43.187.61  262.83 ms  *  中国 上海 电信
+11  101.95.88.62  145.72 ms  AS4812  中国 上海 电信
+12  58.32.0.1  137.42 ms  AS4812  中国 上海 电信</code></pre><h4 id="联通"><a href="#联通" class="headerlink" title="联通"></a>联通</h4><pre><code class="shell">路由追踪到 北京联通 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 123.125.99.1 (123.125.99.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  8.63 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  0.38 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  173.205.58.41  0.40 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 4  219.158.42.241  1.07 ms  AS4837  美国 加利福尼亚州 洛杉矶 联通
+ 5  219.158.42.241  2.50 ms  AS4837  美国 加利福尼亚州 洛杉矶 联通
+ 6  219.158.97.26  217.16 ms  AS4837  中国 广东 广州 联通
+ 7  219.158.8.113  200.52 ms  AS4837  中国 广东 广州 联通
+ 8  219.158.8.113  336.49 ms  AS4837  中国 广东 广州 联通
+ 9  219.158.6.109  233.90 ms  AS4837  中国 北京 联通
+10  123.126.0.210  201.47 ms  AS4808  中国 北京 联通
+11  61.51.169.146  195.35 ms  AS4808  中国 北京 联通
+12  124.65.194.138  216.65 ms  AS4808  中国 北京 联通
+13  61.135.113.158  231.35 ms  AS4808  中国 北京 联通
+14  *
+15  *
+16  123.125.99.1  229.63 ms  AS4808  中国 北京 联通
+
+路由追踪到 上海联通 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 58.247.0.49 (58.247.0.49), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.92 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  40.02 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  69.12.69.2  0.50 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 4  173.205.56.190  8.05 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 5  219.158.97.205  209.57 ms  AS4837  中国 广东 广州 联通
+ 6  219.158.103.29  223.19 ms  AS4837  中国 广东 广州 联通
+ 7  219.158.103.41  223.47 ms  AS4837  中国 广东 广州 联通
+ 8  219.158.109.9  240.16 ms  AS4837  中国 上海 联通
+ 9  219.158.109.9  216.40 ms  AS4837  中国 上海 联通
+10  58.247.0.49  237.32 ms  AS17621  中国 上海 联通
+
+路由追踪到 广州联通 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 210.21.4.130 (210.21.4.130), 30 hops max, 60 byte packets
+ 1  66.212.29.97  9.70 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.32  18.70 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  173.205.58.41  0.41 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 4  173.205.58.41  0.78 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 5  89.149.180.38  7.81 ms  AS3257  美国 加利福尼亚州 圣何塞 gtt.net
+ 6  173.205.56.178  182.54 ms  AS3257  美国 加利福尼亚州 圣何塞 gtt.net
+ 7  219.158.97.177  164.64 ms  AS4837  中国 上海 联通
+ 8  219.158.19.86  167.05 ms  AS4837  中国 上海 联通
+ 9  219.158.19.81  163.30 ms  AS4837  中国 上海 联通
+10  219.158.6.254  181.37 ms  AS4837  中国 广东 广州 联通
+11  112.91.0.254  189.51 ms  AS17816  中国 广东 联通
+12  210.21.4.130  186.37 ms  AS17622  中国 广东 广州 联通
+
+路由追踪到 上海联通精品网 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 210.13.66.238 (210.13.66.238), 30 hops max, 60 byte packets
+ 1  66.212.29.97  4.59 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.32  7.77 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  173.205.58.41  1.05 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 4  89.149.181.170  2.00 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 5  64.125.27.39  0.40 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 6  64.125.14.210  0.71 ms  AS6461  美国 加利福尼亚州 洛杉矶 zayo.com
+ 7  144.232.17.56  2.76 ms  AS1239  美国 加利福尼亚州 洛杉矶 sprint.com
+ 8  144.232.17.27  13.67 ms  AS1239  美国 加利福尼亚州 洛杉矶 sprint.com
+ 9  144.232.9.176  134.93 ms  AS1239  美国 加利福尼亚州 圣何塞 sprint.com
+10  144.232.22.215  13.64 ms  AS1239  美国 加利福尼亚州 圣何塞 sprint.com
+11  144.223.242.10  170.04 ms  AS1239  美国 加利福尼亚州 圣何塞 sprint.com
+12  218.105.2.129  171.01 ms  AS9929  中国 广东 广州 联通
+13  218.105.2.210  161.16 ms  AS9929  中国 上海 联通
+14  210.13.75.138  160.73 ms  AS9929  中国 上海 联通
+15  210.13.66.237  172.82 ms  AS9929  中国 上海 联通
+16  *
+17  210.13.66.238  262.68 ms  AS9929  中国 上海 联通</code></pre><h4 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h4><pre><code class="shell">路由追踪到 北京移动 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 211.136.88.117 (211.136.88.117), 30 hops max, 60 byte packets
+ 1  66.212.29.97  5.68 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.32  0.75 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  64.124.85.221  0.33 ms  AS6461  美国 加利福尼亚州 洛杉矶 zayo.com
+ 4  64.125.26.6  6.49 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 5  64.125.27.39  0.59 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 6  206.223.123.137  1.09 ms  AS7713  美国 加利福尼亚州 洛杉矶 equinix.com
+ 7  223.120.6.217  1.73 ms  AS58453  美国 加利福尼亚州 洛杉矶 移动
+ 8  *
+ 9  *
+10  *
+11  221.176.27.253  274.77 ms  AS9808  中国 北京 移动
+12  *
+13  211.136.67.190  222.51 ms  AS56048  中国 北京 移动
+14  *
+15  211.136.88.117  254.95 ms  AS56048  中国 北京 移动
+
+路由追踪到 上海移动 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 221.183.55.22 (221.183.55.22), 30 hops max, 60 byte packets
+ 1  66.212.29.97  8.92 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  28.45 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  64.125.41.13  0.82 ms  AS6461  美国 加利福尼亚州 洛杉矶 zayo.com
+ 4  64.125.26.6  2.05 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 5  64.125.27.39  0.47 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 6  206.223.123.137  3.82 ms  AS7713  美国 加利福尼亚州 洛杉矶 equinix.com
+ 7  223.120.6.217  1.58 ms  AS58453  美国 加利福尼亚州 洛杉矶 移动
+ 8  *
+ 9  *
+10  *
+11  *
+12  *
+13  221.176.22.10  242.38 ms  AS9808  中国 上海 移动
+14  221.183.55.22  230.21 ms  AS9808  中国 上海 移动
+
+路由追踪到 广州移动 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 211.139.129.5 (211.139.129.5), 30 hops max, 60 byte packets
+ 1  66.212.29.97  2.45 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  16.78 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  64.124.85.221  70.37 ms  AS6461  美国 加利福尼亚州 洛杉矶 zayo.com
+ 4  64.125.26.6  0.82 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 5  64.125.27.39  0.47 ms  AS6461  ZAYO.COM 骨干网 zayo.com
+ 6  206.223.123.137  2.81 ms  AS7713  美国 加利福尼亚州 洛杉矶 equinix.com
+ 7  223.120.6.217  0.97 ms  AS58453  美国 加利福尼亚州 洛杉矶 移动
+ 8  *
+ 9  221.183.55.98  179.34 ms  AS9808  中国 广东 广州 移动
+10  221.176.24.57  238.23 ms  AS9808  中国 广东 广州 移动
+11  221.176.24.5  218.87 ms  AS9808  中国 广东 广州 移动
+12  221.183.14.122  261.00 ms  AS9808  中国 广东 广州 移动
+13  183.235.226.25  226.01 ms  AS56040  中国 广东 广州 移动
+14  211.139.129.5  233.40 ms  AS56040  中国 广东 广州 移动</code></pre><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><pre><code class="shell">路由追踪到 北京鹏博士/电信通 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 211.167.230.100 (211.167.230.100), 30 hops max, 60 byte packets
+ 1  66.212.29.97  168.00 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.32  119.01 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  173.205.58.41  0.49 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 4  173.205.58.41  0.41 ms  AS3257  美国 加利福尼亚州 洛杉矶 gtt.net
+ 5  *
+ 6  219.158.20.221  228.07 ms  AS4837  中国 广东 广州 联通
+ 7  219.158.20.221  240.29 ms  AS4837  中国 广东 广州 联通
+ 8  219.158.19.65  211.08 ms  AS4837  中国 广东 广州 联通
+ 9  219.158.7.225  230.36 ms  AS4837  中国 北京 联通
+10  61.148.147.18  215.65 ms  AS4808  中国 北京 联通
+11  61.148.156.190  188.14 ms  AS4808  中国 北京 联通
+12  61.148.156.190  195.86 ms  AS4808  中国 北京 联通
+13  *
+14  *
+15  *
+16  218.241.253.130  233.46 ms  AS4847  中国 北京 鹏博士/电信/联通
+17  211.167.230.100  234.47 ms  AS4808,AS17964  中国 北京 鹏博士
+
+路由追踪到 北京教育网 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 202.205.109.205 (202.205.109.205), 30 hops max, 60 byte packets
+ 1  66.212.29.97  2.86 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  80.37 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  38.104.82.217  0.48 ms  AS174  美国 加利福尼亚州 洛杉矶 cogentco.com
+ 4  38.88.196.186  49.78 ms  AS174  美国 加利福尼亚州 洛杉矶 cogentco.com
+ 5  101.4.117.169  197.30 ms  AS4538  中国 北京 教育网
+ 6  101.4.117.97  242.57 ms  AS4538  中国 北京 教育网
+ 7  101.4.117.97  188.23 ms  AS4538  中国 北京 教育网
+ 8  101.4.114.197  197.02 ms  AS4538  中国 北京 教育网
+ 9  219.224.102.234  198.18 ms  AS4538  中国 北京 教育网
+10  202.112.38.158  196.41 ms  AS4538  中国 北京 教育网
+11  202.205.109.205  203.26 ms  AS4538  中国 北京 赛尔网络信息资源部 教育网
+
+路由追踪到 北京科技网 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 159.226.254.1 (159.226.254.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  8.18 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  13.13 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  63.218.212.169  24.34 ms  AS3491  美国 加利福尼亚州 洛杉矶 pccw.com
+ 4  63.223.17.94  152.70 ms  AS3491  中国 香港 pccw.com
+ 5  *
+ 6  *
+ 7  159.226.254.1  226.45 ms  AS7497  中国 北京 科技网
+
+路由追踪到 北京广电网 (TCP 模式, 最大 30 跃点)
+============================================================
+traceroute to 211.156.140.17 (211.156.140.17), 30 hops max, 60 byte packets
+ 1  66.212.29.97  3.66 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 2  96.44.175.34  20.54 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 3  69.12.69.2  0.75 ms  AS8100  美国 加利福尼亚州 洛杉矶 quadranet.com
+ 4  63.218.212.169  1.24 ms  AS3491  美国 加利福尼亚州 洛杉矶 pccw.com
+ 5  63.218.72.166  1.27 ms  AS3491  美国 加利福尼亚州 洛杉矶 pccw.com
+ 6  202.97.90.113  2.01 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 7  202.97.90.113  75.95 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 8  202.97.90.113  5.51 ms  AS4134  美国 加利福尼亚州 洛杉矶 电信
+ 9  202.97.12.49  147.47 ms  AS4134  中国 北京 电信
+10  *
+11  *
+12  60.247.93.254  182.06 ms  AS4847  中国 北京 uecom.com.cn 电信
+13  60.247.93.254  181.65 ms  AS4847  中国 北京 uecom.com.cn 电信
+14  211.156.140.17  197.65 ms  AS7641  中国 北京 chinabtn.com 广电网/联通/电信</code></pre><h2 id="LemonBench"><a href="#LemonBench" class="headerlink" title="LemonBench"></a>LemonBench</h2><p>关于 <a href="https://github.com/LemonBench" target="_blank" rel="noopener external nofollow noreferrer">LemonBench</a></p><p>报告链接：<a href="https://paste.ubuntu.com/p/nQ7GQ26XtW/" target="_blank" rel="noopener external nofollow noreferrer">https://paste.ubuntu.com/p/nQ7GQ26XtW/</a></p><p>下面这个是我之前那台 VPS 的测试结果</p><p>死海网络互联 LAX C3</p><p>报告链接：<a href="https://paste.ubuntu.com/p/Kg2j3PtpQj/" target="_blank" rel="noopener external nofollow noreferrer">https://paste.ubuntu.com/p/Kg2j3PtpQj/</a></p><h2 id="更新测试结果"><a href="#更新测试结果" class="headerlink" title="更新测试结果"></a>更新测试结果</h2><h3 id="20191207"><a href="#20191207" class="headerlink" title="20191207"></a>20191207</h3><p>网络和路由有点变更，电信回程好像已经切换到 CN2 GT 了</p><p>报告链接：<a href="https://paste.ubuntu.com/p/pghgs8pXhT/" target="_blank" rel="noopener external nofollow noreferrer">https://paste.ubuntu.com/p/pghgs8pXhT/</a></p><pre><code class="shell"> -&gt; Speedtest.net Network Speed Test
+
+ Node Name                      Upload Speed    Download Speed  Ping Latency
+ Speedtest Default              58.79 MB/s      64.38 MB/s      3.592 ms
+ China, Jilin CU                5.09 MB/s       3.15 MB/s       180.903 ms
+ China, Shandong CU             1.27 MB/s       1.89 MB/s       762.615 ms
+ China, Nanjing CU              2.72 MB/s       2.62 MB/s       198.584 ms
+ China, Shanghai CU             8.10 MB/s       7.13 MB/s       198.152 ms
+ China, Guangxi CU              2.27 MB/s       1.53 MB/s       321.498 ms
+ China, Lanzhou CU              1.97 MB/s       1.51 MB/s       334.353 ms
+ China, Beijing CT              12.06 MB/s      4.07 MB/s       449.869 ms
+ China, Hangzhou CT             0.25 MB/s       3.58 MB/s       152.372 ms
+ China, Nanjing CT              Fail: ERROR: No matched servers: 26352
+ China, Guangzhou CT            1.86 MB/s       2.04 MB/s       164.714 ms
+ China, Wuhan CT                Fail: ERROR: No matched servers: 23844
+ China, Shenyang CM             0.97 MB/s       0.64 MB/s       340.458 ms
+ China, Hangzhou CM             0.87 MB/s       9.88 MB/s       295.61 ms
+ China, Shanghai CM             1.36 MB/s       1.44 MB/s       428.57 ms
+ China, Nanning CM              1.59 MB/s       6.99 MB/s       410.127 ms
+ China, Lanzhou CM              1.71 MB/s       1.09 MB/s       226.8 ms
+
+ -&gt; Traceroute Test (IPV4)
+
+Traceroute to China, Beijing CU (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 123.125.99.1 (123.125.99.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  25.88 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  0.33 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  18.58 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  207.254.191.121  4.67 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  207.254.191.89  48.26 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 6  219.158.98.17  150.42 ms  AS4837  China Beijing ChinaUnicom
+ 7  219.158.16.81  151.62 ms  AS4837  China Beijing ChinaUnicom
+ 8  219.158.8.113  176.48 ms  AS4837  China Guangdong Guangzhou ChinaUnicom
+ 9  61.148.157.170  167.46 ms  AS4808  China Beijing ChinaUnicom
+10  123.126.0.214  202.76 ms  AS4808  China Beijing ChinaUnicom
+11  61.135.113.154  231.81 ms  AS4808  China Beijing ChinaUnicom
+12  124.65.194.50  173.49 ms  AS4808  China Beijing ChinaUnicom
+13  *
+14  123.125.99.1  150.92 ms  AS4808  China Beijing ChinaUnicom
+
+Traceroute to China, Beijing CT (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 180.149.128.1 (180.149.128.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  3.05 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  16.52 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  218.30.48.145  0.81 ms  AS4134  United States California Los Angeles ctamericas.com
+ 4  59.43.186.213  14.96 ms  AS4809  United States California San Jose ChinaTelecom
+ 5  59.43.247.101  149.81 ms  AS4809  China Beijing ChinaTelecom
+ 6  59.43.247.101  363.83 ms  AS4809  China Beijing ChinaTelecom
+ 7  59.43.247.101  230.15 ms  AS4809  China Beijing ChinaTelecom
+ 8  *
+ 9  *
+10  *
+11  180.149.159.6  174.87 ms  AS23724  China Beijing ChinaTelecom
+12  180.149.128.1  163.05 ms  AS23724  China Beijing ChinaTelecom
+
+Traceroute to China, Beijing CM (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 211.136.88.117 (211.136.88.117), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.20 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  0.35 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  14.36 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  223.119.64.245  3.77 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  223.120.6.2  1.03 ms  AS58453  United States California Los Angeles ChinaMobile
+ 6  *
+ 7  *
+ 8  *
+ 9  221.176.27.253  220.96 ms  AS9808  China Beijing ChinaMobile
+10  *
+11  221.179.158.110  224.76 ms  AS56048  China Beijing ChinaMobile
+12  211.136.88.117  216.76 ms  AS56048  China Beijing ChinaMobile
+
+Traceroute to China, Shanghai CU (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 58.247.0.49 (58.247.0.49), 30 hops max, 60 byte packets
+ 1  66.212.29.97  11.15 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  58.46 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  2.47 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  207.254.191.102  1.31 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  207.254.191.42  42.24 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 6  219.158.98.17  169.99 ms  AS4837  China Beijing ChinaUnicom
+ 7  219.158.103.41  168.65 ms  AS4837  China Guangdong Guangzhou ChinaUnicom
+ 8  219.158.16.86  195.17 ms  AS4837  China Shanghai ChinaUnicom
+ 9  *
+10  58.247.0.49  180.33 ms  AS17621  China Shanghai ChinaUnicom
+
+Traceroute to China, Shanghai CT (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 180.153.28.1 (180.153.28.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  28.09 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  22.52 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  0.62 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  59.43.248.106  18.96 ms  AS4809  United States California San Jose ChinaTelecom
+ 5  59.43.246.237  145.56 ms  AS4809  China Shanghai ChinaTelecom
+ 6  59.43.182.138  206.74 ms  AS4809  China Shanghai ChinaTelecom
+ 7  202.97.57.26  144.55 ms  AS4134  China Shanghai ChinaTelecom
+ 8  202.97.57.26  149.72 ms  AS4134  China Shanghai ChinaTelecom
+ 9  101.95.207.234  167.95 ms  AS4812  China Shanghai ChinaTelecom
+10  *
+11  *
+12  180.153.28.1  144.12 ms  AS4812  China Shanghai ChinaTelecom
+
+Traceroute to China, Shanghai CM (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 221.183.55.22 (221.183.55.22), 30 hops max, 60 byte packets
+ 1  66.212.29.97  2.38 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  0.28 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  11.50 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  223.119.64.245  0.91 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  223.120.6.17  0.84 ms  AS58453  United States California Los Angeles ChinaMobile
+ 6  223.120.6.126  1.73 ms  AS58453  United States California Los Angeles ChinaMobile
+ 7  *
+ 8  *
+ 9  221.176.24.205  168.73 ms  AS9808  China Guangdong Guangzhou ChinaMobile
+10  *
+11  *
+12  221.176.17.178  224.95 ms  AS9808  China Shanghai ChinaMobile
+13  221.183.55.22  230.39 ms  AS9808  China Shanghai ChinaMobile
+
+Traceroute to China, Guangzhou CU (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 210.21.4.130 (210.21.4.130), 30 hops max, 60 byte packets
+ 1  66.212.29.97  5.65 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  18.17 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  204.152.204.2  11.41 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  207.254.191.102  0.68 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  207.254.191.102  69.85 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 6  219.158.25.113  202.78 ms  AS4837  China Guangdong Guangzhou ChinaUnicom
+ 7  219.158.3.181  204.41 ms  AS4837  China Beijing ChinaUnicom
+ 8  *
+ 9  *
+10  120.80.175.78  203.62 ms  AS17622  China Guangdong Guangzhou ChinaUnicom
+11  210.21.4.130  216.09 ms  AS17622  China Guangdong Guangzhou ChinaUnicom
+
+Traceroute to China, Guangzhou CT (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 113.108.209.1 (113.108.209.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  1.78 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  4.49 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  0.46 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  59.43.182.78  156.26 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 5  59.43.182.74  154.55 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 6  202.97.12.42  156.20 ms  AS4134  China Guangdong Guangzhou ChinaTelecom
+ 7  202.97.94.125  162.92 ms  AS4134  China Guangdong Guangzhou ChinaTelecom
+ 8  113.108.208.38  162.78 ms  AS58466  China Guangdong Guangzhou ChinaTelecom
+ 9  113.108.209.1  157.27 ms  AS58466  China Guangdong Guangzhou ChinaTelecom
+
+Traceroute to China, Guangzhou CM (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 211.139.129.5 (211.139.129.5), 30 hops max, 60 byte packets
+ 1  66.212.29.97  1.19 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  1.03 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.152  0.43 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  223.120.6.17  0.69 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  223.120.6.17  1.14 ms  AS58453  United States California Los Angeles ChinaMobile
+ 6  *
+ 7  *
+ 8  221.176.24.5  196.19 ms  AS9808  China Guangdong Guangzhou ChinaMobile
+ 9  221.183.14.142  185.22 ms  AS9808  China Guangdong Guangzhou ChinaMobile
+10  *
+11  183.235.226.133  220.25 ms  AS56040  China Guangdong Guangzhou ChinaMobile
+12  183.235.226.237  192.71 ms  AS56040  China Guangdong Guangzhou ChinaMobile
+13  211.139.129.5  192.79 ms  AS56040  China Guangdong Guangzhou ChinaMobile
+
+Traceroute to China, Shanghai CU AS9929 (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 210.13.66.238 (210.13.66.238), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.98 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  16.45 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  69.12.69.1  1.41 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  62.115.136.46  5.88 ms  AS1299  United States California Los Angeles telia.com
+ 5  62.115.136.46  28.42 ms  AS1299  United States California Los Angeles telia.com
+ 6  140.222.236.27  2.62 ms  *  United States California Los Angeles verizon.com
+ 7  208.222.0.98  171.98 ms  AS701  China Beijing verizon.com
+ 8  208.222.0.98  160.54 ms  AS701  China Beijing verizon.com
+ 9  218.105.2.89  150.98 ms  AS9929  China Beijing ChinaUnicom
+10  218.105.2.198  152.41 ms  AS9929  China Shanghai ChinaUnicom
+11  218.105.2.198  163.31 ms  AS9929  China Shanghai ChinaUnicom
+12  210.13.66.237  170.96 ms  AS9929  China Shanghai ChinaUnicom
+13  *
+14  210.13.66.238  152.17 ms  AS9929  China Shanghai ChinaUnicom
+
+Traceroute to China, Shanghai CT CN2 (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 58.32.0.1 (58.32.0.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.79 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  52.20 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  3.91 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  218.30.48.145  0.92 ms  AS4134  United States California Los Angeles ctamericas.com
+ 5  59.43.189.33  128.34 ms  AS4809  China Shanghai ChinaTelecom
+ 6  *
+ 7  101.95.88.214  139.13 ms  AS4812  China Shanghai ChinaTelecom
+ 8  101.95.88.226  149.09 ms  AS4812  China Shanghai ChinaTelecom
+ 9  58.32.0.1  128.62 ms  AS4812  China Shanghai ChinaTelecom
+
+Traceroute to China, Beijing Dr.Peng Home Network (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 14.131.125.1 (14.131.125.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  1.46 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  46.91 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  96.44.163.153  0.43 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  218.30.48.145  12.52 ms  AS4134  United States California Los Angeles ctamericas.com
+ 5  59.43.248.106  9.13 ms  AS4809  United States California San Jose ChinaTelecom
+ 6  59.43.247.101  165.30 ms  AS4809  China Beijing ChinaTelecom
+ 7  59.43.246.142  200.51 ms  AS4809  China Beijing ChinaTelecom
+ 8  202.97.85.57  157.54 ms  AS4134  China Beijing ChinaTelecom
+ 9  202.97.18.205  170.89 ms  AS4134  China Beijing ChinaTelecom
+10  *
+11  106.120.235.22  184.03 ms  AS4847  China Beijing ChinaTelecom
+12  *
+13  *
+14  218.241.245.25  204.16 ms  AS4847  China Beijing DRPENG
+15  218.241.246.42  173.43 ms  AS4847  China Beijing DRPENG
+16  218.241.255.186  184.68 ms  AS4847  China Beijing DRPENG
+17  *
+18  218.241.254.246  181.16 ms  AS4847  China Beijing DRPENG
+
+Traceroute to China, Beijing Dr.Peng Network IDC Network (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 115.47.124.254 (115.47.124.254), 30 hops max, 60 byte packets
+ 1  66.212.29.97  4.73 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  22.74 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  218.30.48.145  0.78 ms  AS4134  United States California Los Angeles ctamericas.com
+ 4  59.43.246.237  127.59 ms  AS4809  China Shanghai ChinaTelecom
+ 5  59.43.248.106  9.95 ms  AS4809  United States California San Jose ChinaTelecom
+ 6  59.43.246.154  159.73 ms  AS4809  China Beijing ChinaTelecom
+ 7  59.43.247.125  162.55 ms  AS4809  China Beijing ChinaTelecom
+ 8  202.97.12.49  220.51 ms  AS4134  China Beijing ChinaTelecom
+
+Traceroute to China, Beijing CERNET (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 202.205.109.205 (202.205.109.205), 30 hops max, 60 byte packets
+ 1  66.212.29.97  6.43 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  20.76 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  204.152.204.2  2.49 ms  AS8100  United States California Los Angeles quadranet.com
+ 4  59.43.182.78  159.57 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 5  59.43.244.130  181.33 ms  AS4809  China Guangdong Guangzhou ChinaTelecom
+ 6  202.97.47.2  156.44 ms  AS4134  China Xinjiang Urumqi ChinaTelecom
+ 7  219.158.5.145  159.81 ms  AS4837  China Beijing ChinaUnicom
+ 8  219.158.6.253  253.03 ms  AS4837  China Shanghai ChinaUnicom
+ 9  219.158.113.170  174.76 ms  AS4837  China Shanghai ChinaUnicom
+10  202.105.95.18  210.23 ms  AS4134  China Guangdong Guangzhou ChinaTelecom
+11  101.4.117.217  285.14 ms  AS4538  China Shanghai CHINAEDU
+12  101.4.114.245  197.19 ms  AS4538  China Shanghai CHINAEDU
+13  101.4.117.30  242.25 ms  AS4538  China Beijing CHINAEDU
+14  101.4.112.38  165.61 ms  AS4538  China Hubei Wuhan CHINAEDU
+15  101.4.117.38  182.03 ms  AS4538  China Henan Zhengzhou CHINAEDU
+16  219.224.102.234  186.36 ms  AS4538  China Beijing CHINAEDU
+17  219.224.102.230  205.26 ms  AS4538  China Beijing CHINAEDU
+18  202.205.109.205  251.52 ms  AS4538  China Beijing CHINAEDU
+
+Traceroute to China, Beijing CSTNET (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 159.226.254.1 (159.226.254.1), 30 hops max, 60 byte packets
+ 1  66.212.29.97  12.88 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.34  23.75 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  218.30.48.145  0.64 ms  AS4134  United States California Los Angeles ctamericas.com
+ 4  207.254.191.102  3.62 ms  AS19174  United States California Los Angeles chinaunicom.com
+ 5  59.43.182.138  136.54 ms  AS4809  China Shanghai ChinaTelecom
+ 6  *
+ 7  63.218.211.65  194.05 ms  AS3491  China Hong Kong pccw.com
+ 8  219.158.3.218  149.45 ms  AS4837  China Beijing ChinaUnicom
+ 9  219.158.5.118  231.15 ms  AS4837  China Beijing ChinaUnicom
+10  *
+11  159.226.254.1  176.72 ms  AS7497  China Beijing CSTNET
+
+Traceroute to China, Beijing GCable (TCP Mode, Max 30 Hop)
+============================================================
+traceroute to 211.156.140.17 (211.156.140.17), 30 hops max, 60 byte packets
+ 1  66.212.29.97  11.14 ms  AS8100  United States California Los Angeles quadranet.com
+ 2  96.44.175.32  16.69 ms  AS8100  United States California Los Angeles quadranet.com
+ 3  223.119.64.245  1.17 ms  AS58453  United States California Los Angeles ChinaMobile
+ 4  223.119.64.245  0.90 ms  AS58453  United States California Los Angeles ChinaMobile
+ 5  *
+ 6  *
+ 7  221.183.25.189  195.87 ms  AS9808  China Shanghai ChinaMobile
+ 8  221.183.23.25  200.51 ms  AS9808  China Shanghai ChinaMobile
+ 9  221.176.22.38  195.18 ms  AS9808  China Shanghai ChinaMobile
+10  221.176.22.18  186.90 ms  AS9808  China Shanghai ChinaMobile
+11  *
+12  211.156.129.89  188.28 ms  AS7641  China Beijing chinabtn.com CATV
+13  211.156.129.89  281.02 ms  AS7641  China Beijing chinabtn.com CATV
+14  211.156.128.229  206.44 ms  AS7641  China Beijing chinabtn.com CATV
+15  211.156.140.17  176.49 ms  AS7641  China Beijing chinabtn.com CATV</code></pre><hr></div><br><div><div id="post-tag"><span><i class="iconfont icon-inbox"></i> <a class="hover-with-bg" href="/categories/%E7%A8%8B%E5%BA%8F">程序</a> &nbsp; </span><span><i class="iconfont icon-tag"></i> <a class="hover-with-bg" href="/tags/%E7%AC%94%E8%AE%B0">笔记</a> <a class="hover-with-bg" href="/tags/%E6%B5%8B%E8%AF%84">测评</a> <a class="hover-with-bg" href="/tags/VPS">VPS</a></span></div><div id="post-note"><div><strong>本文作者：</strong><a href="/">七夏浅笑</a></div><div><strong>本文链接：</strong><a href="https://www.julydate.com/post/1907789401/">https://www.julydate.com/post/1907789401/</a></div><div><strong>版权声明：</strong>本站文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-NC-SA 3.0 CN</a> 协议进行许可</div></div><div id="post-nav" class="container"><div class="row"><a href="/post/2661332705/" id="post-nav-prev" class="col"><i class="fas fa-arrow-left"></i> <span class="post-nav-title">好用的大文件分享服务</span> </a><a href="/post/1756138088/" id="post-nav-next" class="col"><span class="post-nav-title">hexo博客访问优化-COS使用</span> <i class="fas fa-arrow-right"></i></a></div></div></div></div><div class="col-lg-10 mx-auto nopadding-md"><div class="container comments mx-auto" id="comments"><br><br><div id="vcomments" style="margin:0 auto"></div><script defer src="//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>var notify=!1,verify=!1,oldLoad=window.onload;window.onload=function(){new Valine({el:"#vcomments",app_id:"S9hnaFX3hQUTUSeWQiszPX4f-MdYXbMMI",app_key:"SM2tsIPtii7tJJHkFDbT3SeK",placeholder:"说点什么吧quq",avatar:"mp",meta:["nick","mail","link"],pageSize:"10"}),oldLoad&&oldLoad()}</script><noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments powered by Valine.</a></noscript></div></div></div></div><div class="d-none d-lg-block col-lg-2 toc-container"><div id="toc"><p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p><div id="tocbot"></div></div></div></div></div></main><div id="sidebar" class="sidebar-hide"><span class="sidebar-button sidebar-button-shift" id="toggle-sidebar"><i class="fa fa-arrow-right on" aria-hidden="true"></i></span><div class="sidebar-overlay"></div><div class="sidebar-intrude"><div class="sidebar-avatar"><img src="//julydate-1251438221.file.myqcloud.com/img/head.jpg" srcset="/img/head.jpg" alt="avatar"></div><div class="text-center sidebar-about"><p class="h3 sidebar-author">七夏浅笑</p><p class="sidebar-subtitle">七月之约，夏末浅笑<script type="text/javascript">console.log("博主认证: https://bbs.liyuans.com")</script></p><a href="https://github.com/julydate" class="h4" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> </a>&nbsp;&nbsp; <a href="https://twitter.com/julydate" class="h4" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i> </a>&nbsp;&nbsp; <a href="https://live.bilibili.com/22628687" class="h4" target="_blank"><i class="fab fa-youtube" aria-hidden="true"></i> </a>&nbsp;&nbsp; <a href="mailto:i@xhtml.love" class="h4" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i> </a>&nbsp;&nbsp;</div><div class="sidebar-friend"><p class="h6 sidebar-friend-title"><span class="sidebar-label-left"><i class="fas fa-user-friends"></i></span> <span class="sidebar-label">友情链接</span></p><ul class="list-group"><a href="/links/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; 其余友链在内页</li></a><a href="https://xiaopc.org/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; xiaopc</li></a><a href="https://webdoger.club/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; 孔壕</li></a><a href="https://diygod.me/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; DIYgod</li></a><a href="https://www.chinuno.com/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; 兔兔</li></a><a href="https://tea9.xyz/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; 茶姐姐</li></a><a href="https://qianling.pw/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; 千灵夙赋</li></a><a href="http://www.s7smile.com/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; s7smile</li></a><a href="https://594moe.com/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; 马猴烧酒</li></a><a href="https://www.xytsing.com/" target="_blank"><li class="list-group-item"><i class="fas fa-quote-left"></i>&nbsp; 咸鱼滩音乐团队</li></a></ul></div></div></div><a class="z-depth-1" id="scroll-top-button" href="#" role="button"><i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div><div id="footerContent" class="rgba-black-slight"><footer class="pt-5"><div class="text-center py-3"><div class="footer-theme"><a href="https://hexo.io" target="_blank" rel="nofollow noopener noreferrer">Hexo</a> theme <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener noreferrer">Fluid</a> mod by <a href="https://github.com/qixa/hexo-theme-fluid-mod" target="_blank" rel="nofollow noopener noreferrer">Julydate</a></div><div class="footer-copyright">©2021&nbsp;七夏浅笑 <i class="iconfont icon-love"></i> <span>萌萌哒<span id="runtime"></span>天啦</span></div><div class="footer-hitokoto"><a id="hitokotoa" href="#" target="_blank" rel="nofollow noopener noreferrer"><span id="hitokoto"></span></a></div></div></footer></div><script src="//julydate-1251438221.file.myqcloud.com/lib/popper/popper.min.js"></script><script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script><script src="https://cdn.staticfile.org/mdbootstrap/4.8.7/js/mdb.min.js"></script><script src="//julydate-1251438221.file.myqcloud.com/js/main.js"></script><script src="//julydate-1251438221.file.myqcloud.com/js/lazyload.js"></script><script src="https://cdn.staticfile.org/tocbot/4.8.1/tocbot.min.js"></script><script src="//julydate-1251438221.file.myqcloud.com/js/post.js"></script><script src="//julydate-1251438221.file.myqcloud.com/lib/prettify/prettify.min.js"></script><script type="text/javascript">$(document).ready((function(){$("pre").addClass("prettyprint  linenums"),prettyPrint()}))</script><script src="https://cdn.staticfile.org/typed.js/2.0.9/typed.min.js"></script><script type="text/javascript">var typed=new Typed("#subtitle",{strings:["  ","PacificRack VPS 测试报告&nbsp;"],cursorChar:"_",typeSpeed:70,loop:!1});typed.stop(),$(document).ready((function(){$(".typed-cursor").addClass("h2"),typed.start()}))</script><script src="https://cdn.staticfile.org/anchor-js/4.2.0/anchor.min.js"></script><script type="text/javascript">anchors.options={placement:"right",visible:"hover"};var el="h1,h2,h3,h4,h5,h6".split(","),res=[];for(item of el)res.push(".markdown-body > "+item);anchors.add(res.join(", "))</script><script src="//julydate-1251438221.file.myqcloud.com/js/local-search.js"></script><script type="text/javascript">var path="/local-search.xml",inputArea=document.querySelector("#local-search-input");inputArea.onclick=function(){getSearchFile(path),this.onclick=null}</script><script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script type="text/javascript">var setupFancybox=function(){$("#post img:not(.no-zoom img, img[no-zoom])").each((function(){var t=document.createElement("a");$(t).attr("data-fancybox","gallery"),$(t).attr("href",$(this).attr("src")),$(this).wrap(t)}))};setupFancybox()</script><script type="text/javascript">function hitokoto(o){$("#hitokoto").stop().fadeOut((function(){$("#hitokoto").html(o.hitokoto),document.getElementById("hitokotoa").href="https://hitokoto.cn/?uuid="+o.uuid,$("#hitokoto").stop().fadeIn()}))}function getHitokoto(){var o=["a","b","c","d","e","i"];fetch("https://v1.hitokoto.cn/?encode=json&charset=utf-8&c="+o[Math.floor(Math.random()*o.length)],{cache:"no-cache",method:"GET",mode:"cors"}).then(o=>o.json()).then(o=>{hitokoto(o),setTimeout(getHitokoto,1e4)}).catch(console.error)}$(document).ready((function(){getHitokoto()}))</script><script type="text/javascript">$("#background").removeClass("banner-bg"),$("body").addClass("banner-bg");var postToTopHight=$("#board").offset().top;$(window).scroll((function(){document.body.scrollTop+document.documentElement.scrollTop>=postToTopHight?($("#background").removeClass("rgba-black-slight"),$("#mainContent").removeClass("rgba-black-slight"),$("#footerContent").removeClass("rgba-black-slight")):($("#background").addClass("rgba-black-slight"),$("#mainContent").addClass("rgba-black-slight"),$("#footerContent").addClass("rgba-black-slight"))}))</script><script type="text/javascript">var blogRunTime=function(){var e=document.getElementById("runtime"),n=new Date("2015,04,20"),t=(new Date).getTime()-n.getTime(),i=Math.floor(t/864e5);e.innerHTML=i};$(document).ready((function(){blogRunTime()}))</script><script type="text/javascript">var originalTitle=document.title;window.onblur=function(){document.title="你不爱我了QAQ"},window.onfocus=function(){document.title=originalTitle}</script><script type="text/javascript">var jumpComments=function(){if(window.location.hash){var n=decodeURI(window.location.hash);if(!$(n).length)var o=setInterval((function(){$(n).length&&(clearInterval(o),setTimeout((function(){$("html, body").animate({scrollTop:$(n).offset().top-90},1e3)}),1500))}),100)}};$(document).ready((function(){jumpComments()}))</script><style type="text/css">#cnzz_stat_icon_1258664352{display:none}</style><script type="text/javascript">var cnzz_protocol="https:"==document.location.protocol?"https://":"http://";document.write(unescape("%3Cspan id='cnzz_stat_icon_1258664352'%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s4.cnzz.com/z_stat.php%3Fid%3D1258664352' type='text/javascript'%3E%3C/script%3E"))</script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-150991779-1"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-150991779-1")</script></body></html>

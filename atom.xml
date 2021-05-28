@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>七夏浅笑</title>
+  
+  <subtitle>七月之约，夏末浅笑</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.julydate.com/"/>
+  <updated>2021-05-28T13:16:42.904Z</updated>
+  <id>https://www.julydate.com/</id>
+  
+  <author>
+    <name>七夏浅笑</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VpsMS VPS 测试报告</title>
+    <link href="https://www.julydate.com/post/1545821726/"/>
+    <id>https://www.julydate.com/post/1545821726/</id>
+    <published>2020-04-14T13:32:33.000Z</published>
+    <updated>2021-05-28T13:16:42.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近日 VpsMS 团队发来最新 OFFER，洛杉矶安畅 GIA-CN2 机房上架新节点，最低配置为 1 核，512M 内存，15GB SSD + SAS，1TB 流量提升为 100Mbps 带宽，分配的是美国原生 ip，最高配置改为了 300Mbps。使用优惠码后，月付 67 元，季付平均每月 59 元，&lt;strong&gt;半年付平均每月仅 54 元&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="测评" scheme="https://www.julydate.com/tags/%E6%B5%8B%E8%AF%84/"/>
+    
+      <category term="VPS" scheme="https://www.julydate.com/tags/VPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>好用的大文件分享服务</title>
+    <link href="https://www.julydate.com/post/2661332705/"/>
+    <id>https://www.julydate.com/post/2661332705/</id>
+    <published>2020-01-10T10:17:32.000Z</published>
+    <updated>2021-05-28T13:16:42.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候总是会遇到和朋友相互传一些文件的情况，小一点的文件直接用 QQ 微信就能传，可是文件稍微大一点就很难受了，不仅本来就有文件大小限制，速度还非常慢，而且一不小心因为网络原因中断了还得重新开始下载。还有就是破百度云盘，速度慢的要死还非得让下载安装它的客户端。所以这里搜集了一些比较好用的&lt;strong&gt;临时大文件传输服务&lt;/strong&gt;，都可以在&lt;strong&gt;网页端&lt;/strong&gt;使用，不用安装任何客户端，速度也都挺不错哦。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="文件分享" scheme="https://www.julydate.com/tags/%E6%96%87%E4%BB%B6%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="测评" scheme="https://www.julydate.com/tags/%E6%B5%8B%E8%AF%84/"/>
+    
+      <category term="文件传输" scheme="https://www.julydate.com/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PacificRack VPS 测试报告</title>
+    <link href="https://www.julydate.com/post/1907789401/"/>
+    <id>https://www.julydate.com/post/1907789401/</id>
+    <published>2019-12-03T16:46:12.000Z</published>
+    <updated>2021-05-28T13:16:42.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前几天黑色星期五，然后看见大佬们都在说 PacificRack 的服务器，所以我也去凑热闹收了一台，刚好把自己之前那台 256M 的小可怜换掉，顺便也跑了一下测试之类哒。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="测评" scheme="https://www.julydate.com/tags/%E6%B5%8B%E8%AF%84/"/>
+    
+      <category term="VPS" scheme="https://www.julydate.com/tags/VPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客访问优化-COS使用</title>
+    <link href="https://www.julydate.com/post/1756138088/"/>
+    <id>https://www.julydate.com/post/1756138088/</id>
+    <published>2019-11-08T20:32:29.000Z</published>
+    <updated>2021-05-28T13:16:42.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为 hexo 博客访问优化下篇，主要介绍了使用腾讯云对象存储来加速博客静态资源的访问的方法，上篇主讲选用合适的国内外 CDN 来加速 hexo 博客全局访问速度，两篇文章均是在&lt;strong&gt;没有备案域名&lt;/strong&gt;的前提下进行的 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客访问优化-CDN选用</title>
+    <link href="https://www.julydate.com/post/60859300/"/>
+    <id>https://www.julydate.com/post/60859300/</id>
+    <published>2019-11-07T00:34:17.000Z</published>
+    <updated>2021-05-28T13:16:42.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为 hexo 博客访问优化上篇，主要介绍了选用合适的国内外 CDN 来加速 hexo 博客全局访问速度的方法，下篇主讲使用腾讯云对象存储来加速博客静态资源的访问，两篇文章均是在&lt;strong&gt;没有备案域名&lt;/strong&gt;的前提下进行的 。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-产品结构</title>
+    <link href="https://www.julydate.com/post/1325330535/"/>
+    <id>https://www.julydate.com/post/1325330535/</id>
+    <published>2019-11-02T20:26:13.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;产品结构也可以称之为产品脉络。我们把产品抽象理解为一颗树木，那么每一个页面就是树叶，而产品的结构，则是树木的枝干。真正决定树木形状和魅力的，不在于树叶，而在于枝干的分布。因为他决定了树叶的长势，还有空间。产品结构是一种指导性思维，相对于用户，市场，业务而言，产品结构大概是产品本身的一种需求，解决产品自身痛点的建设性方案。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-产品设计理念</title>
+    <link href="https://www.julydate.com/post/1045083635/"/>
+    <id>https://www.julydate.com/post/1045083635/</id>
+    <published>2019-10-30T20:10:56.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;产品是指能够供给市场，被人们使用和消费，并能满足人们某种需求的任何东西，包括有形的物品、无形的服务、组织、观念或他们的组合。而产品架构设计是产品设计的最顶层，他描述了整个产品运作的架构原理 ，告诉我们各个产品单元之间是怎么进行运作的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-产品规划</title>
+    <link href="https://www.julydate.com/post/1031596488/"/>
+    <id>https://www.julydate.com/post/1031596488/</id>
+    <published>2019-10-23T20:02:05.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;产品规划是指产品规划人员通过调查研究，在了解市场、了解客户需求、了解竞争对手、了解外在机会与风险以及市场和技术发展态势的基础上，根据公司自身的情况和发展方向，制定出可以把握市场机会，满足消费者需要的产品的远景目标（Vision）以及实施该远景目标的战略、战术的过程。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-需求管理</title>
+    <link href="https://www.julydate.com/post/597877130/"/>
+    <id>https://www.julydate.com/post/597877130/</id>
+    <published>2019-10-19T20:34:51.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;产品因需求而生，在产品的整个生命周期中，产品经理会收到来自各个方面的需求，但是每一个需求的必要性、重要性和实现成本都需要经过深思熟虑的分析和计划，避免盲目的决定需求或者变更需求，这样很容易导致工作混乱，所以产品经理首要的管理工作就是对需求进行管理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-需求采集</title>
+    <link href="https://www.julydate.com/post/3108686252/"/>
+    <id>https://www.julydate.com/post/3108686252/</id>
+    <published>2019-10-16T20:38:21.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;需求采集实际上就是获取/验证需求的方法。&lt;/p&gt;&lt;p&gt;其目的就是通过深入了解分析目标用户，发现他们的痛点。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-需求定义</title>
+    <link href="https://www.julydate.com/post/2684289794/"/>
+    <id>https://www.julydate.com/post/2684289794/</id>
+    <published>2019-10-09T19:14:33.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;需求是满足某类用户的某种欲望或解决某些问题的需要。&lt;/p&gt;&lt;p&gt;而需求分析是指从用户需求出发，挖掘用户的真正目标，并转化为产品需求的过程。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-竞品分析</title>
+    <link href="https://www.julydate.com/post/145113065/"/>
+    <id>https://www.julydate.com/post/145113065/</id>
+    <published>2019-09-28T20:03:35.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;竞品分析主要是对导入期竞争对手的市场经营情况与策略进行深入的调研分析。竞品分析一词最早源于经济学领域。市场营销和战略管理方面的竞品分析是指对现有的或潜在的竞争产品的优势和劣势进行评价。这个分析提供了制定产品战略的依据，将竞品分析获得的相关竞品特征整合到有效的产品战略制定、实施、监控和调整的框架当中来。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-市场分析</title>
+    <link href="https://www.julydate.com/post/2169716436/"/>
+    <id>https://www.julydate.com/post/2169716436/</id>
+    <published>2019-09-25T22:48:45.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果开一家面馆，第一步你会做什么？&lt;/p&gt;&lt;ul&gt;&lt;li&gt;市场环境/行业调研&lt;/li&gt;&lt;li&gt;人群/用户情况&lt;/li&gt;&lt;li&gt;调研地段&lt;/li&gt;&lt;li&gt;竞争对手&lt;/li&gt;&lt;li&gt;……&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>产品经理学习笔记-解构产品经理</title>
+    <link href="https://www.julydate.com/post/2715180584/"/>
+    <id>https://www.julydate.com/post/2715180584/</id>
+    <published>2019-09-22T19:05:22.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;&lt;p&gt;互联网产品经理是互联网公司中的一种职能，负责互联网产品的计划和推广，一级互联网产品生命周期的演化。&lt;br&gt;简单理解：负责互联网产品的&lt;strong&gt;策划&lt;/strong&gt;及&lt;strong&gt;推广&lt;/strong&gt;，以及互联网产品生命周期的管理。&lt;/p&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="产品" scheme="https://www.julydate.com/categories/%E4%BA%A7%E5%93%81/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用过的服务器的 UNIX Bench</title>
+    <link href="https://www.julydate.com/post/3446765825/"/>
+    <id>https://www.julydate.com/post/3446765825/</id>
+    <published>2019-03-26T23:08:28.000Z</published>
+    <updated>2021-05-28T13:16:42.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;没事做给手上的服务器都跑了一遍 UNIX Bench ，我发现单核的VPS的CPU真的都好差诶，阿里云和AWS还挺不错&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS宝塔面板Tengine手动升级到 v2.2.3 修复 HTTP/2 安全问题 并开启TLSv1.3</title>
+    <link href="https://www.julydate.com/post/391521421/"/>
+    <id>https://www.julydate.com/post/391521421/</id>
+    <published>2018-11-18T14:21:43.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Nginx 11月6日的安全更新中，修补了三个可导致拒绝服务的漏洞：CVE-2018-16843,CVE-2018-16844和CVE-2018-16845。位于Nginx HTTP/2 模块和流媒体MP4模块。基于Nginx的Tengine也受到了影响，并于2018年11月11日发布更新版本 Tengine-2.2.3 &lt;a href=&quot;https://www.oschina.net/news/101724/tengine-2-2-3-released&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;修复了该漏洞&lt;/a&gt;。只为了修复漏洞的话可以只看本文「编译升级到Tengine-2.2.3」部分。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客搬迁啦</title>
+    <link href="https://www.julydate.com/post/1806566667/"/>
+    <id>https://www.julydate.com/post/1806566667/</id>
+    <published>2018-05-21T21:43:01.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​ 似此流年从何忆，转眼便是两年，从开博客到闲置，再到现在重开也走过了三个多年头了（不愿承认自己懒得两年没写博客的事实）。这期间也换了好几次域名，最开始注册的lqweb.net（去年没续费了，然后好像后来被一个菠菜站注册走了？emmm，还好当时即时把备案注销了），&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="https://www.julydate.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="随笔" scheme="https://www.julydate.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTPS Start !</title>
+    <link href="https://www.julydate.com/post/2040671323/"/>
+    <id>https://www.julydate.com/post/2040671323/</id>
+    <published>2016-05-17T18:12:01.000Z</published>
+    <updated>2021-05-28T13:16:42.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;许久没有开自己的博客了，也没有更新，今天就水一发吧。&lt;/p&gt;&lt;p&gt;前两天决定给博客开启HTTPS访问，结果没想到就此摊上了一大堆事。&lt;/p&gt;&lt;p&gt;首先是主机，从阿里云的云虚机迁移到了腾讯云服务器。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="程序" scheme="https://www.julydate.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="笔记" scheme="https://www.julydate.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客准备换域名和名字啦</title>
+    <link href="https://www.julydate.com/post/573570537/"/>
+    <id>https://www.julydate.com/post/573570537/</id>
+    <published>2016-04-16T18:12:01.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好久都没有时间更新博客了，说一下最近都在干嘛吧~&lt;/p&gt;&lt;p&gt;1.前段时间买了一个.com域名（iqi7.com，求不吐槽）备了案，准备更换博客的域名了（一不小心又花了好多莫名其妙的钱）。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="https://www.julydate.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="随笔" scheme="https://www.julydate.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>贴图库貌似炸了</title>
+    <link href="https://www.julydate.com/post/3762219134/"/>
+    <id>https://www.julydate.com/post/3762219134/</id>
+    <published>2016-03-03T18:12:01.000Z</published>
+    <updated>2021-05-28T13:16:42.908Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我那个去，贴图库今天居然炸了，导致我的博客和其他网站的所有图片都不能显示了，不知道多久能恢复QAQ&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="日志" scheme="https://www.julydate.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="随笔" scheme="https://www.julydate.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+</feed>
